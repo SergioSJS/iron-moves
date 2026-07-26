@@ -1,7 +1,7 @@
 dist
 coverage
 pnpm-lock.yaml
-src/data/*.generated.json
+src/data/*/*.generated.json
 content/
 docs/
 SPEC.md

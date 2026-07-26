@@ -5,14 +5,15 @@
   "type": "module",
   "packageManager": "pnpm@9.15.9",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
+    "content:build": "node scripts/build-content.mjs",
+    "dev": "pnpm content:build && vite",
+    "build": "pnpm content:build && tsc -b && vite build",
     "preview": "vite preview",
-    "typecheck": "tsc -b",
+    "typecheck": "pnpm content:build && tsc -b",
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test": "vitest run"
+    "test": "pnpm content:build && vitest run"
   },
   "dependencies": {
     "react": "^19.2.7",

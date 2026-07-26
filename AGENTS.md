@@ -12,6 +12,10 @@ A mobile-first pocket reference app for Ironsworn/Starforged moves. Static React
 - `src/data/schema.ts` — the TS types every content consumer and UI component must use.
 - `src/styles/tokens.ts` — the only place colors are defined. Never hardcode a hex in a component.
 
+## Content pipeline
+
+`scripts/build-content.mjs` parses `content/*.md` into `src/data/en/{ironsworn,starforged}.generated.json` (typed per `schema.ts`). This runs fresh on every `pnpm dev`, `pnpm build`, `pnpm typecheck`, and `pnpm test` (chained via `pnpm content:build` in each script) — **the generated JSON is not committed** (gitignored), so don't hand-edit it and don't "fix" a stale copy into git. If content looks wrong in the app, fix the parser or the `.md` source, then re-run; never patch the JSON directly, it'll be overwritten on the next run.
+
 ## Commands
 
 ```
