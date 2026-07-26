@@ -1,0 +1,9 @@
+dist
+coverage
+pnpm-lock.yaml
+src/data/*.generated.json
+content/
+docs/
+SPEC.md
+AGENTS.md
+KICKOFF_PROMPT.md
