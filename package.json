@@ -16,6 +16,7 @@
     "test": "pnpm content:build && vitest run"
   },
   "dependencies": {
+    "@fontsource/oswald": "^5.3.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
   },
