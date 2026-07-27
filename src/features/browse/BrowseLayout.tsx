@@ -6,6 +6,7 @@ import { CategoryIcon } from '../../components/CategoryIcon'
 import { GameSwitcher } from '../../components/GameSwitcher'
 import { getGameContent } from '../../data'
 import { isGame } from '../../data/schema'
+import { resolveCategoryColor } from '../../styles/colorStyle'
 import { getCategoryAccentVars } from '../../styles/tokens'
 
 // Category list → tap → move list → tap → move detail (SPEC §7). On mobile,
@@ -41,7 +42,9 @@ export function BrowseLayout() {
         </div>
         <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-1">
           {categories.map((category) => {
-            const vars = getCategoryAccentVars(category.color) as CSSProperties
+            const vars = getCategoryAccentVars(
+              resolveCategoryColor(category.id, category.color),
+            ) as CSSProperties
             return (
               <li key={category.id}>
                 <Link

@@ -4,6 +4,7 @@ import { CategoryChip } from '../../components/CategoryChip'
 import { MoveCard } from '../../components/MoveCard'
 import { getGameContent } from '../../data'
 import { isGame } from '../../data/schema'
+import { resolveCategoryColor } from '../../styles/colorStyle'
 
 // Move list → tap → move detail. On mobile the detail replaces this list
 // full-screen (via the nested route's <Outlet/>, rendered inline). At md+,
@@ -24,6 +25,10 @@ export function CategoryLayout() {
   const category = categories.find((c) => c.id === categoryId)
   const categoryMoves = moves.filter((m) => m.categoryId === categoryId)
   const hasSelection = Boolean(moveId)
+  const categoryColor = resolveCategoryColor(
+    categoryId ?? '',
+    category?.color ?? '#30393D',
+  )
 
   return (
     <>
@@ -37,7 +42,7 @@ export function CategoryLayout() {
         <div className="mb-3">
           <CategoryChip
             label={category?.name ?? categoryId ?? ''}
-            color={category?.color ?? '#30393D'}
+            color={categoryColor}
             categoryId={categoryId}
             className="text-base"
           />
@@ -47,7 +52,7 @@ export function CategoryLayout() {
             <li key={move.id}>
               <MoveCard
                 move={move}
-                categoryColor={category?.color ?? '#30393D'}
+                categoryColor={categoryColor}
                 game={game}
                 active={move.id === moveId}
               />

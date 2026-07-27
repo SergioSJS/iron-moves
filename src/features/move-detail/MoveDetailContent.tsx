@@ -5,6 +5,7 @@ import { OutcomeBlock } from '../../components/OutcomeBlock'
 import { RichText } from '../../components/RichText'
 import { getGameContent } from '../../data'
 import type { Game, Move } from '../../data/schema'
+import { resolveCategoryColor } from '../../styles/colorStyle'
 import { getCategoryAccentVars } from '../../styles/tokens'
 
 const OUTCOME_ORDER = ['hit', 'strongHit', 'weakHit', 'miss'] as const
@@ -22,7 +23,9 @@ export function MoveDetailContent({
 }) {
   const category = getGameContent(game).categories.find((c) => c.id === move.categoryId)
   const headerVars = category
-    ? (getCategoryAccentVars(category.color) as CSSProperties)
+    ? (getCategoryAccentVars(
+        resolveCategoryColor(category.id, category.color),
+      ) as CSSProperties)
     : undefined
 
   return (

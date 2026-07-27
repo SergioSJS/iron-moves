@@ -38,7 +38,14 @@
       "dark": "Escuro"
     },
     "defaultGame": "Jogo padrão ao iniciar",
-    "language": "Idioma"
+    "language": "Idioma",
+    "categoryColors": "Cores das categorias",
+    "categoryColorOption": {
+      "original": "Fiel ao livro",
+      "originalDescription": "Cores extraídas diretamente dos PDFs originais.",
+      "vibrant": "Vibrante",
+      "vibrantDescription": "Uma paleta mais saturada e fácil de diferenciar — não vem dos livros."
+    }
   },
   "bottomSheet": {
     "close": "Fechar"

@@ -38,7 +38,14 @@
       "dark": "Dark"
     },
     "defaultGame": "Default game on launch",
-    "language": "Language"
+    "language": "Language",
+    "categoryColors": "Category colors",
+    "categoryColorOption": {
+      "original": "Book-accurate",
+      "originalDescription": "Colors extracted straight from the source PDFs.",
+      "vibrant": "Vibrant",
+      "vibrantDescription": "A more saturated, easier-to-tell-apart palette — not from the books."
+    }
   },
   "bottomSheet": {
     "close": "Close"

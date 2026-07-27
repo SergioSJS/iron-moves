@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { MoveCard } from '../../components/MoveCard'
 import { getGameContent } from '../../data'
 import type { Game } from '../../data/schema'
+import { resolveCategoryColor } from '../../styles/colorStyle'
 import { useFavoriteList } from './useFavorites'
 
 // Game titles are proper nouns — not translated.
@@ -50,7 +51,10 @@ export function FavoritesPage() {
                   <li key={move.id}>
                     <MoveCard
                       move={move}
-                      categoryColor={category?.color ?? '#30393D'}
+                      categoryColor={resolveCategoryColor(
+                        move.categoryId,
+                        category?.color ?? '#30393D',
+                      )}
                       game={game}
                     />
                   </li>

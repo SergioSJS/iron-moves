@@ -11,6 +11,7 @@ import { MoveCard } from '../../components/MoveCard'
 import { SearchBar } from '../../components/SearchBar'
 import { getGameContent } from '../../data'
 import { isGame, type Game } from '../../data/schema'
+import { resolveCategoryColor } from '../../styles/colorStyle'
 import { MoveDetailContent } from '../move-detail/MoveDetailContent'
 import { getSearchDocs, type SearchDoc } from './searchDocs'
 
@@ -35,7 +36,10 @@ function groupByCategory(docs: SearchDoc[]): ResultGroup[] {
         game: doc.game,
         categoryId: doc.move.categoryId,
         categoryName: category?.name ?? doc.move.categoryId,
-        categoryColor: category?.color ?? '#30393D',
+        categoryColor: resolveCategoryColor(
+          doc.move.categoryId,
+          category?.color ?? '#30393D',
+        ),
         docs: [],
       }
       groups.set(key, group)
