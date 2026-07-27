@@ -1,6 +1,11 @@
 import type { Config } from 'tailwindcss'
 import plugin from 'tailwindcss/plugin'
-import { getGameBackgroundImageCss } from './src/styles/gameTheme'
+import {
+  getGameBackgroundCss,
+  getGameBodyFontFamily,
+  getGameDisplayFontFamily,
+  getScanlineCss,
+} from './src/styles/gameTheme'
 import {
   appAccent,
   cssVar,
@@ -49,21 +54,65 @@ export default {
   },
   plugins: [
     plugin(({ addBase }) => {
+      // Per-game background + fonts (see gameTheme.ts) — driven purely by
+      // the `data-current-game` DOM attribute (RootLayout), the same
+      // reliable-and-global mechanism `.dark` itself uses, rather than a
+      // React-state-computed inline style. `.dark` and `data-current-game`
+      // both live on <html>, so the dark variants use the compound selector
+      // `.dark[data-current-game=...]` — a plain descendant selector
+      // (`.dark [data-current-game=...]`) can never match, since an element
+      // isn't its own descendant.
+      //
+      // The background goes on <body> so every chrome piece shares it
+      // (mobile brand header, main content), and the tab bar (.app-tabbar)
+      // gets its own copy instead of being made transparent — on mobile
+      // it's a fixed bottom bar that must stay opaque over scrolling
+      // content. `background-attachment: fixed` on both keeps the two
+      // copies pixel-aligned (both resolve against the viewport), so the
+      // bar reads as a seamless continuation of the page background.
+      const perGame: Record<string, Record<string, string>> = {}
+      for (const game of ['ironsworn', 'starforged'] as const) {
+        perGame[`[data-current-game="${game}"] body`] = {
+          backgroundImage: getGameBackgroundCss(game, 'light'),
+          backgroundAttachment: 'fixed',
+          fontFamily: getGameBodyFontFamily(game),
+        }
+        perGame[`.dark[data-current-game="${game}"] body`] = {
+          backgroundImage: getGameBackgroundCss(game, 'dark'),
+        }
+        perGame[`[data-current-game="${game}"] .app-tabbar`] = {
+          backgroundImage: getGameBackgroundCss(game, 'light'),
+          backgroundAttachment: 'fixed',
+        }
+        perGame[`.dark[data-current-game="${game}"] .app-tabbar`] = {
+          backgroundImage: getGameBackgroundCss(game, 'dark'),
+        }
+        // "Pocket Moves" wordmark takes the game's display face, the way
+        // iron-oracle styles its own app title.
+        perGame[`[data-current-game="${game}"] .app-brand`] = {
+          fontFamily: getGameDisplayFontFamily(game),
+        }
+      }
       addBase({
         ':root': { ...themeSurfaceToCssVars(lightTheme), [cssVar.accent]: appAccent },
         '.dark': themeSurfaceToCssVars(darkTheme),
-        // Per-game atmospheric background glow (see gameTheme.ts) — driven
-        // purely by the `data-current-game` DOM attribute (RootLayout), the
-        // same reliable-and-global mechanism `.dark` itself uses, rather
-        // than a React-state-computed inline style.
-        '#main-content': { backgroundColor: `var(${cssVar.bg})` },
-        '[data-current-game="ironsworn"] #main-content': {
-          backgroundImage: getGameBackgroundImageCss('ironsworn'),
-          backgroundAttachment: 'fixed',
+        ...perGame,
+        // Horizontal scanline texture over the whole app (iron-oracle's
+        // .app-container::before) — app-wide, not game-scoped. Fixed +
+        // pointer-events:none so it floats above everything without
+        // intercepting taps; the high z-index puts it over positioned
+        // chrome too (z-10 tab bar, modals), which is exactly the CRT
+        // texture effect the original has.
+        'body::before': {
+          content: '""',
+          position: 'fixed',
+          inset: '0',
+          backgroundImage: getScanlineCss('light'),
+          pointerEvents: 'none',
+          zIndex: '9999',
         },
-        '[data-current-game="starforged"] #main-content': {
-          backgroundImage: getGameBackgroundImageCss('starforged'),
-          backgroundAttachment: 'fixed',
+        '.dark body::before': {
+          backgroundImage: getScanlineCss('dark'),
         },
       })
     }),

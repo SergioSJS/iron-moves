@@ -44,7 +44,6 @@ export function CategoryLayout() {
             label={category?.name ?? categoryId ?? ''}
             color={categoryColor}
             categoryId={categoryId}
-            game={game}
             className="text-base"
           />
         </div>

@@ -145,7 +145,6 @@ export function SearchPage() {
                   }
                   color={group.categoryColor}
                   categoryId={group.categoryId}
-                  game={group.game}
                 />
               </div>
               <ul className="space-y-2">

@@ -42,11 +42,11 @@ export function TabBar({ game }: { game: Game }) {
   return (
     <nav
       aria-label={t('nav.primaryLabel')}
-      className="fixed inset-x-0 bottom-0 z-10 flex border-t border-border bg-surface md:sticky md:top-0 md:h-screen md:w-56 md:flex-col md:gap-1 md:self-start md:overflow-y-auto md:border-r md:border-t-0 md:p-3"
+      className="app-tabbar fixed inset-x-0 bottom-0 z-10 flex border-t border-border bg-surface md:sticky md:top-0 md:h-screen md:w-56 md:flex-col md:gap-1 md:self-start md:overflow-y-auto md:border-r md:border-t-0 md:p-3"
     >
       <div className="hidden items-center gap-2 px-2 pb-4 pt-1 md:flex">
         <BrandMark size={28} />
-        <span className="font-display text-base uppercase tracking-wide">
+        <span className="app-brand font-display text-base uppercase tracking-wide">
           Pocket Moves
         </span>
       </div>

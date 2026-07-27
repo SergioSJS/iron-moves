@@ -17,7 +17,7 @@ export function RootLayout() {
 
   // Remembers the last game visited via a direct link too, not just explicit
   // GameSwitcher clicks, so Favorites/Settings → Browse always lands back on
-  // it. Also drives #main-content's per-game background glow (gameTheme.ts,
+  // it. Also drives the per-game background + fonts (gameTheme.ts,
   // tailwind.config.ts) via a DOM attribute — deliberately not React state,
   // since that stays correct regardless of which component's hook instance
   // is what actually changed the game/theme. Only game-scoped screens
@@ -45,7 +45,9 @@ export function RootLayout() {
       <div className="flex-1 pb-16 md:pb-0">
         <header className="flex items-center gap-2 border-b border-border p-4 md:hidden">
           <BrandMark size={24} />
-          <h1 className="font-display text-xl uppercase tracking-wide">Pocket Moves</h1>
+          <h1 className="app-brand font-display text-xl uppercase tracking-wide">
+            Pocket Moves
+          </h1>
         </header>
         <main id="main-content" className="min-h-[calc(100vh-4rem)] md:min-h-screen">
           <Outlet />

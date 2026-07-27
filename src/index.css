@@ -5,13 +5,19 @@
 @import '@fontsource/oswald/600.css';
 @import '@fontsource/oswald/700.css';
 
-/* Ironsworn: a fantasy/medieval face for its gritty tone. */
+/* Ironsworn: a fantasy/medieval display face for its gritty tone (titles).
+   Its body face is plain Georgia — a system serif, nothing to import. */
 @import '@fontsource/metamorphous/400.css';
 
-/* Starforged: a geometric sci-fi face for its tone. */
+/* Starforged: Orbitron (geometric sci-fi display face) for titles, Exo 2
+   for body text — same pairing as sergiosjs.github.io/iron-oracle. */
 @import '@fontsource/orbitron/500.css';
 @import '@fontsource/orbitron/600.css';
 @import '@fontsource/orbitron/700.css';
+@import '@fontsource/exo-2/400.css';
+@import '@fontsource/exo-2/500.css';
+@import '@fontsource/exo-2/600.css';
+@import '@fontsource/exo-2/700.css';
 
 @tailwind base;
 @tailwind components;
