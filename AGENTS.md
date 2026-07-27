@@ -6,6 +6,8 @@ Read `SPEC.md` first — it's the full product/technical spec. This file is the 
 
 A mobile-first pocket reference app for Ironsworn/Starforged moves. Static React SPA, deployed to GitHub Pages via Actions. No backend.
 
+Live at https://sergiosjs.github.io/iron-moves/ — repo `SergioSJS/iron-moves`, default branch `main`. Every push to `main` triggers `deploy.yml`, which builds with `VITE_BASE=/iron-moves/` and publishes via `actions/deploy-pages` (Pages source is "GitHub Actions", set via `gh api repos/SergioSJS/iron-moves/pages -X POST -f build_type=workflow`). Never commit `dist/` or deploy a local build manually.
+
 ## Source of truth
 
 - `content/ironsworn_moves.md`, `content/starforged_moves.md` — hand-curated verbatim extraction of the rules text. **Never edit these to "fix" wording** — if something looks off, it's probably faithful to the source PDF; check `docs/*.pdf` before changing extracted text.
