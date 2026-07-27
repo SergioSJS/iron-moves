@@ -4,6 +4,10 @@
 
 export type Game = 'ironsworn' | 'starforged'
 
+export function isGame(value: string | null | undefined): value is Game {
+  return value === 'ironsworn' || value === 'starforged'
+}
+
 export interface Category {
   id: string // slug, e.g. "adventure-moves"
   game: Game
