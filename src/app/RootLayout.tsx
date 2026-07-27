@@ -16,9 +16,21 @@ export function RootLayout() {
   const game = isGame(gameParam) ? gameParam : getStoredGame()
 
   // Remembers the last game visited via a direct link too, not just explicit
-  // GameSwitcher clicks, so Favorites/Settings → Browse always lands back on it.
+  // GameSwitcher clicks, so Favorites/Settings → Browse always lands back on
+  // it. Also drives #main-content's per-game background glow (gameTheme.ts,
+  // tailwind.config.ts) via a DOM attribute — deliberately not React state,
+  // since that stays correct regardless of which component's hook instance
+  // is what actually changed the game/theme. Only game-scoped screens
+  // (Browse/Search) get the attribute; Favorites/Settings span both games,
+  // so tinting them toward whichever game happens to be "current" would be
+  // arbitrary — the attribute is removed there instead.
   useEffect(() => {
-    if (isGame(gameParam)) setStoredGame(gameParam)
+    if (isGame(gameParam)) {
+      setStoredGame(gameParam)
+      document.documentElement.dataset.currentGame = gameParam
+    } else {
+      delete document.documentElement.dataset.currentGame
+    }
   }, [gameParam])
 
   return (
@@ -35,7 +47,7 @@ export function RootLayout() {
           <BrandMark size={24} />
           <h1 className="font-display text-xl uppercase tracking-wide">Pocket Moves</h1>
         </header>
-        <main id="main-content">
+        <main id="main-content" className="min-h-[calc(100vh-4rem)] md:min-h-screen">
           <Outlet />
         </main>
       </div>

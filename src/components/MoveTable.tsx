@@ -1,4 +1,5 @@
 import type { Game, Table } from '../data/schema'
+import { getGameFontClass } from '../styles/gameTheme'
 import { RichText } from './RichText'
 
 // "Tables rendered as scrollable-if-needed compact tables" — SPEC §7.
@@ -19,7 +20,10 @@ export function MoveTable({
             {table.headers.map((header, i) => (
               <th
                 key={i}
-                className="whitespace-nowrap px-3 py-2 font-display text-xs uppercase tracking-wide text-ink-muted"
+                className={
+                  getGameFontClass(game) +
+                  ' whitespace-nowrap px-3 py-2 text-xs uppercase tracking-wide text-ink-muted'
+                }
               >
                 {header}
               </th>

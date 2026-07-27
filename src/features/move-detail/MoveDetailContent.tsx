@@ -6,6 +6,7 @@ import { RichText } from '../../components/RichText'
 import { getGameContent } from '../../data'
 import type { Game, Move } from '../../data/schema'
 import { resolveCategoryColor } from '../../styles/colorStyle'
+import { getGameFontClass } from '../../styles/gameTheme'
 import { getCategoryAccentVars } from '../../styles/tokens'
 
 const OUTCOME_ORDER = ['hit', 'strongHit', 'weakHit', 'miss'] as const
@@ -32,13 +33,15 @@ export function MoveDetailContent({
     <div className="space-y-4">
       <header
         style={headerVars}
-        className="-mx-4 -mt-4 flex items-start justify-between gap-3 bg-[var(--category-accent)] px-4 py-3 text-[var(--category-accent-text)] md:mx-0 md:mt-0 md:rounded-lg"
+        className="-mx-4 -mt-4 flex items-start justify-between gap-3 bg-[var(--category-accent)] px-4 py-3 text-[var(--category-accent-text)] shadow-[0_4px_24px_-8px_var(--category-accent)] md:mx-0 md:mt-0 md:rounded-lg"
       >
         <div>
           {category && (
             <p className="text-xs uppercase tracking-wide opacity-80">{category.name}</p>
           )}
-          <h2 className="font-display text-2xl uppercase tracking-wide">{move.title}</h2>
+          <h2 className={getGameFontClass(game) + ' text-2xl uppercase tracking-wide'}>
+            {move.title}
+          </h2>
           {move.tag && (
             <span className="mt-1 inline-block rounded-full bg-[var(--color-bg)] px-2 py-0.5 text-xs font-semibold text-ink">
               {move.tag}

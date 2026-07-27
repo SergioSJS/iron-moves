@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss'
 import plugin from 'tailwindcss/plugin'
+import { getGameBackgroundImageCss } from './src/styles/gameTheme'
 import {
   appAccent,
   cssVar,
@@ -28,6 +29,10 @@ export default {
         accent: `var(${cssVar.accent})`,
       },
       fontFamily: {
+        // Neutral app chrome (brand, tab bar, Settings/Favorites — anything
+        // not scoped to one game). Game-scoped screens use `ironsworn`/
+        // `starforged` instead, picked per SPEC-evolving user direction to
+        // give each book its own personality rather than one shared face.
         display: ['Oswald', 'sans-serif'],
         body: [
           'ui-sans-serif',
@@ -37,6 +42,8 @@ export default {
           'Roboto',
           'sans-serif',
         ],
+        ironsworn: ['Metamorphous', 'cursive'],
+        starforged: ['Orbitron', 'sans-serif'],
       },
     },
   },
@@ -45,6 +52,19 @@ export default {
       addBase({
         ':root': { ...themeSurfaceToCssVars(lightTheme), [cssVar.accent]: appAccent },
         '.dark': themeSurfaceToCssVars(darkTheme),
+        // Per-game atmospheric background glow (see gameTheme.ts) — driven
+        // purely by the `data-current-game` DOM attribute (RootLayout), the
+        // same reliable-and-global mechanism `.dark` itself uses, rather
+        // than a React-state-computed inline style.
+        '#main-content': { backgroundColor: `var(${cssVar.bg})` },
+        '[data-current-game="ironsworn"] #main-content': {
+          backgroundImage: getGameBackgroundImageCss('ironsworn'),
+          backgroundAttachment: 'fixed',
+        },
+        '[data-current-game="starforged"] #main-content': {
+          backgroundImage: getGameBackgroundImageCss('starforged'),
+          backgroundAttachment: 'fixed',
+        },
       })
     }),
   ],

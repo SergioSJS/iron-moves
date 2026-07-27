@@ -7,6 +7,7 @@ import { GameSwitcher } from '../../components/GameSwitcher'
 import { getGameContent } from '../../data'
 import { isGame } from '../../data/schema'
 import { resolveCategoryColor } from '../../styles/colorStyle'
+import { getGameFontClass } from '../../styles/gameTheme'
 import { getCategoryAccentVars } from '../../styles/tokens'
 
 // Category list → tap → move list → tap → move detail (SPEC §7). On mobile,
@@ -52,7 +53,9 @@ export function BrowseLayout() {
                   style={vars}
                   aria-current={category.id === categoryId ? 'true' : undefined}
                   className={
-                    'flex h-20 flex-col items-center justify-center gap-1 rounded-lg bg-[var(--category-accent)] px-3 text-center font-display text-sm uppercase tracking-wide text-[var(--category-accent-text)] shadow-sm transition-all hover:shadow-md md:h-12 md:flex-row md:justify-start md:gap-3 md:px-4 md:text-left ' +
+                    'flex h-20 flex-col items-center justify-center gap-1 rounded-lg bg-[var(--category-accent)] px-3 text-center text-sm uppercase tracking-wide text-[var(--category-accent-text)] shadow-[0_0_16px_-6px_var(--category-accent)] transition-all hover:shadow-[0_0_20px_-4px_var(--category-accent)] md:h-12 md:flex-row md:justify-start md:gap-3 md:px-4 md:text-left ' +
+                    getGameFontClass(game) +
+                    ' ' +
                     (category.id === categoryId
                       ? 'md:ring-2 md:ring-accent md:ring-offset-2 md:ring-offset-bg'
                       : '')

@@ -1,5 +1,6 @@
 import type { CSSProperties } from 'react'
 import type { Game } from '../data/schema'
+import { getGameFontClass } from '../styles/gameTheme'
 import { getOutcomeAccentVars, outcomeAccents } from '../styles/tokens'
 import { RichText } from './RichText'
 
@@ -29,7 +30,10 @@ export function OutcomeBlock({
     <div className="rounded-lg border border-border bg-surface p-3">
       <span
         style={vars}
-        className="mb-2 inline-block rounded bg-[var(--outcome-accent)] px-2 py-0.5 font-display text-xs uppercase tracking-wide text-[var(--outcome-accent-text)]"
+        className={
+          getGameFontClass(game) +
+          ' mb-2 inline-block rounded bg-[var(--outcome-accent)] px-2 py-0.5 text-xs uppercase tracking-wide text-[var(--outcome-accent-text)]'
+        }
       >
         {LABELS[outcomeKey]}
       </span>

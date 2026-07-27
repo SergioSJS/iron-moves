@@ -1,9 +1,17 @@
-/* Display font substitute for the licensed "Modesto Poster"/"Poster Gothic
-   Round ATF" (SPEC §5/§10) — self-hosted so it works fully offline (no
-   Google Fonts network call), only the weights actually used are pulled in. */
+/* Neutral app-chrome display font (SPEC §5/§10) — self-hosted, offline-safe.
+   Game-scoped screens use their own display font instead (below), each
+   free/OFL-licensed and self-hosted the same way. */
 @import '@fontsource/oswald/500.css';
 @import '@fontsource/oswald/600.css';
 @import '@fontsource/oswald/700.css';
+
+/* Ironsworn: a fantasy/medieval face for its gritty tone. */
+@import '@fontsource/metamorphous/400.css';
+
+/* Starforged: a geometric sci-fi face for its tone. */
+@import '@fontsource/orbitron/500.css';
+@import '@fontsource/orbitron/600.css';
+@import '@fontsource/orbitron/700.css';
 
 @tailwind base;
 @tailwind components;

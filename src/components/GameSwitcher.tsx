@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import type { Game } from '../data/schema'
+import { getGameFontClass } from '../styles/gameTheme'
 
 // Game titles are proper nouns (licensed product names) — not translated.
 const GAMES: { id: Game; label: string }[] = [
@@ -31,7 +32,8 @@ export function GameSwitcher({
           aria-selected={id === game}
           onClick={() => onChange(id)}
           className={
-            'rounded-full px-4 py-1.5 font-display text-sm uppercase tracking-wide transition-colors ' +
+            getGameFontClass(id) +
+            ' rounded-full px-4 py-1.5 text-sm uppercase tracking-wide transition-colors ' +
             (id === game ? 'bg-bg text-ink' : 'text-ink-muted')
           }
         >

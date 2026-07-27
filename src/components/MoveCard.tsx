@@ -1,6 +1,7 @@
 import type { CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
 import type { Game, Move } from '../data/schema'
+import { getGameFontClass } from '../styles/gameTheme'
 import { getCategoryAccentVars } from '../styles/tokens'
 import { FavoriteButton } from './FavoriteButton'
 import { toPlainText } from './richTextUtils'
@@ -35,7 +36,7 @@ export function MoveCard({
     <div
       style={vars}
       className={
-        'relative flex items-center gap-2 rounded-lg border-l-4 border-[var(--category-accent)] bg-surface p-3 shadow-sm transition-all hover:shadow-md ' +
+        'relative flex items-center gap-2 rounded-lg border-l-4 border-[var(--category-accent)] bg-surface p-3 shadow-[0_0_10px_-6px_var(--category-accent)] transition-all hover:shadow-[0_0_14px_-4px_var(--category-accent)] ' +
         (active ? 'md:ring-2 md:ring-accent' : '')
       }
     >
@@ -51,7 +52,10 @@ export function MoveCard({
                 }
               : undefined
           }
-          className="font-display text-base uppercase tracking-wide after:absolute after:inset-0"
+          className={
+            getGameFontClass(game) +
+            ' text-base uppercase tracking-wide after:absolute after:inset-0'
+          }
         >
           {move.title}
         </Link>
