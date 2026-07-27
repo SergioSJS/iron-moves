@@ -5,15 +5,20 @@
     "favorites": "Favorites",
     "settings": "Settings",
     "primaryLabel": "Primary",
-    "gameSwitcherLabel": "Game"
+    "gameSwitcherLabel": "Game",
+    "skipToContent": "Skip to content",
+    "back": "Back"
   },
   "browse": {
-    "categories": "Categories"
+    "categories": "Categories",
+    "selectCategory": "Select a category to see its moves.",
+    "selectMove": "Select a move to see its details."
   },
   "search": {
     "placeholder": "Search moves…",
     "bothGames": "Search both games",
-    "noResults": "No moves found for “{{query}}”."
+    "noResults": "No moves found for “{{query}}”.",
+    "selectMove": "Select a result to see its details."
   },
   "favorites": {
     "heading": "Favorites",

@@ -46,6 +46,7 @@ export function SettingsPage() {
             <button
               key={option}
               type="button"
+              aria-pressed={setting === option}
               onClick={() => setSetting(option)}
               className={
                 'rounded-full px-3 py-1 text-sm ' +
@@ -72,6 +73,7 @@ export function SettingsPage() {
             <button
               key={id}
               type="button"
+              aria-pressed={defaultGame === id}
               onClick={() => {
                 setStoredGame(id)
                 setDefaultGame(id)
@@ -96,6 +98,7 @@ export function SettingsPage() {
             <button
               key={id}
               type="button"
+              aria-pressed={locale === id}
               onClick={() => {
                 setStoredLocale(id)
                 setLocale(id)

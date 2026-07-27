@@ -15,6 +15,11 @@ dist-ssr
 # Regenerated from content/*.md on every dev/build — see AGENTS.md.
 src/data/*/*.generated.json
 
+# Playwright
+playwright-report
+test-results
+blob-report
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

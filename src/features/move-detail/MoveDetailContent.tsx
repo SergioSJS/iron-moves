@@ -29,22 +29,26 @@ export function MoveDetailContent({
     <div className="space-y-4">
       <header
         style={headerVars}
-        className="-mx-4 -mt-4 bg-[var(--category-accent)] px-4 py-3 text-[var(--category-accent-text)] md:mx-0 md:mt-0 md:rounded-lg"
+        className="-mx-4 -mt-4 flex items-start justify-between gap-3 bg-[var(--category-accent)] px-4 py-3 text-[var(--category-accent-text)] md:mx-0 md:mt-0 md:rounded-lg"
       >
-        {category && (
-          <p className="text-xs uppercase tracking-wide opacity-80">{category.name}</p>
-        )}
-        <h2 className="font-display text-2xl uppercase tracking-wide">{move.title}</h2>
-        {move.tag && (
-          <span className="mt-1 inline-block rounded-full bg-[var(--color-bg)] px-2 py-0.5 text-xs font-semibold text-ink">
-            {move.tag}
-          </span>
-        )}
+        <div>
+          {category && (
+            <p className="text-xs uppercase tracking-wide opacity-80">{category.name}</p>
+          )}
+          <h2 className="font-display text-2xl uppercase tracking-wide">{move.title}</h2>
+          {move.tag && (
+            <span className="mt-1 inline-block rounded-full bg-[var(--color-bg)] px-2 py-0.5 text-xs font-semibold text-ink">
+              {move.tag}
+            </span>
+          )}
+        </div>
+        <FavoriteButton
+          game={game}
+          moveId={move.id}
+          unfavoritedClassName="text-[var(--category-accent-text)]"
+          className="shrink-0"
+        />
       </header>
-
-      <div className="flex justify-end">
-        <FavoriteButton game={game} moveId={move.id} />
-      </div>
 
       <RichText text={move.trigger} game={game} onOpenMove={onOpenMove} />
 

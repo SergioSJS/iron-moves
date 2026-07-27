@@ -25,6 +25,12 @@ export const starforgedTokens = {
   stripeMid: '#B7C3CF',
 }
 
+// The app's one interactive-accent color (focus rings, active nav state) —
+// Starforged's own "signature red" per its extraction legend ("rules
+// callouts / emphasis glyphs"), reused here since it already carries that
+// exact semantic role in the source material rather than inventing a new hue.
+export const appAccent = starforgedTokens.accentRed
+
 export const starforgedCategoryColors: Record<string, string> = {
   session: '#3F8C8A',
   adventure: '#206087',
@@ -213,6 +219,7 @@ export const cssVar = {
   categoryAccentText: '--category-accent-text',
   outcomeAccent: '--outcome-accent',
   outcomeAccentText: '--outcome-accent-text',
+  accent: '--app-accent',
 } as const
 
 export function themeSurfaceToCssVars(theme: ThemeSurface): Record<string, string> {

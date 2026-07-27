@@ -1,6 +1,12 @@
 import type { Config } from 'tailwindcss'
 import plugin from 'tailwindcss/plugin'
-import { cssVar, darkTheme, lightTheme, themeSurfaceToCssVars } from './src/styles/tokens'
+import {
+  appAccent,
+  cssVar,
+  darkTheme,
+  lightTheme,
+  themeSurfaceToCssVars,
+} from './src/styles/tokens'
 
 // Colors/fonts come from src/styles/tokens.ts (SPEC §5) — never hand-add a
 // hex here. Semantic colors (bg/surface/border/ink/ink-muted) resolve to CSS
@@ -19,6 +25,7 @@ export default {
         ink: `var(${cssVar.text})`,
         'ink-muted': `var(${cssVar.textMuted})`,
         paper: '#FFFFFF',
+        accent: `var(${cssVar.accent})`,
       },
       fontFamily: {
         display: ['Oswald', 'sans-serif'],
@@ -36,7 +43,7 @@ export default {
   plugins: [
     plugin(({ addBase }) => {
       addBase({
-        ':root': themeSurfaceToCssVars(lightTheme),
+        ':root': { ...themeSurfaceToCssVars(lightTheme), [cssVar.accent]: appAccent },
         '.dark': themeSurfaceToCssVars(darkTheme),
       })
     }),

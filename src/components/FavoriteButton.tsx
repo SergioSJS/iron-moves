@@ -8,10 +8,16 @@ export function FavoriteButton({
   game,
   moveId,
   className,
+  unfavoritedClassName = 'text-ink-muted',
 }: {
   game: Game
   moveId: string
   className?: string
+  // The ☆ state sits on the neutral surface by default (text-ink-muted),
+  // but MoveDetailContent places this button directly on the category's
+  // colored header — override with that header's own accent-text color so
+  // the outline star stays legible against whatever hue the move belongs to.
+  unfavoritedClassName?: string
 }) {
   const { t } = useTranslation()
   const { isFavorite, toggle } = useFavorite(game, moveId)
@@ -27,7 +33,7 @@ export function FavoriteButton({
       }}
       className={
         'text-2xl leading-none ' +
-        (isFavorite ? 'text-amber-500' : 'text-ink-muted') +
+        (isFavorite ? 'text-amber-500' : unfavoritedClassName) +
         ' ' +
         (className ?? '')
       }

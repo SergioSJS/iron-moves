@@ -13,6 +13,7 @@ export function SearchBar({
       value={value}
       onChange={(event) => onChange(event.target.value)}
       placeholder={placeholder}
+      aria-label={placeholder}
       // Search is a dedicated tab destination (not embedded in a longer
       // flow), so autofocus matches SPEC §1's "≤2 taps" lookup goal.
       autoFocus

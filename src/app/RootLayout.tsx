@@ -1,12 +1,17 @@
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Outlet, useParams } from 'react-router-dom'
+import { BrandMark } from '../components/BrandMark'
 import { TabBar } from '../components/TabBar'
 import { isGame } from '../data/schema'
 import { getStoredGame, setStoredGame } from './useSelectedGame'
 
-// App shell: tab bar (bottom on mobile, left sidebar at md+ — see TabBar) plus
-// a lightweight header, wrapping every route via <Outlet/>. SPEC §7.
+// App shell: tab bar (bottom on mobile, left sidebar at md+ — see TabBar),
+// wrapping every route via <Outlet/>. SPEC §7. The brand header only shows
+// on mobile — at md+ the sidebar already carries the brand mark, so a
+// second full-width title bar above it would just be redundant chrome.
 export function RootLayout() {
+  const { t } = useTranslation()
   const { game: gameParam } = useParams<{ game?: string }>()
   const game = isGame(gameParam) ? gameParam : getStoredGame()
 
@@ -18,12 +23,21 @@ export function RootLayout() {
 
   return (
     <div className="flex min-h-screen flex-col md:flex-row">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-2 focus:top-2 focus:z-50 focus:rounded focus:bg-bg focus:px-3 focus:py-2 focus:text-ink"
+      >
+        {t('nav.skipToContent')}
+      </a>
       <TabBar game={game} />
       <div className="flex-1 pb-16 md:pb-0">
-        <header className="border-b border-border p-4">
+        <header className="flex items-center gap-2 border-b border-border p-4 md:hidden">
+          <BrandMark size={24} />
           <h1 className="font-display text-xl uppercase tracking-wide">Pocket Moves</h1>
         </header>
-        <Outlet />
+        <main id="main-content">
+          <Outlet />
+        </main>
       </div>
     </div>
   )

@@ -5,15 +5,20 @@
     "favorites": "Favoritos",
     "settings": "Ajustes",
     "primaryLabel": "Principal",
-    "gameSwitcherLabel": "Jogo"
+    "gameSwitcherLabel": "Jogo",
+    "skipToContent": "Pular para o conteúdo",
+    "back": "Voltar"
   },
   "browse": {
-    "categories": "Categorias"
+    "categories": "Categorias",
+    "selectCategory": "Selecione uma categoria para ver seus movimentos.",
+    "selectMove": "Selecione um movimento para ver os detalhes."
   },
   "search": {
     "placeholder": "Buscar movimentos…",
     "bothGames": "Buscar nos dois jogos",
-    "noResults": "Nenhum movimento encontrado para “{{query}}”."
+    "noResults": "Nenhum movimento encontrado para “{{query}}”.",
+    "selectMove": "Selecione um resultado para ver os detalhes."
   },
   "favorites": {
     "heading": "Favoritos",

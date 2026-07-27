@@ -25,9 +25,10 @@ pnpm build        # production build (must pass before any PR)
 pnpm typecheck
 pnpm lint
 pnpm test         # vitest
+pnpm test:e2e     # playwright — one mobile-viewport smoke test, SPEC §2/§10
 ```
 
-All four of `build`, `typecheck`, `lint`, `test` must pass locally before opening a PR — CI enforces this and blocks merge on failure.
+All four of `build`, `typecheck`, `lint`, `test` must pass locally before opening a PR — CI enforces this and blocks merge on failure. `test:e2e` is not part of the CI gate (SPEC §9 lists exactly those four) — it builds + serves the app itself (`pnpm preview`), so run it locally when touching navigation/routing.
 
 ## Conventions
 
@@ -38,6 +39,11 @@ All four of `build`, `typecheck`, `lint`, `test` must pass locally before openin
 - Every PR description should say which `SPEC.md` section it implements, since the next agent reading it may not have this conversation's context either.
 
 ## Build order (see SPEC.md §8 for detail)
+
+All 10 tickets have landed — this is a complete v1. Still don't start a later
+ticket's *kind* of work before its dependencies would logically support it if
+you're doing a substantial rework of an early piece (e.g. don't redo Search
+without checking what Favorites/Browse assume about it).
 
 1. Scaffold + CI/CD
 2. Content pipeline + schema
@@ -50,10 +56,11 @@ All four of `build`, `typecheck`, `lint`, `test` must pass locally before openin
 9. i18n scaffold (pt-BR stub, not translated yet)
 10. Accessibility/responsive polish
 
-Don't start a later ticket before its dependencies (per §8) have landed on `main`.
-
 ## Things that look like bugs but aren't
 
 - Ironsworn moves have no per-category color (only a dark/light two-tone) — this is correct, it's how the source PDF is designed. Don't invent category colors for it.
 - Some move cross-references (e.g. `*Pay the Price*`) are italicized in the `.md` source as an editorial addition for linking purposes, not because the original PDF uses italics there (Starforged's PDF doesn't italicize cross-refs at all; Ironsworn's does, per its own stated convention). Both should render as tappable links in the app regardless.
 - pt-BR locale files are intentionally stubs/absent — this is expected until a translation is provided, not a missing feature to build now.
+- `MoveCard`'s favorite star is a *sibling* of the row's title `<Link>`, not nested inside it, using a "stretched link" (`after:absolute after:inset-0` on the link) to make the whole row clickable. A button nested inside an anchor is invalid HTML and pollutes the link's accessible name with the button's own label — this bit an earlier version of the Playwright smoke test (a `getByRole('link', { name: 'Favorites' })` nav click matched every move row too, because each row's link "name" included its nested button's "Add to favorites" label). Don't put another interactive element back inside the title link.
+- At md+, `MoveDetailPage` renders as a centered modal (reusing `BottomSheet`), not a 3rd side-by-side pane next to the category grid + move list. A literal 3-pane layout was tried first and the detail column was too narrow to read comfortably — the modal floats over the still-visible category/move list instead. Don't "fix" this back into a 3rd flex column.
+- `TabBar`'s desktop sidebar is `md:sticky md:top-0 md:h-screen`, not `md:h-full` on a `flex` parent — `h-full` needs an ancestor with a *definite* height to resolve against, which `min-h-screen` on a flex container doesn't reliably provide, and the border-right ended up stopping at the nav content's height instead of the viewport. Same reasoning applies if you add another full-height sidebar-style element.

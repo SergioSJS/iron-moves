@@ -1,7 +1,7 @@
-/// <reference types="vitest/config" />
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
+import { configDefaults } from 'vitest/config'
 
 // base defaults to '/' for local dev/build; deploy.yml sets VITE_BASE to
 // '/<repo-name>/' for the GH Pages build so asset URLs resolve correctly.
@@ -43,5 +43,9 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./src/test/setup.ts'],
     globals: true,
+    // e2e/ holds the Playwright smoke test (run via `pnpm test:e2e`), which
+    // uses @playwright/test's own test() — Vitest's default glob would
+    // otherwise try to collect it too and fail.
+    exclude: [...configDefaults.exclude, 'e2e/**'],
   },
 })
