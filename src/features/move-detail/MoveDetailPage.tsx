@@ -57,8 +57,15 @@ export function MoveDetailPage() {
     )
   }
 
+  // Opaque bg on the mobile full-screen detail: the body background carries
+  // the game gradients + scanline texture (gameTheme.ts), which is meant for
+  // chrome/gaps — a reading view shouldn't have lines showing through its
+  // text and transparent table rows. min-h mirrors #main-content's mobile
+  // min-height so the clean surface covers the viewport even for short
+  // moves (h-full/min-h-full wouldn't resolve — no ancestor has a definite
+  // height).
   return (
-    <div className="p-4">
+    <div className="min-h-[calc(100vh-4rem)] bg-bg p-4">
       <button
         type="button"
         onClick={() => navigate(-1)}
