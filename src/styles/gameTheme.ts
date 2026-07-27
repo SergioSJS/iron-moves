@@ -68,10 +68,11 @@ export function getGameBackgroundCss(game: Game, mode: ThemeMode): string {
   return GAME_BACKGROUNDS[game][mode]
 }
 
-// Horizontal scanline texture overlaid on the whole app — iron-oracle's
-// .app-container::before: 2px transparent + 2px black lines at 0deg,
-// stronger in dark mode (3% black) than light (1%). Applied app-wide (not
-// just game-scoped screens) as a fixed body::before in tailwind.config.ts.
+// Horizontal scanline texture — iron-oracle's .app-container::before: 2px
+// transparent + 2px black lines at 0deg, stronger in dark mode (3% black)
+// than light (1%). Here it's not an overlay but the topmost background-
+// image layer on body/.app-tabbar (see tailwind.config.ts), so it only
+// ever sits behind content and never paints over cards/modals.
 export function getScanlineCss(mode: ThemeMode): string {
   const alpha = mode === 'dark' ? '0.03' : '0.01'
   return `repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,${alpha}) 2px, rgba(0,0,0,${alpha}) 4px)`
