@@ -1,4 +1,6 @@
 import '@testing-library/jest-dom/vitest'
+// App.test.tsx renders <App/> directly, bypassing main.tsx's i18n init.
+import '../i18n'
 
 // jsdom doesn't implement matchMedia; useTheme (src/styles/useTheme.ts) reads
 // prefers-color-scheme via it, so components using that hook need a stub.

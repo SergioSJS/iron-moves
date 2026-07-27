@@ -1,5 +1,6 @@
-import { useFavorite } from '../features/favorites/useFavorites'
+import { useTranslation } from 'react-i18next'
 import type { Game } from '../data/schema'
+import { useFavorite } from '../features/favorites/useFavorites'
 
 // Star/unstar — usable from a move-list row (inside a Link, hence
 // stopPropagation) or the move-detail view (SPEC §7).
@@ -12,11 +13,12 @@ export function FavoriteButton({
   moveId: string
   className?: string
 }) {
+  const { t } = useTranslation()
   const { isFavorite, toggle } = useFavorite(game, moveId)
   return (
     <button
       type="button"
-      aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+      aria-label={isFavorite ? t('favoriteButton.remove') : t('favoriteButton.add')}
       aria-pressed={isFavorite}
       onClick={(event) => {
         event.preventDefault()

@@ -1,5 +1,6 @@
 import Fuse from 'fuse.js'
 import { useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useNavigate, useParams } from 'react-router-dom'
 import { setStoredGame } from '../../app/useSelectedGame'
 import { CategoryChip } from '../../components/CategoryChip'
@@ -44,6 +45,7 @@ function groupByCategory(docs: SearchDoc[]): ResultGroup[] {
 // Instant fuzzy search across move titles + trigger + outcome text (SPEC
 // §7), scoped to the selected game by default with a toggle to search both.
 export function SearchPage() {
+  const { t } = useTranslation()
   const { game: gameParam } = useParams<{ game: string }>()
   const navigate = useNavigate()
   const game = isGame(gameParam) ? gameParam : 'starforged'
@@ -94,16 +96,20 @@ export function SearchPage() {
             checked={bothGames}
             onChange={(event) => setBothGames(event.target.checked)}
           />
-          Search both games
+          {t('search.bothGames')}
         </label>
       </div>
 
       <div className="mb-4">
-        <SearchBar value={query} onChange={setQuery} placeholder="Search moves…" />
+        <SearchBar
+          value={query}
+          onChange={setQuery}
+          placeholder={t('search.placeholder')}
+        />
       </div>
 
       {trimmedQuery && results.length === 0 && (
-        <p className="text-ink-muted">No moves found for “{trimmedQuery}”.</p>
+        <p className="text-ink-muted">{t('search.noResults', { query: trimmedQuery })}</p>
       )}
 
       <div className="space-y-6">

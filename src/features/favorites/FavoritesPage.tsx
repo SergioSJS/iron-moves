@@ -1,8 +1,10 @@
+import { useTranslation } from 'react-i18next'
 import { MoveCard } from '../../components/MoveCard'
 import { getGameContent } from '../../data'
 import type { Game } from '../../data/schema'
 import { useFavoriteList } from './useFavorites'
 
+// Game titles are proper nouns — not translated.
 const GAME_LABELS: Record<Game, string> = {
   starforged: 'Starforged',
   ironsworn: 'Ironsworn',
@@ -12,23 +14,25 @@ const GAME_LABELS: Record<Game, string> = {
 // since favorites can span both books and several move ids collide between
 // them (face-danger, pay-the-price, …).
 export function FavoritesPage() {
+  const { t, i18n } = useTranslation()
   const favorites = useFavoriteList()
 
   if (favorites.length === 0) {
     return (
       <div className="p-4">
-        <h2 className="mb-2 font-display text-2xl uppercase tracking-wide">Favorites</h2>
-        <p className="text-ink-muted">
-          No favorites yet — tap the ☆ on any move, from a list or its detail view, to pin
-          it here.
-        </p>
+        <h2 className="mb-2 font-display text-2xl uppercase tracking-wide">
+          {t('favorites.heading')}
+        </h2>
+        <p className="text-ink-muted">{t('favorites.empty')}</p>
       </div>
     )
   }
 
   return (
     <div className="space-y-6 p-4">
-      <h2 className="font-display text-2xl uppercase tracking-wide">Favorites</h2>
+      <h2 className="font-display text-2xl uppercase tracking-wide">
+        {t('favorites.heading')}
+      </h2>
       {(['starforged', 'ironsworn'] as const).map((game) => {
         const entries = favorites.filter((entry) => entry.game === game)
         if (entries.length === 0) return null
@@ -39,7 +43,7 @@ export function FavoritesPage() {
             </h3>
             <ul className="space-y-2">
               {entries.map(({ move }) => {
-                const category = getGameContent(game).categories.find(
+                const category = getGameContent(game, i18n.language).categories.find(
                   (c) => c.id === move.categoryId,
                 )
                 return (

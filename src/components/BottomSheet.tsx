@@ -1,4 +1,5 @@
 import { useEffect, type ReactNode } from 'react'
+import { useTranslation } from 'react-i18next'
 
 // "Tapping a cross-ref opens that move in a bottom sheet/modal so the user
 // doesn't lose their place" — SPEC §7. Sheet on mobile, centered dialog at
@@ -10,6 +11,8 @@ export function BottomSheet({
   onClose: () => void
   children: ReactNode
 }) {
+  const { t } = useTranslation()
+
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') onClose()
@@ -22,7 +25,7 @@ export function BottomSheet({
     <div className="fixed inset-0 z-20 flex items-end justify-center md:items-center">
       <button
         type="button"
-        aria-label="Close"
+        aria-label={t('bottomSheet.close')}
         onClick={onClose}
         className="absolute inset-0 bg-black/50"
       />
@@ -32,7 +35,7 @@ export function BottomSheet({
         className="relative max-h-[85vh] w-full overflow-y-auto rounded-t-xl border border-border bg-bg p-4 shadow-lg md:max-w-lg md:rounded-xl"
       >
         <button type="button" onClick={onClose} className="mb-2 text-sm text-ink-muted">
-          Close
+          {t('bottomSheet.close')}
         </button>
         {children}
       </div>

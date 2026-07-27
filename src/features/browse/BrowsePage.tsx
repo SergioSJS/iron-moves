@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { setStoredGame } from '../../app/useSelectedGame'
 import { GameSwitcher } from '../../components/GameSwitcher'
@@ -6,13 +7,13 @@ import { getGameContent } from '../../data'
 import { isGame } from '../../data/schema'
 import { getCategoryAccentVars } from '../../styles/tokens'
 
-// Category list → tap → move list (Ticket 5) → tap → move detail (Ticket 5).
-// This ticket only builds the top-level category grid + the game switcher.
+// Category list → tap → move list → tap → move detail (SPEC §7).
 export function BrowsePage() {
+  const { i18n } = useTranslation()
   const { game: gameParam } = useParams<{ game: string }>()
   const navigate = useNavigate()
   const game = isGame(gameParam) ? gameParam : 'starforged'
-  const { categories } = getGameContent(game)
+  const { categories } = getGameContent(game, i18n.language)
 
   return (
     <div className="p-4">

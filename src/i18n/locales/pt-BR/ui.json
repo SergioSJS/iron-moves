@@ -1,0 +1,44 @@
+{
+  "nav": {
+    "browse": "Navegar",
+    "search": "Buscar",
+    "favorites": "Favoritos",
+    "settings": "Ajustes",
+    "primaryLabel": "Principal",
+    "gameSwitcherLabel": "Jogo"
+  },
+  "browse": {
+    "categories": "Categorias"
+  },
+  "search": {
+    "placeholder": "Buscar movimentos…",
+    "bothGames": "Buscar nos dois jogos",
+    "noResults": "Nenhum movimento encontrado para “{{query}}”."
+  },
+  "favorites": {
+    "heading": "Favoritos",
+    "empty": "Nenhum favorito ainda — toque na ☆ de qualquer movimento, na lista ou nos detalhes, para fixá-lo aqui."
+  },
+  "favoriteButton": {
+    "add": "Adicionar aos favoritos",
+    "remove": "Remover dos favoritos"
+  },
+  "settings": {
+    "heading": "Ajustes",
+    "theme": "Tema",
+    "themeEffective": "Efetivo: {{theme}}",
+    "themeOption": {
+      "system": "Sistema",
+      "light": "Claro",
+      "dark": "Escuro"
+    },
+    "defaultGame": "Jogo padrão ao iniciar",
+    "language": "Idioma"
+  },
+  "bottomSheet": {
+    "close": "Fechar"
+  },
+  "moveDetail": {
+    "notFound": "Movimento não encontrado."
+  }
+}

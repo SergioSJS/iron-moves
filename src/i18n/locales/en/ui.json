@@ -1,0 +1,44 @@
+{
+  "nav": {
+    "browse": "Browse",
+    "search": "Search",
+    "favorites": "Favorites",
+    "settings": "Settings",
+    "primaryLabel": "Primary",
+    "gameSwitcherLabel": "Game"
+  },
+  "browse": {
+    "categories": "Categories"
+  },
+  "search": {
+    "placeholder": "Search moves…",
+    "bothGames": "Search both games",
+    "noResults": "No moves found for “{{query}}”."
+  },
+  "favorites": {
+    "heading": "Favorites",
+    "empty": "No favorites yet — tap the ☆ on any move, from a list or its detail view, to pin it here."
+  },
+  "favoriteButton": {
+    "add": "Add to favorites",
+    "remove": "Remove from favorites"
+  },
+  "settings": {
+    "heading": "Settings",
+    "theme": "Theme",
+    "themeEffective": "Effective: {{theme}}",
+    "themeOption": {
+      "system": "System",
+      "light": "Light",
+      "dark": "Dark"
+    },
+    "defaultGame": "Default game on launch",
+    "language": "Language"
+  },
+  "bottomSheet": {
+    "close": "Close"
+  },
+  "moveDetail": {
+    "notFound": "Move not found."
+  }
+}

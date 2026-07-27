@@ -1,5 +1,7 @@
+import { useTranslation } from 'react-i18next'
 import type { Game } from '../data/schema'
 
+// Game titles are proper nouns (licensed product names) — not translated.
 const GAMES: { id: Game; label: string }[] = [
   { id: 'starforged', label: 'Starforged' },
   { id: 'ironsworn', label: 'Ironsworn' },
@@ -14,10 +16,11 @@ export function GameSwitcher({
   game: Game
   onChange: (game: Game) => void
 }) {
+  const { t } = useTranslation()
   return (
     <div
       role="tablist"
-      aria-label="Game"
+      aria-label={t('nav.gameSwitcherLabel')}
       className="inline-flex rounded-full border border-border bg-surface p-1"
     >
       {GAMES.map(({ id, label }) => (

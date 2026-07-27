@@ -1,17 +1,19 @@
+import { useTranslation } from 'react-i18next'
 import { NavLink } from 'react-router-dom'
 import type { Game } from '../data/schema'
 
 interface TabItem {
+  key: string
   label: string
   to: string
 }
 
-function getTabItems(game: Game): TabItem[] {
+function getTabItems(game: Game, t: (key: string) => string): TabItem[] {
   return [
-    { label: 'Browse', to: `/${game}/browse` },
-    { label: 'Search', to: `/${game}/search` },
-    { label: 'Favorites', to: '/favorites' },
-    { label: 'Settings', to: '/settings' },
+    { key: 'browse', label: t('nav.browse'), to: `/${game}/browse` },
+    { key: 'search', label: t('nav.search'), to: `/${game}/search` },
+    { key: 'favorites', label: t('nav.favorites'), to: '/favorites' },
+    { key: 'settings', label: t('nav.settings'), to: '/settings' },
   ]
 }
 
@@ -23,14 +25,15 @@ const linkClass = ({ isActive }: { isActive: boolean }) =>
 // 4 destinations either way — Browse/Search carry the currently selected
 // game in their URL so switching game elsewhere doesn't lose your place.
 export function TabBar({ game }: { game: Game }) {
-  const items = getTabItems(game)
+  const { t } = useTranslation()
+  const items = getTabItems(game, t)
   return (
     <nav
-      aria-label="Primary"
+      aria-label={t('nav.primaryLabel')}
       className="fixed inset-x-0 bottom-0 z-10 flex border-t border-border bg-surface md:static md:h-full md:w-56 md:flex-col md:gap-1 md:border-r md:border-t-0 md:p-3"
     >
       {items.map((item) => (
-        <NavLink key={item.label} to={item.to} className={linkClass}>
+        <NavLink key={item.key} to={item.to} className={linkClass}>
           {item.label}
         </NavLink>
       ))}
