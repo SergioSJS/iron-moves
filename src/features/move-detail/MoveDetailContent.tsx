@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react'
+import { FavoriteButton } from '../../components/FavoriteButton'
 import { MoveTable } from '../../components/MoveTable'
 import { OutcomeBlock } from '../../components/OutcomeBlock'
 import { RichText } from '../../components/RichText'
@@ -40,6 +41,10 @@ export function MoveDetailContent({
           </span>
         )}
       </header>
+
+      <div className="flex justify-end">
+        <FavoriteButton game={game} moveId={move.id} />
+      </div>
 
       <RichText text={move.trigger} game={game} onOpenMove={onOpenMove} />
 
