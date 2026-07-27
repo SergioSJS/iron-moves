@@ -13,9 +13,14 @@ export default defineConfig({
       registerType: 'autoUpdate',
       // Precache everything — SPEC §7: "the whole content set is small,
       // pure text". No runtime caching rules needed since there's no
-      // backend and no build-time network calls to work around.
+      // backend and no build-time network calls to work around. The dice
+      // feature adds ammo.wasm + theme textures (public/assets) and a big
+      // lazily-imported Babylon chunk — hence the extra extensions and the
+      // raised per-file cap (default 2 MiB would silently skip that chunk,
+      // breaking offline 3D rolls).
       workbox: {
-        globPatterns: ['**/*.{js,css,html,svg,png,woff,woff2}'],
+        globPatterns: ['**/*.{js,css,html,svg,png,jpg,json,wasm,woff,woff2}'],
+        maximumFileSizeToCacheInBytes: 8 * 1024 * 1024,
       },
       manifest: {
         name: 'Pocket Moves',

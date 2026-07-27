@@ -57,3 +57,16 @@ export function SettingsIcon(props: SVGProps<SVGSVGElement>) {
     </IconBase>
   )
 }
+
+export function DiceIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <IconBase {...props}>
+      <rect x="3" y="3" width="18" height="18" rx="3.5" />
+      <circle cx="8.2" cy="8.2" r="1.15" fill="currentColor" stroke="none" />
+      <circle cx="15.8" cy="8.2" r="1.15" fill="currentColor" stroke="none" />
+      <circle cx="12" cy="12" r="1.15" fill="currentColor" stroke="none" />
+      <circle cx="8.2" cy="15.8" r="1.15" fill="currentColor" stroke="none" />
+      <circle cx="15.8" cy="15.8" r="1.15" fill="currentColor" stroke="none" />
+    </IconBase>
+  )
+}

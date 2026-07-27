@@ -125,6 +125,17 @@ function setLightness(hex: string, targetLightness: number): string {
   return rgbToHex(hslToRgb([h, s, targetLightness]))
 }
 
+/** hsl → hex. h: 0–360, s/l: 0–100. Public wrapper over the color math
+    above (used by the dice hue slider to produce themeColor-safe hexes). */
+export function hexFromHsl(h: number, s: number, l: number): string {
+  return rgbToHex(hslToRgb([h, s, l]))
+}
+
+/** hex → [h, s, l] (h: 0–360, s/l: 0–100). Inverse of hexFromHsl. */
+export function hslFromHex(hex: string): [number, number, number] {
+  return rgbToHsl(hexToRgb(hex))
+}
+
 function relativeLuminance(hex: string): number {
   const linearize = (c: number) => {
     c /= 255

@@ -7,7 +7,23 @@
     "primaryLabel": "Principal",
     "gameSwitcherLabel": "Jogo",
     "skipToContent": "Pular para o conteúdo",
-    "back": "Voltar"
+    "back": "Voltar",
+    "roll": "Rolar"
+  },
+  "roll": {
+    "title": "Rolagem de ação",
+    "bonus": "Bônus",
+    "roll": "Rolar!",
+    "actionDie": "Dado de ação",
+    "challengeDice": "Dados de desafio",
+    "loading3d": "Carregando dados 3D…",
+    "fallback3d": "3D indisponível — usando dados simples.",
+    "close": "Fechar",
+    "outcome": {
+      "strongHit": "Sucesso Total",
+      "weakHit": "Sucesso Parcial",
+      "miss": "Falha"
+    }
   },
   "browse": {
     "categories": "Categorias",
@@ -45,7 +61,21 @@
       "originalDescription": "Cores extraídas diretamente dos PDFs originais.",
       "vibrant": "Vibrante",
       "vibrantDescription": "Uma paleta mais saturada e fácil de diferenciar — não vem dos livros."
-    }
+    },
+    "dice": "Rolagem de dados",
+    "diceOption": {
+      "3d": "Dados 3D",
+      "3dDescription": "Dados 3D com física rolando sobre a tela atual, estilo VTT. Download maior na primeira rolagem.",
+      "2d": "Dados 2D",
+      "2dDescription": "Dados animados leves — mais rápido, funciona em qualquer aparelho."
+    },
+    "diceColor": "Cor do dado",
+    "diceColorDescription": "Cor do corpo dos dados 3D e 2D.",
+    "diceColorGame": "Cor do jogo",
+    "diceColorHue": "Matiz personalizada",
+    "diceNumberColor": "Cor dos números",
+    "diceNumberColorDescription": "Cor dos números nos dados 2D — os modelos 3D ajustam o contraste dos números automaticamente.",
+    "diceNumberAuto": "Contraste automático"
   },
   "bottomSheet": {
     "close": "Fechar"

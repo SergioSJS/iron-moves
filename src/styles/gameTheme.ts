@@ -36,6 +36,16 @@ export function getGameBodyFontFamily(game: Game): string {
   return game === 'ironsworn' ? 'Georgia, serif' : '"Exo 2", sans-serif'
 }
 
+// Dice tint for the roller (3D themeColor + 2D chip color) — iron-oracle's
+// per-game dark-mode heading accents: Ironsworn's bronze gold, Starforged's
+// steel blue. Picked over the books' own tokens because a die needs a
+// mid-light saturated body to read well; barDark (#30393D) dice would be
+// invisible on the dark theme and signature-red dice would scream over
+// everything.
+export function getGameDiceColor(game: Game): string {
+  return game === 'ironsworn' ? '#c9a961' : '#8ba3d4'
+}
+
 // Backgrounds taken verbatim from iron-oracle's per-game, per-mode app
 // container (its .theme-light/.theme-dark × .theme-ironsworn/.theme-
 // starforged rules): radial glow at 20%/50% + radial glow at 80%/80% over

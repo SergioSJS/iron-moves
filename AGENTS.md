@@ -59,6 +59,56 @@ without checking what Favorites/Browse assume about it).
 9. i18n scaffold (pt-BR stub, not translated yet)
 10. Accessibility/responsive polish
 
+## Dice roller (post-v1 feature, `src/features/roll/`)
+
+Action roll (1d6+bonus vs 2d10) with Strong/Weak/Miss resolution — an
+overlay on the current screen triggered by the tab bar's dice button, **not
+a route** (the 3D mode rolls dice over whatever page you're reading;
+navigating away would defeat it). Two render modes, picked in Settings and
+persisted via `diceMode.ts` (`pocket-moves:dice-mode`, default `'3d'`):
+
+- **3D**: `@3d-dice/dice-box` (BabylonJS + Ammo physics, MIT, ships CC0
+  d6/d10 models). The Babylon chunks (~4 MB) are dynamic-imported on the
+  first 3D roll only, then kept as a module singleton — `DiceBox3D` must
+  stay mounted (RollFlow always is, via RootLayout) or the canvas is
+  orphaned. Between rolls the canvas is toggled with dice-box's own
+  `hide()`/`show()`, never `display:none` on the container (that leaves the
+  canvas at 0×0). Init/roll failures fall back to the 2D roll for that
+  attempt.
+- **2D**: plain cycling-number animation (`Dice2D`), also the fallback.
+
+Gotchas learned the hard way:
+
+- dice-box ships **no TS types** — `src/types/dice-box.d.ts` declares the
+  minimal API surface (v1.1.4 constructor takes a single config object;
+  `roll(['1d6','2d10'])` resolves per-die results parsed by `sides`).
+- Its canvas **must** be sized with CSS (`#dice-box-3d canvas { width:100%;
+  height:100% }` in index.css, per the library README) — without it the
+  canvas keeps its default 300×150 and the dice render minuscule in a
+  strip at the top-left.
+- Its d10 rolls 1–10 (verified via `colliderFaceMap` in the theme mesh) —
+  no 0→10 remapping needed.
+- Its postinstall prompts for an asset destination with a 10s timeout and
+  copies to `public/assets/` (committed: ammo.wasm + theme textures/mesh).
+  `assetPath` must include `import.meta.env.BASE_URL` or it breaks under
+  the GH Pages base path.
+- Workbox needed `wasm/jpg/json` in `globPatterns` and
+  `maximumFileSizeToCacheInBytes` raised to 8 MiB (the offscreen-worker
+  chunk is ~2.9 MB; the 2 MiB default silently skips it → 3D breaks
+  offline).
+- The outcome math (`actionRoll.ts`) is strict `total > d10`; a tie does
+  not beat a challenge die. Ironsworn's "match" (equal d10s = critical) is
+  intentionally not implemented yet.
+- Dice are tinted per current game by default (`getGameDiceColor` in
+  gameTheme.ts — iron-oracle's heading accents: Ironsworn bronze `#c9a961`,
+  Starforged steel blue `#8ba3d4`), overridable in Settings via
+  `diceColor.ts` presets (`pocket-moves:dice-color`, 'game' default) with a
+  separate number-color setting (`pocket-moves:dice-number-color`, 'auto' =
+  WCAG contrast pick via getAccentTextColor). The die color passes as
+  dice-box's per-roll `themeColor` (which DOES tint the textured default
+  theme); number color applies to the 2D chips only — the 3D models' labels
+  come from light/dark face textures the library picks by die luminance.
+
 ## Things that look like bugs but aren't
 
 - Ironsworn moves have no per-category color (only a dark/light two-tone) — this is correct, it's how the source PDF is designed. Don't invent category colors for it.

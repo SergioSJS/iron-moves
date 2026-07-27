@@ -13,6 +13,7 @@ A mobile-first pocket reference for the **Ironsworn** and **Starforged** tableto
 ## Features
 
 - **Complete moves reference** — all 53 Ironsworn and 52 Starforged moves, extracted verbatim from the official PDFs, with triggers, roll options, Strong Hit / Weak Hit / Miss outcome blocks, tables and sidebars.
+- **Action-roll dice roller** — 1d6+bonus vs 2d10 with Strong Hit / Weak Hit / Miss resolution, in two switchable styles: physics-based **3D dice** tumbling over the current screen (VTT-style, via `@3d-dice/dice-box`) or a lightweight **2D animation**. One tap from the tab bar, bonus stepper included.
 - **Fast lookup** — fuzzy search (Fuse.js) across titles, triggers and outcome text, scoped per game or across both; or browse game → category → move in ≤3 taps.
 - **Cross-referenced moves** — references like *Pay the Price* render as tappable links that open in a bottom sheet (mobile) or modal (desktop), so you never lose your place.
 - **Favorites** — star frequently-used moves (Face Danger, Pay the Price…) for one-tap access; persisted in `localStorage`.

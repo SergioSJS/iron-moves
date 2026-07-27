@@ -34,3 +34,43 @@ body {
   outline: 2px solid var(--app-accent);
   outline-offset: 2px;
 }
+
+/* dice-box appends its canvas inside this container (DiceBox3D). Without
+   this the canvas keeps its default 300×150 attribute size — the physics
+   "desk" renders as a tiny strip at the top-left and the dice come out
+   minuscule. The library's own README shows the same rule. */
+#dice-box-3d canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Hue slider for the dice color picker (Settings). The rainbow track is set
+   inline (it mirrors the slider's S/L constants); here we just strip the
+   native look and give it a chunky thumb usable on touch. */
+.dice-hue-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 1.25rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+}
+.dice-hue-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 9999px;
+  background: #fff;
+  border: 2px solid var(--color-border);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.4);
+}
+.dice-hue-slider::-moz-range-thumb {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 9999px;
+  background: #fff;
+  border: 2px solid var(--color-border);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.4);
+}

@@ -1,9 +1,10 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Outlet, useParams } from 'react-router-dom'
 import { BrandMark } from '../components/BrandMark'
 import { TabBar } from '../components/TabBar'
 import { isGame } from '../data/schema'
+import { RollFlow } from '../features/roll/RollFlow'
 import { getStoredGame, setStoredGame } from './useSelectedGame'
 
 // App shell: tab bar (bottom on mobile, left sidebar at md+ — see TabBar),
@@ -14,6 +15,10 @@ export function RootLayout() {
   const { t } = useTranslation()
   const { game: gameParam } = useParams<{ game?: string }>()
   const game = isGame(gameParam) ? gameParam : getStoredGame()
+  // Dice rolling is an overlay on the current screen, not a route (see
+  // RollFlow) — the open state lives here so the tab bar's dice button can
+  // trigger it from any page.
+  const [rollOpen, setRollOpen] = useState(false)
 
   // Remembers the last game visited via a direct link too, not just explicit
   // GameSwitcher clicks, so Favorites/Settings → Browse always lands back on
@@ -41,7 +46,8 @@ export function RootLayout() {
       >
         {t('nav.skipToContent')}
       </a>
-      <TabBar game={game} />
+      <TabBar game={game} onOpenRoll={() => setRollOpen(true)} />
+      <RollFlow open={rollOpen} game={game} onClose={() => setRollOpen(false)} />
       <div className="flex-1 pb-16 md:pb-0">
         <header className="flex items-center gap-2 border-b border-border p-4 md:hidden">
           <BrandMark size={24} />

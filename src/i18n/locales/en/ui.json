@@ -7,7 +7,23 @@
     "primaryLabel": "Primary",
     "gameSwitcherLabel": "Game",
     "skipToContent": "Skip to content",
-    "back": "Back"
+    "back": "Back",
+    "roll": "Roll"
+  },
+  "roll": {
+    "title": "Action Roll",
+    "bonus": "Bonus",
+    "roll": "Roll!",
+    "actionDie": "Action die",
+    "challengeDice": "Challenge dice",
+    "loading3d": "Loading 3D dice…",
+    "fallback3d": "3D unavailable — using simple dice.",
+    "close": "Close",
+    "outcome": {
+      "strongHit": "Strong Hit",
+      "weakHit": "Weak Hit",
+      "miss": "Miss"
+    }
   },
   "browse": {
     "categories": "Categories",
@@ -45,7 +61,21 @@
       "originalDescription": "Colors extracted straight from the source PDFs.",
       "vibrant": "Vibrant",
       "vibrantDescription": "A more saturated, easier-to-tell-apart palette — not from the books."
-    }
+    },
+    "dice": "Dice rolling",
+    "diceOption": {
+      "3d": "3D dice",
+      "3dDescription": "Physics-based 3D dice rolled over the current screen, VTT-style. Heavier download on the first roll.",
+      "2d": "2D dice",
+      "2dDescription": "Lightweight animated dice — faster, works everywhere."
+    },
+    "diceColor": "Die color",
+    "diceColorDescription": "Body color of the 3D and 2D dice.",
+    "diceColorGame": "Match game",
+    "diceColorHue": "Custom hue",
+    "diceNumberColor": "Number color",
+    "diceNumberColorDescription": "Label color on the 2D dice — the 3D models auto-contrast their labels.",
+    "diceNumberAuto": "Auto contrast"
   },
   "bottomSheet": {
     "close": "Close"

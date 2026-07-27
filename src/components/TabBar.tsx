@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { NavLink } from 'react-router-dom'
 import type { Game } from '../data/schema'
 import { BrandMark } from './BrandMark'
-import { BrowseIcon, FavoritesIcon, SearchIcon, SettingsIcon } from './icons'
+import { BrowseIcon, DiceIcon, FavoritesIcon, SearchIcon, SettingsIcon } from './icons'
 
 interface TabItem {
   key: string
@@ -36,9 +36,25 @@ const linkClass = ({ isActive }: { isActive: boolean }) =>
 // The brand mark + wordmark live here (sidebar-only) rather than in a
 // separate full-width header, since at md+ that would just be a second,
 // redundant title bar above already-visible nav chrome.
-export function TabBar({ game }: { game: Game }) {
+//
+// The dice "tab" (center) is a button, not a NavLink: rolling is an action
+// overlaid on the current screen (the 3D mode rolls dice on top of whatever
+// page you're reading), not a destination — navigating away would defeat it.
+export function TabBar({ game, onOpenRoll }: { game: Game; onOpenRoll: () => void }) {
   const { t } = useTranslation()
   const items = getTabItems(game, t)
+  const rollButton = (
+    <button
+      key="roll"
+      type="button"
+      onClick={onOpenRoll}
+      aria-label={t('nav.roll')}
+      className="flex flex-1 flex-col items-center justify-center gap-1 py-2 text-xs font-medium text-ink-muted md:flex-none md:flex-row md:justify-start md:gap-3 md:rounded-md md:px-3 md:py-2 md:text-sm md:hover:bg-surface"
+    >
+      <DiceIcon className="h-5 w-5" />
+      {t('nav.roll')}
+    </button>
+  )
   return (
     <nav
       aria-label={t('nav.primaryLabel')}
@@ -50,7 +66,14 @@ export function TabBar({ game }: { game: Game }) {
           Pocket Moves
         </span>
       </div>
-      {items.map((item) => (
+      {items.slice(0, 2).map((item) => (
+        <NavLink key={item.key} to={item.to} className={linkClass}>
+          <item.Icon className="h-5 w-5" />
+          {item.label}
+        </NavLink>
+      ))}
+      {rollButton}
+      {items.slice(2).map((item) => (
         <NavLink key={item.key} to={item.to} className={linkClass}>
           <item.Icon className="h-5 w-5" />
           {item.label}
