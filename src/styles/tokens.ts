@@ -211,6 +211,8 @@ export const cssVar = {
   textMuted: '--color-text-muted',
   categoryAccent: '--category-accent',
   categoryAccentText: '--category-accent-text',
+  outcomeAccent: '--outcome-accent',
+  outcomeAccentText: '--outcome-accent-text',
 } as const
 
 export function themeSurfaceToCssVars(theme: ThemeSurface): Record<string, string> {
@@ -234,5 +236,24 @@ export function getCategoryAccentVars(categoryColor: string): Record<string, str
   return {
     [cssVar.categoryAccent]: categoryColor,
     [cssVar.categoryAccentText]: getAccentTextColor(categoryColor),
+  }
+}
+
+// Semantic outcome colors — not from either book's extraction legend (those
+// are per-category, not per-outcome-type), chosen here and WCAG-verified the
+// same way as category accents. Used only for the small "STRONG HIT" etc.
+// label chip in OutcomeBlock, never as a full-block background — SPEC §5's
+// "don't tint entire backgrounds" applies just as much to outcome color.
+export const outcomeAccents = {
+  hit: '#3A5A78',
+  strongHit: '#2F7A3E',
+  weakHit: '#B45309',
+  miss: '#B3261E',
+} as const
+
+export function getOutcomeAccentVars(outcomeColor: string): Record<string, string> {
+  return {
+    [cssVar.outcomeAccent]: outcomeColor,
+    [cssVar.outcomeAccentText]: getAccentTextColor(outcomeColor),
   }
 }

@@ -1,20 +1,42 @@
-import { useParams } from 'react-router-dom'
+import { useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import { BottomSheet } from '../../components/BottomSheet'
 import { getGameContent } from '../../data'
 import { isGame } from '../../data/schema'
+import { MoveDetailContent } from './MoveDetailContent'
 
-// Stub — full move-detail rendering (trigger, roll options, outcome blocks,
-// tables, sidebars, cross-ref chips) lands in Ticket 5.
 export function MoveDetailPage() {
   const { game: gameParam, moveId } = useParams<{ game: string; moveId: string }>()
   const game = isGame(gameParam) ? gameParam : 'starforged'
-  const move = getGameContent(game).moves.find((m) => m.id === moveId)
+  const { moves, categories } = getGameContent(game)
+  const move = moves.find((m) => m.id === moveId)
+  const categoryId = move?.categoryId
+  const [peekMoveId, setPeekMoveId] = useState<string | null>(null)
+  const peekMove = peekMoveId ? moves.find((m) => m.id === peekMoveId) : undefined
+
+  if (!move) {
+    return (
+      <div className="p-4">
+        <p className="text-ink-muted">Move not found.</p>
+      </div>
+    )
+  }
 
   return (
     <div className="p-4">
-      <h2 className="mb-2 font-display text-2xl uppercase tracking-wide">
-        {move?.title ?? moveId}
-      </h2>
-      <p className="text-ink-muted">Full move detail UI lands in Ticket 5.</p>
+      <Link
+        to={`/${game}/browse/${categoryId}`}
+        className="mb-3 inline-block text-sm text-ink-muted"
+      >
+        ← {categories.find((c) => c.id === categoryId)?.name ?? 'Category'}
+      </Link>
+      <MoveDetailContent move={move} game={game} onOpenMove={setPeekMoveId} />
+
+      {peekMove && (
+        <BottomSheet onClose={() => setPeekMoveId(null)}>
+          <MoveDetailContent move={peekMove} game={game} onOpenMove={setPeekMoveId} />
+        </BottomSheet>
+      )}
     </div>
   )
 }

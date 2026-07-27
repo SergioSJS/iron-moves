@@ -1,9 +1,9 @@
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import { CategoryChip } from '../../components/CategoryChip'
+import { MoveCard } from '../../components/MoveCard'
 import { getGameContent } from '../../data'
 import { isGame } from '../../data/schema'
 
-// Stub — the move-list-within-category UI (title + trigger snippet, colored
-// left accent) lands in Ticket 5. This just proves the route/params work.
 export function CategoryPage() {
   const { game: gameParam, categoryId } = useParams<{
     game: string
@@ -12,16 +12,31 @@ export function CategoryPage() {
   const game = isGame(gameParam) ? gameParam : 'starforged'
   const { categories, moves } = getGameContent(game)
   const category = categories.find((c) => c.id === categoryId)
-  const moveCount = moves.filter((m) => m.categoryId === categoryId).length
+  const categoryMoves = moves.filter((m) => m.categoryId === categoryId)
 
   return (
     <div className="p-4">
-      <h2 className="mb-2 font-display text-2xl uppercase tracking-wide">
-        {category?.name ?? categoryId}
-      </h2>
-      <p className="text-ink-muted">
-        {moveCount} move{moveCount === 1 ? '' : 's'} — move list UI lands in Ticket 5.
-      </p>
+      <Link to={`/${game}/browse`} className="mb-3 inline-block text-sm text-ink-muted">
+        ← Categories
+      </Link>
+      <div className="mb-3">
+        <CategoryChip
+          label={category?.name ?? categoryId ?? ''}
+          color={category?.color ?? '#30393D'}
+          className="text-base"
+        />
+      </div>
+      <ul className="space-y-2">
+        {categoryMoves.map((move) => (
+          <li key={move.id}>
+            <MoveCard
+              move={move}
+              categoryColor={category?.color ?? '#30393D'}
+              game={game}
+            />
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
