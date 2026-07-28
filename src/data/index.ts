@@ -1,5 +1,7 @@
 import ironswornEn from './en/ironsworn.generated.json'
 import starforgedEn from './en/starforged.generated.json'
+import ironswornPtBR from './pt-BR/ironsworn.generated.json'
+import starforgedPtBR from './pt-BR/starforged.generated.json'
 import type { Game, GameContent, Move } from './schema'
 
 const enContent: Record<Game, GameContent> = {
@@ -7,14 +9,20 @@ const enContent: Record<Game, GameContent> = {
   starforged: starforgedEn as GameContent,
 }
 
+// pt-BR is a MACHINE TRANSLATION placeholder (scripts/translate-content.mjs) —
+// committed so builds work offline. The official translation replaces the two
+// src/data/pt-BR/*.generated.json files wholesale; no component changes needed.
+const ptBRContent: Record<Game, GameContent> = {
+  ironsworn: ironswornPtBR as GameContent,
+  starforged: starforgedPtBR as GameContent,
+}
+
 // Locale-namespaced per SPEC §6, so a translation drops in as data only — no
-// component changes. pt-BR doesn't exist yet: once
-// src/data/pt-BR/{ironsworn,starforged}.generated.json are added (by hand,
-// or by re-running build-content.mjs against content/pt-BR/*.md), import
-// them here and add a 'pt-BR' entry — the per-move fallback below is
-// already wired for it.
+// component changes. The per-move fallback below covers any move missing from
+// a locale file.
 const contentByLocale: Partial<Record<string, Record<Game, GameContent>>> = {
   en: enContent,
+  'pt-BR': ptBRContent,
 }
 
 export function getGameContent(game: Game, locale = 'en'): GameContent {

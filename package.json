@@ -6,6 +6,7 @@
   "packageManager": "pnpm@9.15.9",
   "scripts": {
     "content:build": "node scripts/build-content.mjs",
+    "content:translate": "pnpm content:build && node scripts/translate-content.mjs",
     "dev": "pnpm content:build && vite",
     "build": "pnpm content:build && tsc -b && vite build",
     "preview": "vite preview",

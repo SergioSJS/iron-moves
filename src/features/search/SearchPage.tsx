@@ -23,13 +23,13 @@ interface ResultGroup {
   docs: SearchDoc[]
 }
 
-function groupByCategory(docs: SearchDoc[]): ResultGroup[] {
+function groupByCategory(docs: SearchDoc[], locale: string): ResultGroup[] {
   const groups = new Map<string, ResultGroup>()
   for (const doc of docs) {
     const key = `${doc.game}:${doc.move.categoryId}`
     let group = groups.get(key)
     if (!group) {
-      const category = getGameContent(doc.game).categories.find(
+      const category = getGameContent(doc.game, locale).categories.find(
         (c) => c.id === doc.move.categoryId,
       )
       group = {
@@ -57,7 +57,8 @@ function groupByCategory(docs: SearchDoc[]): ResultGroup[] {
 // are (a result can belong to either game in "both games" mode), so this
 // pane uses local selection state rather than the URL.
 export function SearchPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const locale = i18n.language
   const { game: gameParam } = useParams<{ game: string }>()
   const navigate = useNavigate()
   const game = isGame(gameParam) ? gameParam : 'starforged'
@@ -67,15 +68,17 @@ export function SearchPage() {
   const [selected, setSelected] = useState<SearchDoc | null>(null)
   const [peekMoveId, setPeekMoveId] = useState<string | null>(null)
   const peekMove = peekMoveId
-    ? getGameContent(selected?.game ?? game).moves.find((m) => m.id === peekMoveId)
+    ? getGameContent(selected?.game ?? game, locale).moves.find(
+        (m) => m.id === peekMoveId,
+      )
     : undefined
 
   const docs = useMemo(
     () =>
       bothGames
-        ? [...getSearchDocs('starforged'), ...getSearchDocs('ironsworn')]
-        : getSearchDocs(game),
-    [bothGames, game],
+        ? [...getSearchDocs('starforged', locale), ...getSearchDocs('ironsworn', locale)]
+        : getSearchDocs(game, locale),
+    [bothGames, game, locale],
   )
 
   const fuse = useMemo(
@@ -96,7 +99,7 @@ export function SearchPage() {
     () => (trimmedQuery ? fuse.search(trimmedQuery).map((result) => result.item) : []),
     [fuse, trimmedQuery],
   )
-  const groups = useMemo(() => groupByCategory(results), [results])
+  const groups = useMemo(() => groupByCategory(results, locale), [results, locale])
 
   return (
     <div className="md:flex md:items-start md:gap-4">

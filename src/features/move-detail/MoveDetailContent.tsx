@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react'
+import { useTranslation } from 'react-i18next'
 import { FavoriteButton } from '../../components/FavoriteButton'
 import { MoveTable } from '../../components/MoveTable'
 import { OutcomeBlock } from '../../components/OutcomeBlock'
@@ -22,7 +23,10 @@ export function MoveDetailContent({
   game: Game
   onOpenMove?: (moveId: string) => void
 }) {
-  const category = getGameContent(game).categories.find((c) => c.id === move.categoryId)
+  const { i18n } = useTranslation()
+  const category = getGameContent(game, i18n.language).categories.find(
+    (c) => c.id === move.categoryId,
+  )
   const headerVars = category
     ? (getCategoryAccentVars(
         resolveCategoryColor(category.id, category.color),

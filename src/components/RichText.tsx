@@ -1,4 +1,5 @@
 import { Fragment, type ReactNode } from 'react'
+import { useTranslation } from 'react-i18next'
 import { getGameContent } from '../data'
 import type { Game } from '../data/schema'
 
@@ -13,6 +14,7 @@ const INLINE_TOKEN = /(\*\*[^*]+\*\*|\*[^*]+\*|\{move:[a-z0-9-]+\})/g
 function renderInline(
   text: string,
   game: Game,
+  locale: string,
   onOpenMove?: (id: string) => void,
 ): ReactNode[] {
   return text
@@ -25,7 +27,8 @@ function renderInline(
       if (part.startsWith('{move:') && part.endsWith('}')) {
         const id = part.slice('{move:'.length, -1)
         const title =
-          getGameContent(game).moves.find((move) => move.id === id)?.title ?? id
+          getGameContent(game, locale).moves.find((move) => move.id === id)?.title ??
+          id
         return (
           <button
             key={i}
@@ -81,14 +84,16 @@ export function RichText({
   onOpenMove?: (moveId: string) => void
   className?: string
 }) {
+  const { i18n } = useTranslation()
   if (!text) return null
+  const locale = i18n.language
   return (
     <div className={'space-y-2 ' + (className ?? '')}>
       {toBlocks(text).map((block, i) =>
         block.type === 'ul' ? (
           <ul key={i} className="list-disc space-y-1 pl-5">
             {block.lines.map((line, j) => (
-              <li key={j}>{renderInline(line, game, onOpenMove)}</li>
+              <li key={j}>{renderInline(line, game, locale, onOpenMove)}</li>
             ))}
           </ul>
         ) : (
@@ -96,7 +101,7 @@ export function RichText({
             {block.lines.map((line, j) => (
               <Fragment key={j}>
                 {j > 0 && <br />}
-                {renderInline(line, game, onOpenMove)}
+                {renderInline(line, game, locale, onOpenMove)}
               </Fragment>
             ))}
           </p>

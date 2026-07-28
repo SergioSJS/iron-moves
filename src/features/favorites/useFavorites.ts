@@ -58,7 +58,7 @@ export interface FavoriteEntry {
 }
 
 /** Resolves every stored favorite key back to its Move, for the Favorites tab. */
-export function useFavoriteList(): FavoriteEntry[] {
+export function useFavoriteList(locale?: string): FavoriteEntry[] {
   const [keys] = useState(() => readFavoriteKeys())
   const entries: FavoriteEntry[] = []
   for (const key of keys) {
@@ -66,7 +66,7 @@ export function useFavoriteList(): FavoriteEntry[] {
     const game = key.slice(0, separatorIndex)
     const moveId = key.slice(separatorIndex + 1)
     if (!isGame(game)) continue
-    const move = getGameContent(game).moves.find((m) => m.id === moveId)
+    const move = getGameContent(game, locale).moves.find((m) => m.id === moveId)
     if (move) entries.push({ game, move })
   }
   return entries

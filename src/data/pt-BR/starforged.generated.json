@@ -1,0 +1,1563 @@
+{
+  "game": "starforged",
+  "categories": [
+    {
+      "id": "session-moves",
+      "game": "starforged",
+      "name": "Sessão",
+      "color": "#3F8C8A"
+    },
+    {
+      "id": "adventure-moves",
+      "game": "starforged",
+      "name": "Aventura",
+      "color": "#206087"
+    },
+    {
+      "id": "quest-moves",
+      "game": "starforged",
+      "name": "Missão",
+      "color": "#805A90"
+    },
+    {
+      "id": "connection-moves",
+      "game": "starforged",
+      "name": "Conexão",
+      "color": "#4A5791"
+    },
+    {
+      "id": "exploration-moves",
+      "game": "starforged",
+      "name": "Exploração",
+      "color": "#427FAA"
+    },
+    {
+      "id": "combat-moves",
+      "game": "starforged",
+      "name": "Combate",
+      "color": "#818992"
+    },
+    {
+      "id": "suffer-moves",
+      "game": "starforged",
+      "name": "Desgaste",
+      "color": "#883529"
+    },
+    {
+      "id": "recover-moves",
+      "game": "starforged",
+      "name": "Recuperação",
+      "color": "#488B44"
+    },
+    {
+      "id": "threshold-moves",
+      "game": "starforged",
+      "name": "Limite",
+      "color": "#1D1D1B"
+    },
+    {
+      "id": "legacy-moves",
+      "game": "starforged",
+      "name": "Legado",
+      "color": "#4F5A69"
+    },
+    {
+      "id": "fate-moves",
+      "game": "starforged",
+      "name": "Destino",
+      "color": "#8F477B"
+    }
+  ],
+  "moves": [
+    {
+      "id": "begin-a-session",
+      "game": "starforged",
+      "categoryId": "session-moves",
+      "title": "Comece uma sessão",
+      "trigger": "**Quando você inicia uma sessão ou capítulo significativo do jogo**, faça o seguinte.\n\nAlém disso, você pode destacar um novo perigo, oportunidade ou insight. Isso pode incluir uma cena escondida da perspectiva do seu personagem. Se fizer isso, imagine uma breve vinheta (você pode rolar ou escolher na tabela abaixo para se inspirar). Então, todos os jogadores recebem +1 de impulso quando você retorna ao jogo do ponto de vista de seus personagens.",
+      "bullets": [
+        "Identifique ou ajuste o conteúdo sinalizado e {move:set-a-flag}.",
+        "Revise ou recapitule o que aconteceu na última sessão.",
+        "Defina o cenário visualizando a situação e a intenção atuais do seu personagem."
+      ],
+      "outcomes": {},
+      "tables": [
+        {
+          "headers": [
+            "Rolar",
+            "Resultado"
+          ],
+          "rows": [
+            [
+              "1–10",
+              "Flashback revela um aspecto de sua formação ou natureza"
+            ],
+            [
+              "11–20",
+              "Flashback revela um aspecto de outro personagem, lugar ou facção"
+            ],
+            [
+              "21–30",
+              "Personagem ou facção influente é introduzida ou recebe novos detalhes"
+            ],
+            [
+              "31–40",
+              "Situações aparentemente não relacionadas mostram-se conectadas"
+            ],
+            [
+              "41–50",
+              "Fatores externos criam um novo perigo, urgência ou importância para uma missão"
+            ],
+            [
+              "51–60",
+              "Personagem importante é colocado em perigo ou sofre uma desventura"
+            ],
+            [
+              "61–70",
+              "A localização principal torna-se insegura ou fica atolada em conflitos"
+            ],
+            [
+              "71–80",
+              "Retorno inesperado de um inimigo ou ameaça"
+            ],
+            [
+              "81–90",
+              "O perigo está à frente ou espreita fora de vista"
+            ],
+            [
+              "91–100",
+              "Ajuda imprevista está a caminho ou ao seu alcance"
+            ]
+          ]
+        }
+      ],
+      "crossRefs": [
+        "set-a-flag"
+      ],
+      "sourcePage": 9
+    },
+    {
+      "id": "set-a-flag",
+      "game": "starforged",
+      "categoryId": "session-moves",
+      "title": "Defina uma bandeira",
+      "trigger": "**Quando você identifica situações ou tópicos que não deseja incluir, não deseja visualizar em detalhes ou que de outra forma podem precisar de atenção ao abordar**, esse conteúdo agora é sinalizado.\n\nAo encontrar conteúdo sinalizado como algo a ser abordado com atenção, faça uma pausa para considerar ou discutir seu papel em sua história. Quando você encontrar conteúdo sinalizado que prefere ajustar ou omitir, {move:change-your-fate}.",
+      "outcomes": {},
+      "crossRefs": [
+        "change-your-fate"
+      ],
+      "sourcePage": 9
+    },
+    {
+      "id": "change-your-fate",
+      "game": "starforged",
+      "categoryId": "session-moves",
+      "title": "Mude seu destino",
+      "trigger": "**Quando você encontrar conteúdo sinalizado, rejeitar um oráculo, resistir a uma consequência ou precisar mudar as circunstâncias do jogo para seu conforto ou diversão**, faça uma pausa e identifique o que precisa ser mudado. Escolha quantas opções forem apropriadas.",
+      "bullets": [
+        "Reframe: Isso não aconteceu da maneira que você pensava inicialmente. Visualize o momento de outra perspectiva, de uma forma que diminua ou altere o conteúdo.",
+        "Refocar: Esta não é a coisa mais importante que está acontecendo agora. Visualize como os holofotes mudam para mudar o foco.",
+        "Substituir: Isso acontece, mas com um pequeno ajuste. Troque um elemento e visualize como esse novo detalhe muda o cenário.",
+        "Redirecionar: ajuste a trajetória para envolver uma mão amiga. Visualize como outra pessoa ou parte se envolve.",
+        "Remodelar: A situação muda completamente. Em vez disso, imagine o que aconteceu."
+      ],
+      "outcomes": {},
+      "crossRefs": [],
+      "sourcePage": 9
+    },
+    {
+      "id": "take-a-break",
+      "game": "starforged",
+      "categoryId": "session-moves",
+      "title": "Faça uma pausa",
+      "trigger": "**Ao resolver um movimento de progresso ou completar um cenário intenso**, respire fundo algumas vezes e reserve algum tempo para atender às necessidades do seu corpo. Reflita sobre o que acabou de acontecer e como isso fez você se sentir. Então, escolha um.",
+      "bullets": [
+        "Siga em frente: continue a sessão. Você ou um aliado pode adicionar +1 no próximo movimento (não um movimento de progresso), reforçado por sua reflexão e experiências passadas.",
+        "Pare por enquanto: {move:end-a-session}."
+      ],
+      "outcomes": {},
+      "crossRefs": [
+        "end-a-session"
+      ],
+      "sourcePage": 9
+    },
+    {
+      "id": "end-a-session",
+      "game": "starforged",
+      "categoryId": "session-moves",
+      "title": "Encerrar uma sessão",
+      "trigger": "**Ao encerrar uma sessão ou capítulo significativo do jogo**, reflita sobre os eventos do jogo e identifique quaisquer oportunidades perdidas para marcar o progresso.\n\nSe houver uma missão, conexão ou outra situação que você gostaria de focar em sua próxima sessão, anote-a e receba +1 de impulso.",
+      "bullets": [
+        "Se você fortaleceu seus laços com uma conexão, {move:develop-your-relationship}.",
+        "Se você avançou em uma missão, {move:reach-a-milestone}."
+      ],
+      "outcomes": {},
+      "crossRefs": [
+        "develop-your-relationship",
+        "reach-a-milestone"
+      ],
+      "sourcePage": 9
+    },
+    {
+      "id": "face-danger",
+      "game": "starforged",
+      "categoryId": "adventure-moves",
+      "title": "Enfrente o perigo",
+      "trigger": "**Quando você tentar algo arriscado ou reagir a uma ameaça iminente**, visualize sua ação e role. Se você agir…",
+      "rollOptions": [
+        "Com velocidade, mobilidade ou agilidade: **Role +edge**",
+        "Com determinação, comando ou sociabilidade: **Role +coração**",
+        "Com força, resistência ou agressividade: **Role +ferro**",
+        "Com engano, furtividade ou trapaça: **Role +sombra**",
+        "Com experiência, foco ou observação: **Role +inteligência**"
+      ],
+      "outcomes": {
+        "strongHit": "você teve sucesso. Receba impulso +1.",
+        "weakHit": "você consegue, mas não sem um custo. Faça um movimento de sofrimento (-1).",
+        "miss": "você falha, ou um sucesso momentâneo é prejudicado por uma terrível reviravolta nos acontecimentos. {move:pay-the-price}."
+      },
+      "sidebars": [
+        {
+          "body": "Os movimentos de aventura abrangem ações amplamente úteis para superar obstáculos, reforçar sua posição, conduzir investigações, influenciar outras pessoas e apoiar seus colegas protagonistas. Quando você enfrenta um perigo ou tenta obter vantagem e outro movimento não se aplica, você provavelmente encontrará sua resposta entre esses movimentos."
+        }
+      ],
+      "crossRefs": [
+        "pay-the-price"
+      ],
+      "sourcePage": 10
+    },
+    {
+      "id": "secure-an-advantage",
+      "game": "starforged",
+      "categoryId": "adventure-moves",
+      "title": "Garanta uma vantagem",
+      "trigger": "**Quando você avalia uma situação, faz preparativos ou tenta obter vantagem**, visualize sua ação e role. Se você agir…",
+      "rollOptions": [
+        "Com velocidade, mobilidade ou agilidade: **Role +edge**",
+        "Com determinação, comando ou sociabilidade: **Role +coração**",
+        "Com força, resistência ou agressividade: **Role +ferro**",
+        "Com engano, furtividade ou trapaça: **Role +sombra**",
+        "Com experiência, foco ou observação: **Role +inteligência**"
+      ],
+      "outcomes": {
+        "hit": "você teve sucesso.\n- Receba +2 impulso\n- Adicione +1 em seu próximo movimento (não é um movimento de progresso)",
+        "strongHit": "pegue os dois.\n- Receba +2 impulso\n- Adicione +1 em seu próximo movimento (não é um movimento de progresso)",
+        "weakHit": "escolha um.\n- Receba +2 impulso\n- Adicione +1 em seu próximo movimento (não é um movimento de progresso)",
+        "miss": "você falha ou suas suposições o traem. {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "pay-the-price"
+      ],
+      "sourcePage": 10
+    },
+    {
+      "id": "gather-information",
+      "game": "starforged",
+      "categoryId": "adventure-moves",
+      "title": "Reúna informações",
+      "trigger": "**Quando você procura pistas, conduz uma investigação, analisa evidências ou faz pesquisas**, teste +raciocínio.",
+      "outcomes": {
+        "strongHit": "você descobre algo útil e específico. O caminho que você deve seguir ou a ação que você deve tomar para progredir fica claro. Visualize o que você aprende. Então, receba +2 de impulso.",
+        "weakHit": "as informações fornecem novos insights, mas também complicam sua busca. Visualize o que você descobre. Então, receba +1 de impulso.",
+        "miss": "sua investigação revela uma ameaça terrível ou revela uma verdade indesejável que prejudica sua busca. {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "pay-the-price"
+      ],
+      "sourcePage": 10
+    },
+    {
+      "id": "compel",
+      "game": "starforged",
+      "categoryId": "adventure-moves",
+      "title": "Obrigar",
+      "trigger": "**Quando você tentar persuadir alguém ou fazer uma oferta**, imagine sua abordagem. Se você…",
+      "rollOptions": [
+        "Encantar, pacificar, encorajar ou negociar: **Role +coração**",
+        "Ameaçar ou incitar: **Role +ferro**",
+        "Mentir ou trapacear: **Rolar +sombra**"
+      ],
+      "outcomes": {
+        "strongHit": "eles farão o que você quiser ou concordarão com suas condições. Receba impulso +1.",
+        "weakHit": "como acima, mas o acordo deles traz uma exigência ou complicação. Visualize sua contraoferta.",
+        "miss": "eles recusam ou fazem uma exigência que lhe custa muito. {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "pay-the-price"
+      ],
+      "sourcePage": 10
+    },
+    {
+      "id": "aid-your-ally",
+      "game": "starforged",
+      "categoryId": "adventure-moves",
+      "title": "Ajude seu aliado",
+      "trigger": "**Quando você agir em apoio direto a um aliado**, imagine como você o ajudará. Então, {move:secure-an-advantage} ou {move:gain-ground} para agir. Se você acertar, eles (em vez de você) recebem os benefícios do movimento.\n\nSe você {move:gain-ground} e acertar um golpe forte, ambos estarão no controle. Com um golpe fraco, seu aliado está no controle, mas você está em uma situação ruim.",
+      "outcomes": {},
+      "crossRefs": [
+        "secure-an-advantage",
+        "gain-ground"
+      ],
+      "sourcePage": 11
+    },
+    {
+      "id": "check-your-gear",
+      "game": "starforged",
+      "categoryId": "adventure-moves",
+      "title": "Verifique seu equipamento",
+      "trigger": "**Quando você verificar se possui um item ou recurso útil específico**, role +suprimento.",
+      "outcomes": {
+        "strongHit": "você tem isso e está pronto para agir. Receba impulso +1.",
+        "weakHit": "você o tem, mas deve escolher um.\n- Seu suprimento diminuiu: {move:sacrifice-resources} (-1)\n- Não está certo e causa uma complicação ou atraso: {move:lose-momentum} (-2)",
+        "miss": "você não o tem e a situação fica mais perigosa. {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "sacrifice-resources",
+        "lose-momentum",
+        "pay-the-price"
+      ],
+      "sourcePage": 11
+    },
+    {
+      "id": "swear-an-iron-vow",
+      "game": "starforged",
+      "categoryId": "quest-moves",
+      "title": "Faça um voto de ferro",
+      "trigger": "**Quando você jurar pelo ferro para completar uma missão**, escreva seu voto e atribua uma classificação a ele. Então, role +coração. Se você fizer esse voto a uma conexão, adicione +1; se você compartilha um vínculo, adicione +2.",
+      "outcomes": {
+        "strongHit": "você está encorajado e está claro o que deve fazer a seguir. Receba +2 de impulso.",
+        "weakHit": "você está determinado, mas começa sua busca com mais perguntas do que respostas. Receba impulso +1 e visualize o que você fará para encontrar um caminho a seguir.",
+        "miss": "você deve superar um obstáculo significativo antes de iniciar sua missão. Visualize o que está em seu caminho."
+      },
+      "crossRefs": [],
+      "sourcePage": 12
+    },
+    {
+      "id": "reach-a-milestone",
+      "game": "starforged",
+      "categoryId": "quest-moves",
+      "title": "Alcance um marco",
+      "trigger": "**Quando você avança em sua busca fazendo qualquer uma das seguintes ações**…\n\n…você pode marcar o progresso de acordo com a classificação do voto.",
+      "bullets": [
+        "superando um obstáculo crítico",
+        "obtendo insights significativos",
+        "completando uma expedição perigosa",
+        "adquirir um item ou recurso crucial",
+        "ganhando apoio vital",
+        "derrotar um inimigo notável"
+      ],
+      "outcomes": {},
+      "crossRefs": [],
+      "sourcePage": 12
+    },
+    {
+      "id": "fulfill-your-vow",
+      "game": "starforged",
+      "categoryId": "quest-moves",
+      "title": "Cumpra seu voto",
+      "tag": "Movimento de progresso",
+      "trigger": "**Quando você chegar ao final da sua missão**, jogue os dados do desafio e compare com o seu progresso.",
+      "outcomes": {
+        "strongHit": "seu voto foi cumprido. Marque uma recompensa na trilha de legado de sua missão de acordo com a classificação do voto: problemático = 1 tick; perigoso=2 carrapatos; formidável=1 caixa; extremo=2 caixas; épico=3 caixas. Quaisquer aliados que compartilharam este voto também marcam a recompensa.",
+        "weakHit": "como acima, mas há mais a ser feito ou você perceberá a verdade de sua busca. Se você {move:swear-an-iron-vow} para consertar as coisas, receba toda a recompensa do seu legado. Caso contrário, reduza a recompensa do legado em uma classificação (nenhuma para uma missão problemática).",
+        "miss": "seu voto é desfeito por meio de uma complicação ou realização inesperada. Visualize o que acontece e escolha um.\n- Desista da missão: {move:forsake-your-vow}.\n- Recomprometa-se com a missão: jogue os dois dados de desafio, escolha o valor mais baixo e limpe esse número de caixas de progresso. Em seguida, aumente a classificação do voto em um (se ainda não for épico)."
+      },
+      "crossRefs": [
+        "swear-an-iron-vow",
+        "forsake-your-vow"
+      ],
+      "sourcePage": 12
+    },
+    {
+      "id": "forsake-your-vow",
+      "game": "starforged",
+      "categoryId": "quest-moves",
+      "title": "Abandone seu voto",
+      "trigger": "**Quando você renunciar à sua missão, trair sua promessa ou o objetivo for perdido para você**, limpe o voto.\n\nEntão, visualize o impacto dessa falha e escolha um ou mais, conforme apropriado à natureza do voto. Quaisquer aliados que partilharam este voto também podem prever um custo.",
+      "bullets": [
+        "Você está desmoralizado ou desanimado: {move:endure-stress}",
+        "Uma conexão perde a fé: {move:test-your-relationship} na próxima interação.",
+        "Você deve abandonar um caminho ou recurso: Descarte um ativo.",
+        "Outra pessoa paga um preço: imagine como uma pessoa, um ser ou uma comunidade arca com o custo do fracasso.",
+        "Outra pessoa tira vantagem: imagine como um inimigo ganha poder.",
+        "Sua reputação sofre: visualize como esse fracasso marca você."
+      ],
+      "outcomes": {},
+      "crossRefs": [
+        "endure-stress",
+        "test-your-relationship"
+      ],
+      "sourcePage": 12
+    },
+    {
+      "id": "make-a-connection",
+      "game": "starforged",
+      "categoryId": "connection-moves",
+      "title": "Faça uma conexão",
+      "trigger": "**Quando você busca um novo relacionamento ou dá foco a um relacionamento existente (não um aliado ou companheiro)**, role +coração.",
+      "outcomes": {
+        "strongHit": "você cria uma conexão. Dê-lhes uma função e uma classificação. Sempre que sua conexão o ajudar em um movimento intimamente associado à função dele, adicione +1 e receba +1 de impulso em um acerto.",
+        "weakHit": "como acima, mas essa conexão traz uma complicação ou custo. Visualize o que eles revelam ou exigem.",
+        "miss": "você não faz uma conexão e a situação piora. {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "pay-the-price"
+      ],
+      "sourcePage": 13
+    },
+    {
+      "id": "develop-your-relationship",
+      "game": "starforged",
+      "categoryId": "connection-moves",
+      "title": "Desenvolva seu relacionamento",
+      "trigger": "**Quando você reforça seu relacionamento com uma conexão fazendo qualquer um dos seguintes**…\n\n…você pode marcar o progresso de acordo com a classificação da conexão.\n\nSe você já compartilha vínculo com a conexão, não marque progresso. Em vez disso, role +a classificação deles para saber o impacto em seu legado: problemático=+1; perigoso=+2; formidável=+3; extremo=+4; épico=+5. Com um acerto forte, marque 2 tiques na trilha de legado de seus títulos. Se uma partida for bem-sucedida, você também poderá imaginar como os eventos recentes reforçaram a posição de sua conexão e aumentaram sua classificação em um (se já não for épico). Com um golpe fraco, receba +2 de impulso. Se errar, não obtenha nenhum benefício duradouro.",
+      "bullets": [
+        "jurando empreender uma missão perigosa a seu serviço",
+        "completando uma missão em seu benefício",
+        "aproveitando sua ajuda em circunstâncias desesperadoras",
+        "dando-lhes algo de valor",
+        "compartilhando um momento profundo",
+        "estando com eles contra as dificuldades",
+        "superando um teste em seu relacionamento"
+      ],
+      "outcomes": {},
+      "crossRefs": [],
+      "sourcePage": 13
+    },
+    {
+      "id": "test-your-relationship",
+      "game": "starforged",
+      "categoryId": "connection-moves",
+      "title": "Teste seu relacionamento",
+      "trigger": "**Quando seu relacionamento com uma conexão for testado por meio de conflito, traição ou circunstância**, role +coração. Se você compartilha um vínculo, adicione +1.",
+      "outcomes": {
+        "strongHit": "{move:develop-your-relationship}.",
+        "weakHit": "{move:develop-your-relationship}, mas também imagine uma demanda ou complicação como consequência deste teste.",
+        "miss": "ou se você não tem interesse em manter esse relacionamento, escolha um.\n- Perder a conexão: visualize como isso afeta você e {move:pay-the-price}.\n- Prove sua lealdade: visualize o que você oferece ou o que eles exigem e {move:swear-an-iron-vow} (formidável ou maior) para ver isso acontecer. Até completar a missão, não obtenha nenhum benefício pela conexão. Se você recusar ou falhar, a conexão será desfeita permanentemente."
+      },
+      "crossRefs": [
+        "develop-your-relationship",
+        "pay-the-price",
+        "swear-an-iron-vow"
+      ],
+      "sourcePage": 13
+    },
+    {
+      "id": "forge-a-bond",
+      "game": "starforged",
+      "categoryId": "connection-moves",
+      "title": "Crie um vínculo",
+      "tag": "Movimento de progresso",
+      "trigger": "**Quando seu relacionamento com uma conexão estiver pronto para evoluir**, jogue os dados do desafio e compare com seu progresso.",
+      "outcomes": {
+        "strongHit": "agora você compartilha um vínculo. Marque uma recompensa em seu legado de títulos de acordo com a classificação da conexão: problemático=1 tick; perigoso=2 carrapatos; formidável=1 caixa; extremo=2 caixas; épico=3 caixas. Quaisquer aliados que compartilhem esta conexão também marcam a recompensa. Então, escolha um.\n- Reforce a influência deles: quando eles ajudarem você em um movimento intimamente associado à função deles, adicione +2 em vez de +1.\n- Expandir a sua influência: Dê-lhes um segundo papel. Quando eles o ajudarem em um movimento intimamente associado a qualquer função, adicione +1 e receba +1 de impulso em um acerto.",
+        "weakHit": "como acima, mas eles pedem algo mais de você primeiro. Para obter o vínculo e a recompensa herdada, visualize a natureza da solicitação e faça-a (ou {move:swear-an-iron-vow} para que seja realizada).",
+        "miss": "eles revelam uma motivação ou histórico que o coloca em conflito. Se você se comprometer novamente com esse relacionamento, jogue ambos os dados de desafio, escolha o valor mais baixo e limpe esse número de caixas de progresso. Em seguida, aumente a classificação da conexão em um (se ainda não for épico)."
+      },
+      "crossRefs": [
+        "swear-an-iron-vow"
+      ],
+      "sourcePage": 13
+    },
+    {
+      "id": "undertake-an-expedition",
+      "game": "starforged",
+      "categoryId": "exploration-moves",
+      "title": "Empreender uma expedição",
+      "trigger": "**Quando você abrir uma rota em um espaço perigoso, viajar por terreno perigoso ou explorar um local misterioso**, dê um nome e uma classificação à expedição.\n\nEntão, para cada segmento da expedição, imagine sua abordagem. Se você…",
+      "rollOptions": [
+        "Mova-se em velocidade: **Rolar +borda**",
+        "Mantenha-se sob o radar: **Rolar +sombra**",
+        "Fique atento: **Role +raciocínio**"
+      ],
+      "outcomes": {
+        "strongHit": "você alcança um ponto de referência. Visualize a localização e marque o progresso de acordo com a classificação da expedição.",
+        "weakHit": "como acima, mas esse progresso custa caro. Escolha um.\n- Custos de sofrimento no caminho: Faça um movimento de sofrimento (-2) ou dois movimentos de sofrimento (-1).\n- Enfrente um perigo no waypoint: visualize o que você encontra.",
+        "miss": "você é surpreendido por uma crise ou chega a um ponto de referência para enfrentar uma dificuldade ou ameaça imediata. Não marque o progresso e {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "pay-the-price"
+      ],
+      "sourcePage": 14
+    },
+    {
+      "id": "explore-a-waypoint",
+      "game": "starforged",
+      "categoryId": "exploration-moves",
+      "title": "Explorar um ponto de referência",
+      "trigger": "**Quando você desviar de uma expedição para examinar um local notável**, teste +raciocínio.",
+      "outcomes": {
+        "strongHit": "escolha um. Se você acertar uma partida com força, você pode {move:make-a-discovery}.\n- Encontre uma oportunidade: visualize uma visão, situação, recurso ou encontro favorável. Então, receba +2 de impulso.\n- Ganhe progresso: marque o progresso da sua expedição, de acordo com sua classificação.",
+        "weakHit": "você descobre algo interessante, mas está associado a um perigo ou revela um aspecto ameaçador deste lugar. Visualize o que você encontra. Então, receba +1 de impulso.",
+        "miss": "você encontra uma dificuldade ou ameaça imediata e deve {move:pay-the-price}. Se errar uma partida, você pode {move:confront-chaos}."
+      },
+      "crossRefs": [
+        "make-a-discovery",
+        "pay-the-price",
+        "confront-chaos"
+      ],
+      "sourcePage": 14
+    },
+    {
+      "id": "finish-an-expedition",
+      "game": "starforged",
+      "categoryId": "exploration-moves",
+      "title": "Terminar uma expedição",
+      "tag": "Movimento de progresso",
+      "trigger": "**Quando sua expedição chegar ao fim**, jogue os dados do desafio e compare com seu progresso.",
+      "outcomes": {
+        "strongHit": "você chega ao seu destino ou completa sua pesquisa. Marque uma recompensa no seu histórico de descobertas por classificação da expedição: problemático=1 tick; perigoso=2 carrapatos; formidável=1 caixa; extremo=2 caixas; épico=3 caixas. Quaisquer aliados que compartilharam esta expedição também marcam a recompensa.",
+        "weakHit": "como acima, mas você enfrenta uma complicação imprevista no final da sua expedição. Reduza a recompensa do legado em uma classificação (nenhuma para uma expedição problemática) e visualize o que você encontrará.",
+        "miss": "seu destino está perdido para você ou você passa a compreender a verdadeira natureza ou custo da expedição. Visualize o que acontece e escolha um.\n- Abandonar a expedição: Visualize o custo deste revés e {move:pay-the-price}.\n- Retorne à expedição: jogue os dois dados de desafio, escolha o valor mais baixo e limpe esse número de caixas de progresso. Em seguida, aumente a classificação da expedição em um (se já não for épico)."
+      },
+      "crossRefs": [
+        "pay-the-price"
+      ],
+      "sourcePage": 14
+    },
+    {
+      "id": "set-a-course",
+      "game": "starforged",
+      "categoryId": "exploration-moves",
+      "title": "Defina um curso",
+      "trigger": "**Quando você seguir uma rota conhecida através de um espaço perigoso, através de terreno perigoso ou dentro de um local misterioso**, role +suprimentos.",
+      "outcomes": {
+        "strongHit": "você chega ao seu destino e a situação lá o favorece. Receba impulso +1.",
+        "weakHit": "você chega, mas enfrenta um custo ou complicação. Escolha um.\n- Custos de sofrimento no caminho: Faça um movimento de sofrimento (-2) ou dois movimentos de sofrimento (-1).\n- Enfrente uma complicação no destino: visualize o que você encontrará.",
+        "miss": "você é assaltado por uma ameaça significativa e deve {move:pay-the-price}. Se você superar esse obstáculo, poderá avançar com segurança até o seu destino."
+      },
+      "crossRefs": [
+        "pay-the-price"
+      ],
+      "sourcePage": 14
+    },
+    {
+      "id": "make-a-discovery",
+      "game": "starforged",
+      "categoryId": "exploration-moves",
+      "title": "Faça uma descoberta",
+      "trigger": "**Quando a exploração de um ponto de referência revelar algo maravilhoso**, role na tabela abaixo ou escolha um. Depois, visualize a natureza da descoberta e como ela será revelada. Quando você experimenta ou se envolve com a descoberta pela primeira vez, você e seus aliados podem marcar dois tiques em seu histórico de descobertas.",
+      "outcomes": {},
+      "tables": [
+        {
+          "headers": [
+            "Rolar",
+            "Descoberta"
+          ],
+          "rows": [
+            [
+              "1–4",
+              "Tecnologia avançada esperando para ser aproveitada ou recuperada"
+            ],
+            [
+              "5–9",
+              "Arquivo ou mensagem antiga"
+            ],
+            [
+              "10–12",
+              "A consciência artificial evoluiu para um estado superior"
+            ],
+            [
+              "13–17",
+              "Pistas para um recurso crucial ou domínio desconhecido"
+            ],
+            [
+              "18–20",
+              "Enviado de outro tempo ou realidade"
+            ],
+            [
+              "21–24",
+              "Fenômeno natural extraordinário"
+            ],
+            [
+              "25–27",
+              "Primeiro contato com vida inteligente"
+            ],
+            [
+              "28–32",
+              "Portal para outro tempo ou realidade alternativa"
+            ],
+            [
+              "33–36",
+              "Chave para desbloquear um idioma ou método de comunicação"
+            ],
+            [
+              "37–41",
+              "Pessoas perdidas ou escondidas"
+            ],
+            [
+              "42–45",
+              "Formas de vida majestosas ou incomuns"
+            ],
+            [
+              "46–50",
+              "Maravilha da engenharia antiga"
+            ],
+            [
+              "51–53",
+              "Artefato ou espécime milagrosamente preservado"
+            ],
+            [
+              "54–58",
+              "Arquitetura monumental ou arte de uma civilização antiga"
+            ],
+            [
+              "59–63",
+              "Dispositivo misterioso ou artefato de valor potencial"
+            ],
+            [
+              "64–68",
+              "Nova compreensão de um mistério duradouro"
+            ],
+            [
+              "69–72",
+              "Caminho ou meio de viagem para um local distante"
+            ],
+            [
+              "73–77",
+              "Pessoa ou forma de vida com habilidades fenomenais"
+            ],
+            [
+              "78–82",
+              "Lugar de uma beleza inspiradora"
+            ],
+            [
+              "83–87",
+              "Recurso raro e valioso"
+            ],
+            [
+              "88–92",
+              "Localização protegida ou idílica"
+            ],
+            [
+              "93–96",
+              "Visões ou profecias do futuro"
+            ],
+            [
+              "97–100",
+              "Role duas vezes"
+            ]
+          ]
+        }
+      ],
+      "crossRefs": [],
+      "sourcePage": 15
+    },
+    {
+      "id": "confront-chaos",
+      "game": "starforged",
+      "categoryId": "exploration-moves",
+      "title": "Enfrente o Caos",
+      "trigger": "**Quando a exploração de um ponto de referência revela algo terrível**, decida o número de aspectos: um, dois ou três. Role esse número de vezes ou escolha esse número de aspectos na tabela abaixo. Então, imagine como o encontro começa.\n\nPara cada resultado, quando você confrontar esse aspecto pela primeira vez dentro do escopo do encontro, você e seus aliados podem marcar uma marca em seu histórico de legado de descobertas.",
+      "outcomes": {},
+      "tables": [
+        {
+          "headers": [
+            "Rolar",
+            "Aspecto"
+          ],
+          "rows": [
+            [
+              "1–4",
+              "Arma nefasta de destruição em massa"
+            ],
+            [
+              "5–9",
+              "Efeitos ambientais cataclísmicos"
+            ],
+            [
+              "10–12",
+              "Morto dado vida não natural"
+            ],
+            [
+              "13–17",
+              "Forma de vida destrutiva de proporções monstruosas"
+            ],
+            [
+              "18–20",
+              "Alucinações ou ilusões terríveis"
+            ],
+            [
+              "21–24",
+              "Arautos de uma invasão iminente"
+            ],
+            [
+              "25–27",
+              "Horda de fome ou fúria insaciável"
+            ],
+            [
+              "28–32",
+              "Formas de vida horríveis de propósito inescrutável"
+            ],
+            [
+              "33–36",
+              "Impostores em forma humana"
+            ],
+            [
+              "37–41",
+              "Máquinas tornadas inimigas"
+            ],
+            [
+              "42–45",
+              "Contágio maligno ou parasita"
+            ],
+            [
+              "46–50",
+              "Mensageiro ou sinal com um aviso terrível"
+            ],
+            [
+              "51–53",
+              "Passagem para uma realidade alternativa sombria"
+            ],
+            [
+              "54–58",
+              "Pessoas corrompidas pelo caos"
+            ],
+            [
+              "59–63",
+              "Distorções poderosas de tempo ou espaço"
+            ],
+            [
+              "64–68",
+              "Sinais de uma catástrofe iminente"
+            ],
+            [
+              "69–72",
+              "Local de um desaparecimento desconcertante"
+            ],
+            [
+              "73–77",
+              "Local de um desastre horrível"
+            ],
+            [
+              "78–82",
+              "Local de terrível carnificina"
+            ],
+            [
+              "83–87",
+              "Tecnologia anulada ou tornada instável"
+            ],
+            [
+              "88–92",
+              "Tecnologia distorcida para propósitos obscuros"
+            ],
+            [
+              "93–96",
+              "Cofre da terrível tecnologia ou poder"
+            ],
+            [
+              "97–100",
+              "Adoradores de grandes e malévolos poderes"
+            ]
+          ]
+        }
+      ],
+      "crossRefs": [],
+      "sourcePage": 15
+    },
+    {
+      "id": "enter-the-fray",
+      "game": "starforged",
+      "categoryId": "combat-moves",
+      "title": "Entre na briga",
+      "trigger": "**Quando você inicia um combate ou é forçado a uma luta**, imagine seu objetivo e atribua uma classificação a ele. Se o combate incluir desafios ou fases distintas, defina um objetivo com uma classificação para cada um.\n\nEm seguida, role para ver se você está no controle. Se você estiver…",
+      "rollOptions": [
+        "Em movimento: **Rolar +borda**",
+        "Enfrentando seu inimigo: **Role +coração**",
+        "No meio disso, de perto: **Rolo +ferro**",
+        "Preparando-se para agir contra um inimigo inconsciente: **Role +sombra**",
+        "Apanhado em uma armadilha ou avaliando a situação: **Role +raciocínio**"
+      ],
+      "outcomes": {
+        "strongHit": "pegue os dois.\n- Receba +2 impulso\n- Você está no controle",
+        "weakHit": "escolha um.\n- Receba +2 impulso\n- Você está no controle",
+        "miss": "a luta começa com você em uma situação ruim."
+      },
+      "sidebars": [
+        {
+          "body": "Em uma luta, seu personagem está em uma de duas posições: no controle ou em uma situação ruim. Se você estiver no controle, poderá fazer movimentos proativos como {move:gain-ground} e {move:strike}. Quando estiver em uma situação ruim, você deve fazer movimentos reativos como {move:react-under-fire} e {move:clash}. O resultado de um movimento de combate descreverá sua posição atual.\n\nQuando você faz um movimento que não define sua posição (como um movimento sofrido), siga estas diretrizes: **Em um golpe forte**, você está no controle. **Em um acerto ou erro fraco**, você está em uma situação ruim."
+        }
+      ],
+      "crossRefs": [
+        "gain-ground",
+        "strike",
+        "react-under-fire",
+        "clash"
+      ],
+      "sourcePage": 16
+    },
+    {
+      "id": "gain-ground",
+      "game": "starforged",
+      "categoryId": "combat-moves",
+      "title": "Ganhe terreno",
+      "trigger": "**Quando você estiver no controle e agir em uma luta para reforçar sua posição ou avançar em direção a um objetivo**, visualize sua abordagem e role. Se você estiver…",
+      "rollOptions": [
+        "Em perseguição, fuga ou manobra: **Rolar +borda**",
+        "Avançando com ousadia para a ação, ajudando os outros, negociando ou comandando: **Role +coração**",
+        "Ganhar vantagem com força, avançar ou fazer uma ameaça: **Role +ferro**",
+        "Esconder-se, preparar uma emboscada ou desviar a direção: **Rolar +sombra**",
+        "Coordenar um plano, estudar uma situação ou obter vantagem de forma inteligente: **Role +inteligência**"
+      ],
+      "outcomes": {
+        "hit": "você permanece no controle.\n- Marcar o progresso\n- Receba +2 impulso\n- Adicione +1 em seu próximo movimento (não é um movimento de progresso)",
+        "strongHit": "escolha dois.\n- Marcar o progresso\n- Receba +2 impulso\n- Adicione +1 em seu próximo movimento (não é um movimento de progresso)",
+        "weakHit": "escolha um.\n- Marcar o progresso\n- Receba +2 impulso\n- Adicione +1 em seu próximo movimento (não é um movimento de progresso)",
+        "miss": "seu inimigo ganha vantagem, a luta se move para um novo local ou você encontra um novo perigo. Você está em uma situação ruim e deve {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "pay-the-price"
+      ],
+      "sourcePage": 16
+    },
+    {
+      "id": "react-under-fire",
+      "game": "starforged",
+      "categoryId": "combat-moves",
+      "title": "Reaja sob fogo",
+      "trigger": "**Quando você estiver em uma situação ruim e agir em uma luta para evitar o perigo ou superar um obstáculo**, visualize sua abordagem e role. Se você estiver…",
+      "rollOptions": [
+        "Ao perseguir, fugir, esquivar-se, voltar à posição ou se proteger: **Rolar +borda**",
+        "Permanecendo firme contra o medo ou a tentação: **Role +coração**",
+        "Bloquear ou desviar com força, ou receber o golpe: **Rolar +ferro**",
+        "Esconder-se ou criar uma distração: **Rolar +sombra**",
+        "Mudar o plano, encontrar uma saída ou contornar um obstáculo de forma inteligente: **Role +raciocínio**"
+      ],
+      "outcomes": {
+        "strongHit": "você tem sucesso e está no controle. Receba impulso +1.",
+        "weakHit": "você evita o pior do perigo ou supera o obstáculo, mas não sem um custo. Faça um movimento de sofrimento (-1). Você fica em uma situação ruim.",
+        "miss": "a situação piora. Você fica em uma situação ruim e deve {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "pay-the-price"
+      ],
+      "sourcePage": 16
+    },
+    {
+      "id": "strike",
+      "game": "starforged",
+      "categoryId": "combat-moves",
+      "title": "Batida",
+      "trigger": "**Quando você estiver no controle e atacar um inimigo de perto**, role +ferro; quando você atacar à distância, role +Avanço.",
+      "outcomes": {
+        "strongHit": "marque o progresso duas vezes. Você domina seu inimigo e permanece no controle.",
+        "weakHit": "marca o progresso duas vezes, mas você se expõe ao perigo. Você está em uma situação ruim.",
+        "miss": "a luta se volta contra você. Você está em uma situação ruim e deve {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "pay-the-price"
+      ],
+      "sourcePage": 16
+    },
+    {
+      "id": "clash",
+      "game": "starforged",
+      "categoryId": "combat-moves",
+      "title": "Choque",
+      "trigger": "**Quando você estiver em uma situação ruim e lutar contra um inimigo de perto**, role +ferro; quando você trocar tiros à distância, role +borda.",
+      "outcomes": {
+        "strongHit": "marque o progresso duas vezes. Você domina seu inimigo e está no controle.",
+        "weakHit": "marca o progresso, mas você recebe um contra-ataque ou revés. Você fica em uma situação ruim e deve {move:pay-the-price}.",
+        "miss": "seu inimigo domina essa troca. Você fica em uma situação ruim e deve {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "pay-the-price"
+      ],
+      "sourcePage": 16
+    },
+    {
+      "id": "take-decisive-action",
+      "game": "starforged",
+      "categoryId": "combat-moves",
+      "title": "Tome medidas decisivas",
+      "tag": "Movimento de progresso",
+      "trigger": "**Quando você alcança um objetivo em uma luta**, visualize como você toma uma ação decisiva. Em seguida, jogue os dados do desafio e compare com o seu progresso.\n\nSe você estiver no controle, verifique o resultado normalmente. Se você estiver em uma situação ruim, conte um acerto forte sem correspondência como um acerto fraco e um acerto fraco como um erro.",
+      "outcomes": {
+        "strongHit": "você prevalece. Receba impulso +1. Se restar algum objetivo e a luta continuar, você está no controle.",
+        "weakHit": "você atinge seu objetivo, mas não sem custo. Role na tabela abaixo ou escolha uma. Se a luta continuar, você está em uma situação ruim.",
+        "miss": "você é derrotado ou seu objetivo está perdido. {move:pay-the-price}."
+      },
+      "tables": [
+        {
+          "headers": [
+            "Rolar",
+            "Custo"
+          ],
+          "rows": [
+            [
+              "1–40",
+              "É pior do que você pensava: faça um movimento de sofrimento (-2)"
+            ],
+            [
+              "41–52",
+              "A vitória dura pouco: um novo perigo ou inimigo aparece"
+            ],
+            [
+              "53–64",
+              "Você enfrenta danos colaterais: algo está perdido, danificado ou quebrado"
+            ],
+            [
+              "65–76",
+              "Outros pagam o preço: outra pessoa sofre o custo"
+            ],
+            [
+              "77–88",
+              "Outros não esquecerão: você está marcado para a vingança"
+            ],
+            [
+              "89–100",
+              "Fica complicado: a verdadeira natureza de um inimigo ou objetivo é revelada"
+            ]
+          ]
+        }
+      ],
+      "crossRefs": [
+        "pay-the-price"
+      ],
+      "sourcePage": 17
+    },
+    {
+      "id": "face-defeat",
+      "game": "starforged",
+      "categoryId": "combat-moves",
+      "title": "Derrota facial",
+      "trigger": "**Quando você abandona ou é privado de um objetivo**, visualize a consequência dessa falha, conclua o objetivo e {move:pay-the-price}. Se a luta continuar, você pode criar um novo objetivo e atribuir-lhe uma classificação que represente a mudança da situação. Se algum objetivo permanecer, a luta continua e você estará em uma situação ruim.",
+      "outcomes": {},
+      "crossRefs": [
+        "pay-the-price"
+      ],
+      "sourcePage": 17
+    },
+    {
+      "id": "battle",
+      "game": "starforged",
+      "categoryId": "combat-moves",
+      "title": "Batalha",
+      "trigger": "**Quando você trava uma batalha e ela acontece num borrão**, imagine seu objetivo e role. Se você principalmente…",
+      "rollOptions": [
+        "Lute à distância ou use sua velocidade e o ambiente a seu favor: **Rolar +Avanço**.",
+        "Lute dependendo de sua coragem, liderança ou companheiros: **Role +coração**.",
+        "Lute de perto para dominar seu inimigo: **Role +ferro**.",
+        "Lute usando truques para confundir seu inimigo: **Role +sombra**.",
+        "Lute usando táticas cuidadosas para ser mais esperto que seu inimigo: **Role +raciocínio**."
+      ],
+      "outcomes": {
+        "strongHit": "você alcança seu objetivo incondicionalmente. Você e quaisquer aliados que se juntaram à batalha podem receber +2 de impulso.",
+        "weakHit": "você atinge seu objetivo, mas não sem custo. {move:pay-the-price}.",
+        "miss": "você é derrotado ou o objetivo está perdido. {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "pay-the-price"
+      ],
+      "sourcePage": 17
+    },
+    {
+      "id": "lose-momentum",
+      "game": "starforged",
+      "categoryId": "suffer-moves",
+      "title": "Perder o impulso",
+      "trigger": "**Quando você está atrasado ou em desvantagem**, sofre -1 de impulso para um revés menor, -2 para um revés sério ou -3 para um revés maior.\n\nQuando seu momentum estiver no mínimo (-6) e você precisar sofrer -momentum, escolha um.",
+      "bullets": [
+        "Visualize como o preço é pago e aplique o custo a um movimento de sofrimento diferente.",
+        "Visualize como isso prejudica seu progresso em uma promessa, expedição, conexão ou combate. Em seguida, limpe 1 unidade de progresso nessa trilha de acordo com sua classificação: problemático=3 caixas; perigoso=2 caixas; formidável=1 caixa; extremo=2 ticks; épico=1 tick."
+      ],
+      "outcomes": {},
+      "sidebars": [
+        {
+          "body": "Quando você suporta o peso de uma ação fracassada ou faz uma concessão, os movimentos de sofrimento ajudam a resolver o custo. Essas mudanças normalmente são feitas quando você precisa {move:pay-the-price} e enfrenta uma dificuldade que afeta diretamente seu bem-estar e prontidão, ou quando solicitado por uma mudança ou ativo.\n\nSe você marcar um impacto como resultado de um movimento sofrido, reduza seu impulso máximo e reinicie o impulso.\n\n**Momentum máximo** — Seu impulso máximo é reduzido em 1 para cada impacto marcado. Por exemplo, um impacto reduzirá seu impulso máximo para +9. Três impactos irão reduzi-lo para +7.\n\n**Redefinição de impulso** — Se você tiver um impacto marcado, sua redefinição de impulso será +1 (em vez de +2). Se você tiver mais de um impacto marcado, sua redefinição de impulso será 0 (em vez de +2)."
+        }
+      ],
+      "crossRefs": [
+        "pay-the-price"
+      ],
+      "sourcePage": 18
+    },
+    {
+      "id": "endure-harm",
+      "game": "starforged",
+      "categoryId": "suffer-moves",
+      "title": "Suportar danos",
+      "trigger": "**Quando você enfrenta ferimentos físicos, fadiga ou doença**, sofre -1 de saúde por danos menores, -2 por danos graves ou -3 por danos maiores. Se sua saúde for 0, {move:lose-momentum} igual a qualquer dano restante.\n\nEntão, se sua saúde for 0 ou você optar por resistir ao dano, role +saúde ou +ferro, o que for maior.",
+      "outcomes": {
+        "strongHit": "escolha um.\n- Sacuda isso: Se você não estiver ferido, receba +1 de saúde\n- Abrace a dor: receba +1 de impulso",
+        "weakHit": "se você não estiver ferido, você pode {move:lose-momentum} (-1) em troca de +1 de saúde. Caso contrário, pressione.",
+        "miss": "é pior do que você pensava. Sofra -1 de saúde adicional ou {move:lose-momentum} (-2). Se sua saúde for 0, você também deve marcar ferido ou ferido permanentemente, ou rolar na tabela abaixo."
+      },
+      "tables": [
+        {
+          "headers": [
+            "Rolar",
+            "Resultado"
+          ],
+          "rows": [
+            [
+              "1–10",
+              "Você sofre danos mortais. {move:face-death}."
+            ],
+            [
+              "11–20",
+              "Você está morrendo. Dentro de uma ou duas horas, você deve {move:heal} e aumentar sua saúde acima de 0, ou {move:face-death}."
+            ],
+            [
+              "21–35",
+              "Você está inconsciente e fora de ação. Se for deixado sozinho, você volta aos seus sentidos em uma ou duas horas. Se você estiver vulnerável a danos contínuos, {move:face-death}."
+            ],
+            [
+              "36–50",
+              "Você está cambaleando. Se você praticar alguma atividade vigorosa antes de respirar, role novamente nesta mesa (antes de resolver o outro movimento)."
+            ],
+            [
+              "51–100",
+              "Você ainda está de pé."
+            ]
+          ]
+        }
+      ],
+      "crossRefs": [
+        "lose-momentum",
+        "face-death",
+        "heal"
+      ],
+      "sourcePage": 18
+    },
+    {
+      "id": "endure-stress",
+      "game": "starforged",
+      "categoryId": "suffer-moves",
+      "title": "Suportar o estresse",
+      "trigger": "**Quando você enfrentar tensão mental, choque ou desespero**, sofra -1 de espírito para estresse menor, -2 para estresse sério ou -3 para estresse maior. Se o seu espírito for 0, {move:lose-momentum} igual a qualquer estresse restante.\n\nEntão, se seu espírito for 0 ou você optar por resistir ao estresse, role +espírito ou +coração, o que for maior.",
+      "outcomes": {
+        "strongHit": "escolha um.\n- Sacuda: Se você não estiver abalado, receba +1 de espírito\n- Abrace a escuridão: receba +1 de impulso",
+        "weakHit": "se você não estiver abalado, você pode {move:lose-momentum} (-1) em troca de +1 espírito. Caso contrário, pressione.",
+        "miss": "é pior do que você pensava. Sofra -1 de espírito adicional ou {move:lose-momentum} (-2). Se o seu espírito for 0, você também deve marcar abalado ou traumatizado, ou rolar na tabela abaixo."
+      },
+      "tables": [
+        {
+          "headers": [
+            "Rolar",
+            "Resultado"
+          ],
+          "rows": [
+            [
+              "1–10",
+              "Você está sobrecarregado. {move:face-desolation}."
+            ],
+            [
+              "11–25",
+              "Você desiste. {move:forsake-your-vow}."
+            ],
+            [
+              "26–50",
+              "Você cede ao medo ou à compulsão e age contra seus melhores instintos."
+            ],
+            [
+              "51–100",
+              "Você persevera."
+            ]
+          ]
+        }
+      ],
+      "crossRefs": [
+        "lose-momentum",
+        "face-desolation",
+        "forsake-your-vow"
+      ],
+      "sourcePage": 18
+    },
+    {
+      "id": "companion-takes-a-hit",
+      "game": "starforged",
+      "categoryId": "suffer-moves",
+      "title": "Companheiro leva um golpe",
+      "trigger": "**Quando seu companheiro enfrenta dificuldades físicas**, ele sofre -1 de saúde por danos menores, -2 por danos graves ou -3 por danos maiores. Se a saúde do seu companheiro for 0, {move:lose-momentum} igual a qualquer dano restante.\n\nEntão, se a saúde dele for 0 ou você decidir testar a resiliência dele, role +a saúde do seu companheiro.",
+      "outcomes": {
+        "strongHit": "seu companheiro se reúne. Dê a eles +1 de saúde.",
+        "weakHit": "se a saúde do seu companheiro não for 0, você pode {move:lose-momentum} (-1) e dar a ele +1 de saúde. Caso contrário, eles continuam.",
+        "miss": "é pior do que você pensava. Eles sofrem -1 de saúde adicional ou você {move:lose-momentum} (-2). Se a saúde do seu companheiro for 0, ele ficará fora de ação até receber ajuda. Se a saúde deles for 0 e você errar uma partida neste movimento, eles estão mortos ou destruídos; descartar o ativo."
+      },
+      "crossRefs": [
+        "lose-momentum"
+      ],
+      "sourcePage": 18
+    },
+    {
+      "id": "sacrifice-resources",
+      "game": "starforged",
+      "categoryId": "suffer-moves",
+      "title": "Sacrifício de recursos",
+      "trigger": "**Quando você perde ou consome recursos**, sofre -1 de suprimento para uma perda menor, -2 para uma perda grave ou -3 para uma perda grande.\n\nSe o seu suprimento estiver esgotado (reduzido a 0), marque despreparado. Quando você sofre uma perda de recursos enquanto está despreparado, imagine como isso lhe causa dificuldades e aplique o custo a um movimento de sofrimento diferente.",
+      "outcomes": {},
+      "crossRefs": [],
+      "sourcePage": 19
+    },
+    {
+      "id": "withstand-damage",
+      "game": "starforged",
+      "categoryId": "suffer-moves",
+      "title": "Suportar danos",
+      "trigger": "**Quando seu veículo enfrenta uma situação ou ambiente prejudicial**, sofre -1 de integridade para danos menores, -2 para danos graves ou -3 para danos maiores. Se sua integridade for 0, {move:lose-momentum} igual a qualquer dano restante.\n\nEntão, se sua integridade for 0 ou você optar por resistir ao dano, role +integridade.",
+      "outcomes": {
+        "strongHit": "escolha um.\n- Bypass: Se o seu veículo não estiver danificado, receba +1 de integridade\n- Aguente firme: receba +1 de impulso",
+        "weakHit": "se o seu veículo não estiver danificado, você pode {move:lose-momentum} (-1) em troca de +1 de integridade. Caso contrário, pressione.",
+        "miss": "é pior do que você pensava. Sofra uma integridade adicional de -1 ou {move:lose-momentum} (-2). Se sua integridade for 0, sofrerá também um custo de acordo com o tipo de veículo.\n- Veículo de comando: Marque o veículo como danificado ou amaldiçoado, marque um módulo como quebrado, destrua um módulo quebrado descartando-o ou role na tabela abaixo. Se o veículo de comando for destruído, {move:overcome-destruction}.\n- Veículo de apoio: Marque o veículo como danificado ou role na tabela abaixo. Se o veículo for destruído, descarte o ativo.\n- Veículo incidental: role na tabela abaixo."
+      },
+      "tables": [
+        {
+          "headers": [
+            "Rolar",
+            "Resultado"
+          ],
+          "rows": [
+            [
+              "1–10",
+              "Destruição catastrófica imediata. Todos a bordo devem {move:endure-harm} ou {move:face-death}, conforme apropriado."
+            ],
+            [
+              "11–25",
+              "A destruição é iminente e inevitável. Se você não tiver os meios ou a intenção de esclarecer, {move:endure-harm} ou {move:face-death}, conforme apropriado."
+            ],
+            [
+              "26–40",
+              "A destruição é iminente, mas pode ser evitada se você {move:repair} seu veículo e aumentar sua integridade acima de 0. Se você falhar, consulte 11–25."
+            ],
+            [
+              "41–55",
+              "Você não pode {move:repair} este veículo até {move:resupply} e obter uma peça de reposição crucial. Se você rolar esse resultado novamente antes disso, veja 11–25."
+            ],
+            [
+              "56–70",
+              "O veículo está avariado ou fora de seu controle. Para colocá-lo de volta em ação, você deve {move:repair} e aumentar sua integridade acima de 0."
+            ],
+            [
+              "71–85",
+              "É uma jornada difícil. Todos a bordo devem fazer o movimento {move:endure-harm}, {move:endure-stress} ou {move:companion-takes-a-hit}, sofrendo um custo sério (-2)."
+            ],
+            [
+              "86–95",
+              "Você perdeu combustível, energia ou carga. {move:sacrifice-resources} (-2)."
+            ],
+            [
+              "96–100",
+              "Contra todas as probabilidades, o veículo se mantém unido."
+            ]
+          ]
+        }
+      ],
+      "crossRefs": [
+        "lose-momentum",
+        "overcome-destruction",
+        "endure-harm",
+        "face-death",
+        "repair",
+        "resupply",
+        "endure-stress",
+        "companion-takes-a-hit",
+        "sacrifice-resources"
+      ],
+      "sourcePage": 19
+    },
+    {
+      "id": "sojourn",
+      "game": "starforged",
+      "categoryId": "recover-moves",
+      "title": "Estadia",
+      "trigger": "**Quando você passar algum tempo se recuperando dentro de uma comunidade**, role +coração.",
+      "outcomes": {
+        "strongHit": "este é um refúgio seguro. Você e seus aliados podem escolher dois movimentos de recuperação: {move:heal}, {move:hearten}, {move:repair} ou {move:resupply}. Em vez de rolar, assuma um golpe forte automático para cada um. Um movimento individual pode ser realizado mais de uma vez.",
+        "weakHit": "como acima, mas o tempo é curto ou os recursos são escassos. Você e seus aliados fazem um movimento de recuperação cada um em vez de dois, com não mais que três movimentos no total entre o grupo.",
+        "miss": "escolha um.\n- A comunidade precisa da sua ajuda ou faz uma exigência dispendiosa em troca de um porto seguro. Visualize o que eles pedem de você. Se você fizer isso, ou {move:swear-an-iron-vow} para ver isso feito, resolva este movimento como um golpe forte.\n- Você não encontra alívio e a situação piora. {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "heal",
+        "hearten",
+        "repair",
+        "resupply",
+        "swear-an-iron-vow",
+        "pay-the-price"
+      ],
+      "sourcePage": 20
+    },
+    {
+      "id": "heal",
+      "game": "starforged",
+      "categoryId": "recover-moves",
+      "title": "Curar",
+      "trigger": "**Quando você receber atendimento médico ou fornecer tratamento**, visualize a situação e role. Se você…",
+      "rollOptions": [
+        "Receber tratamento de alguém (não de um aliado): **Rolar +ferro**",
+        "Cuide de seus próprios ferimentos: **Role +ferro ou +raciocínio**, o que for menor",
+        "Obtenha tratamento para um acompanhante: **Role +coração**",
+        "Cuide: **Role +inteligência**"
+      ],
+      "outcomes": {
+        "strongHit": "o cuidado é útil. Se você (ou o aliado sob seus cuidados) estiver ferido, limpe o impacto e receba ou conceda +2 de saúde. Caso contrário, receba ou dê +3 de saúde.",
+        "weakHit": "como acima, mas a recuperação custa tempo ou recursos extras. Escolha um: {move:lose-momentum} (-2) ou {move:sacrifice-resources} (-2).",
+        "miss": "a ajuda é ineficaz e a situação piora. {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "lose-momentum",
+        "sacrifice-resources",
+        "pay-the-price"
+      ],
+      "sourcePage": 20
+    },
+    {
+      "id": "hearten",
+      "game": "starforged",
+      "categoryId": "recover-moves",
+      "title": "Animar",
+      "trigger": "**Quando você socializa, compartilha intimidade ou encontra um momento de paz**, role +coração.",
+      "outcomes": {
+        "strongHit": "você encontra companhia ou conforto e seu espírito é fortalecido. Se você estiver abalado, limpe o impacto e receba +1 de espírito. Caso contrário, receba +2 de espírito. Se você fizer esse movimento enquanto {move:sojourn}, receba +1 a mais.",
+        "weakHit": "como acima, mas esta indulgência é passageira. Visualize uma interrupção, complicação ou conflito interno. Então, {move:lose-momentum} (-1).",
+        "miss": "você não se consola e a situação piora. {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "sojourn",
+        "lose-momentum",
+        "pay-the-price"
+      ],
+      "sourcePage": 20
+    },
+    {
+      "id": "resupply",
+      "game": "starforged",
+      "categoryId": "recover-moves",
+      "title": "Reabastecimento",
+      "trigger": "**Quando você tentar reforçar sua prontidão**, visualize a oportunidade e sua abordagem. Se você…",
+      "rollOptions": [
+        "Negocie ou faça um apelo: **Role +coração**",
+        "Ameaçar ou apreender: **Rolar +ferro**",
+        "Roubar ou fraudar: **Rolar +sombra**",
+        "Procurar ou criar: **Role +raciocínio**"
+      ],
+      "outcomes": {
+        "strongHit": "escolha um.\n- Se você não estiver preparado, limpe o impacto e receba +1 suprimento. Caso contrário, receba +2 de suprimento.\n- Se você precisar de um item ou recurso específico que possa ser obtido de maneira razoável, você o adquire. Receba impulso +1.",
+        "weakHit": "como acima, mas primeiro você deve lidar com um custo, complicação ou demanda. Visualize a natureza desse obstáculo.",
+        "miss": "você encontra um perigo inesperado. {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "pay-the-price"
+      ],
+      "sourcePage": 20
+    },
+    {
+      "id": "repair",
+      "game": "starforged",
+      "categoryId": "recover-moves",
+      "title": "Reparar",
+      "trigger": "**Ao fazer reparos em seus veículos, módulos, companheiros mecânicos ou outros dispositivos**, visualize a situação e role. Se você…",
+      "rollOptions": [
+        "Faça seus próprios reparos ou oriente um companheiro para fazer os reparos: **Role +raciocínio**",
+        "Obtenha reparos de alguém (não de um aliado): **Role +suprimentos**"
+      ],
+      "outcomes": {
+        "hit": "você ganha pontos de reparo conforme apropriado à situação, conforme tabela abaixo. Além disso, você pode {move:sacrifice-resources} e trocar cada -1 de suprimento por 1 ponto de reparo extra (até 3 pontos).\n\nGaste pontos de reparo da seguinte maneira. Os pontos não utilizados são descartados.\n- Limpar o impacto danificado em um veículo: 2 pontos\n- Consertar um módulo quebrado: 2 pontos\n- Receba +1 de integridade em um veículo: 1 ponto\n- Receba +1 de saúde para um companheiro mecânico: 1 ponto\n- Reparar qualquer outro dispositivo: 3 pontos\n- Reparar qualquer outro aparelho, mas com complicação ou mau funcionamento: 2 pontos",
+        "miss": "os reparos não são feitos e a situação piora. {move:pay-the-price}."
+      },
+      "tables": [
+        {
+          "headers": [
+            "Situação",
+            "Golpe Forte",
+            "Golpe Fraco"
+          ],
+          "rows": [
+            [
+              "Em uma instalação",
+              "5 pontos",
+              "3 pontos"
+            ],
+            [
+              "No campo",
+              "3 pontos",
+              "1 ponto"
+            ],
+            [
+              "Sob fogo",
+              "2 pontos",
+              "0 pontos"
+            ]
+          ]
+        }
+      ],
+      "sidebars": [
+        {
+          "body": "Quando você {move:repair} e acerta, você ganha pontos de reparo. Este é um recurso limitado utilizado apenas no âmbito da mudança para priorizar e fazer reparos. A quantidade de pontos de reparo que você ganha varia de acordo com a situação e o resultado da mudança, conforme tabela incluída.\n\n**Em uma instalação** — Acesso a um local bem equipado e adequado para fazer reparos, como um estaleiro ou oficina de reparos.\n\n**No campo** — Sozinho nas profundezas do espaço, em um planeta remoto ou em uma comunidade que carece de equipamentos e infraestrutura.\n\n**Sob fogo** — No meio de uma crise, como em combate, navegando em um ambiente perigoso, sob extrema pressão de tempo ou lidando com falhas mecânicas de vida ou morte."
+        }
+      ],
+      "crossRefs": [
+        "sacrifice-resources",
+        "pay-the-price"
+      ],
+      "sourcePage": 21
+    },
+    {
+      "id": "face-death",
+      "game": "starforged",
+      "categoryId": "threshold-moves",
+      "title": "Enfrentar a Morte",
+      "trigger": "**Quando você se depara com uma situação em que a morte é um resultado imediato e inevitável**, você está morto. Quando você for levado à beira da morte com uma chance de recuperação ou redenção, role +coração.",
+      "outcomes": {
+        "strongHit": "você é lançado de volta ao mundo mortal.",
+        "weakHit": "escolha um.\n- Você morre, mas não antes de fazer um nobre sacrifício. Visualize seus momentos finais.\n- Há mais a ser feito. Visualize o que será revelado ou solicitado a você às portas da morte e {move:swear-an-iron-vow} para completar uma missão extrema. Você retorna ao mundo mortal e deve estar condenado. Ao completar a missão mortal, elimine o impacto.",
+        "miss": "você está morto."
+      },
+      "crossRefs": [
+        "swear-an-iron-vow"
+      ],
+      "sourcePage": 22
+    },
+    {
+      "id": "face-desolation",
+      "game": "starforged",
+      "categoryId": "threshold-moves",
+      "title": "Enfrentar Desolação",
+      "trigger": "**Quando você estiver à beira da desolação**, role +coração.",
+      "outcomes": {
+        "strongHit": "você resiste e segue em frente.",
+        "weakHit": "escolha um.\n- Seu espírito se quebra, mas não antes de você fazer um nobre sacrifício. Visualize seus momentos finais.\n- Você tem a visão de um evento temido acontecendo. Visualize esse futuro sombrio e {move:swear-an-iron-vow} para evitá-lo por meio de uma missão extrema. Você volta aos seus sentidos e deve ficar atormentado. Ao completar a missão vinculada à alma, elimine o impacto.",
+        "miss": "você sucumbe ao desespero ou ao horror e está perdido."
+      },
+      "crossRefs": [
+        "swear-an-iron-vow"
+      ],
+      "sourcePage": 22
+    },
+    {
+      "id": "overcome-destruction",
+      "game": "starforged",
+      "categoryId": "threshold-moves",
+      "title": "Superar a Destruição",
+      "tag": "Movimento de progresso",
+      "trigger": "**Quando seu veículo de comando for destruído ou perdido irrevogavelmente**, você deverá descartar o ativo, junto com quaisquer módulos e veículos de suporte ancorados.\n\nSe você sobreviver, poderá usar suas conexões para substituir parte do que foi perdido. Para saber o custo, jogue os dados do desafio e compare com o progresso no caminho do legado de seus títulos.",
+      "outcomes": {
+        "strongHit": "você pode pedir um favor. Isso vem sem condições.",
+        "weakHit": "você deve a alguém. Você deve marcar endividado e {move:swear-an-iron-vow} para completar uma missão extrema a serviço deles. Ao completar a missão obrigatória, elimine o impacto.",
+        "miss": "como acontece com o resultado de acerto fraco, mas esta missão é contra a sua natureza, força você a {move:forsake-your-vow} em outra missão ou está a serviço de um inimigo.\n\nSe você aceitar o custo, ganhe 1 experiência para cada habilidade marcada nos recursos descartados (mínimo 3 experiências). Gaste esta experiência apenas em um novo veículo de comando, módulos e veículos de apoio."
+      },
+      "crossRefs": [
+        "swear-an-iron-vow",
+        "forsake-your-vow"
+      ],
+      "sourcePage": 22
+    },
+    {
+      "id": "earn-experience",
+      "game": "starforged",
+      "categoryId": "legacy-moves",
+      "title": "Ganhe experiência",
+      "trigger": "**Quando você preencher uma caixa (quatro marcas) em qualquer trilha legada**, ganhe 2 experiências. Esta experiência pode ser gasta quando você {move:advance}.\n\nDepois de preencher completamente a décima caixa em qualquer trilha legada, limpe essa trilha. Você pode começar novamente a marcar o progresso na trilha concluída, mas ganhe experiência a uma taxa reduzida de 1 experiência (em vez de 2) para cada caixa de progresso preenchida. Se você fizer uma jogada de progresso contra esta trilha, resolva o resultado como se estivesse com 10 progressos.",
+      "outcomes": {},
+      "crossRefs": [
+        "advance"
+      ],
+      "sourcePage": 23
+    },
+    {
+      "id": "advance",
+      "game": "starforged",
+      "categoryId": "legacy-moves",
+      "title": "Avançar",
+      "trigger": "**Quando você desenvolve suas habilidades, melhora seus recursos, ganha uma recompensa ou aumenta sua influência**, você pode gastar 3 experiências para adicionar um novo recurso ou 2 experiências para atualizar um recurso. Escolha uma das categorias a seguir conforme apropriado ao seu foco e oportunidades.",
+      "bullets": [
+        "Módulo: Atualize seu veículo de comando",
+        "Veículo de Apoio: Adquira ou melhore um veículo secundário",
+        "Caminho: Reforce suas capacidades pessoais ou siga um novo chamado",
+        "Companheiro: Ganhe ou melhore um ajudante confiável",
+        "Ação: Aprenda com suas experiências ou construa um legado"
+      ],
+      "outcomes": {},
+      "crossRefs": [],
+      "sourcePage": 23
+    },
+    {
+      "id": "continue-a-legacy",
+      "game": "starforged",
+      "categoryId": "legacy-moves",
+      "title": "Continuar um legado",
+      "tag": "Movimento de progresso",
+      "trigger": "**Quando você se aposentar de sua vida como Ironsworn ou sucumbir à morte ou à desolação**, você poderá criar um novo personagem em seu cenário estabelecido. Se fizer isso, jogue os dados de desafio e compare com cada uma das trilhas de legado do personagem anterior: missões, vínculos e descobertas (uma jogada por trilha).\n\nPara cada acerto forte, escolha um abaixo ou uma das opções de acerto fraco ou erro.\n\nPara cada acerto fraco, escolha um abaixo ou uma das opções de erro.\n\nPara cada erro, escolha um.",
+      "bullets": [
+        "Siga o caminho deles: siga um caminho ou recurso complementar do personagem anterior (sem custo), incluindo quaisquer habilidades marcadas.",
+        "Compartilhe uma conexão: pegue uma conexão do personagem anterior, incluindo qualquer progresso acumulado ou benefícios de títulos.",
+        "Aceitar uma herança: Pegue o veículo de comando do personagem anterior e um módulo ou veículo de suporte (sem custo), incluindo quaisquer habilidades marcadas.",
+        "Veja até o fim: escolha uma das missões inacabadas do personagem anterior e {move:swear-an-iron-vow} (com um golpe forte automático) para vê-la concluída. Você pode marcar imediatamente até metade do progresso obtido (arredondado para baixo) nesta missão.",
+        "Reconstrua uma conexão: cite uma das conexões do personagem anterior e visualize como o tempo ou as circunstâncias as mudaram de maneira dramática. Quando você {move:make-a-connection} com eles, dê um golpe forte automático e marque dois ticks na trilha de legado de seus títulos.",
+        "Explore um terreno familiar: nomeie um local que fosse significativo para o personagem anterior. Ao visitar esse lugar pela primeira vez, imagine como ele mudou ou está ameaçado. Em seguida, marque duas marcas em seu histórico de descobertas.",
+        "Lide com as consequências: visualize como um dos antigos inimigos do seu personagem ganhou poder ou influência.",
+        "Trocar lealdades: imagine como você começa em oposição às crenças, objetivos ou lealdades de seu antigo personagem.",
+        "Abra a caixa de Pandora: imagine como um avanço ou descoberta desencadeou consequências inesperadamente terríveis."
+      ],
+      "outcomes": {},
+      "crossRefs": [
+        "swear-an-iron-vow",
+        "make-a-connection"
+      ],
+      "sourcePage": 23
+    },
+    {
+      "id": "ask-the-oracle",
+      "game": "starforged",
+      "categoryId": "fate-moves",
+      "title": "Pergunte ao Oráculo",
+      "trigger": "**Ao tentar resolver questões, revelar detalhes, descobrir locais, determinar como outros personagens respondem ou desencadear encontros ou eventos**, você pode…\n\nEm uma partida, imagine um resultado extremo ou uma reviravolta.",
+      "bullets": [
+        "Tire uma conclusão: decida a resposta com base no resultado mais interessante e óbvio.",
+        "Tenha uma ideia: use uma tabela oracle ou outro prompt aleatório.",
+        "Faça uma pergunta sim/não: decida as chances de sim e role na tabela abaixo para verificar a resposta.",
+        "Escolha dois: imagine duas opções. Avalie uma delas como provável e role na tabela abaixo para ver se é verdade. Se não, é o outro."
+      ],
+      "outcomes": {},
+      "tables": [
+        {
+          "headers": [
+            "Chances",
+            "A resposta é sim se você rolar…"
+          ],
+          "rows": [
+            [
+              "Pequena chance",
+              "10 ou menos"
+            ],
+            [
+              "Improvável",
+              "25 ou menos"
+            ],
+            [
+              "50/50",
+              "50 ou menos"
+            ],
+            [
+              "Provável",
+              "75 ou menos"
+            ],
+            [
+              "Quase certo",
+              "90 ou menos"
+            ]
+          ]
+        }
+      ],
+      "sidebars": [
+        {
+          "body": "No jogo solo ou cooperativo, {move:ask-the-oracle} quando você tiver uma dúvida sobre o resultado de uma ação, um aspecto do seu cenário ou um evento narrativo.\n\nUma correspondência em seus dados do oráculo ao rolar na tabela sim/não indica um resultado extremo, uma reviravolta interessante ou uma complicação dramática.\n\nNa brincadeira guiada, o guia é o oráculo. Quando os jogadores fazem uma pergunta ou uma situação cria incerteza, o guia pode decidir uma resposta, {move:ask-the-oracle} para inspiração ou devolver a pergunta aos jogadores."
+        }
+      ],
+      "crossRefs": [],
+      "sourcePage": 24
+    },
+    {
+      "id": "pay-the-price",
+      "game": "starforged",
+      "categoryId": "fate-moves",
+      "title": "Pague o preço",
+      "trigger": "**Quando você sofre o resultado de uma ação**, escolha uma.",
+      "bullets": [
+        "Faça o resultado negativo mais óbvio acontecer.",
+        "{move:ask-the-oracle} para inspiração. Interprete a resposta como uma dificuldade ou complicação apropriada à situação.",
+        "Role na tabela abaixo. Se o resultado não se adequar à situação, role novamente."
+      ],
+      "outcomes": {},
+      "tables": [
+        {
+          "headers": [
+            "Rolar",
+            "Preço"
+          ],
+          "rows": [
+            [
+              "1–2",
+              "Um indivíduo ou comunidade de confiança age contra você"
+            ],
+            [
+              "3–4",
+              "Um indivíduo ou comunidade de quem você gosta está exposto ao perigo"
+            ],
+            [
+              "5–7",
+              "Você encontra sinais de uma ameaça iminente"
+            ],
+            [
+              "8–10",
+              "Você cria uma oportunidade para um inimigo"
+            ],
+            [
+              "11–14",
+              "Você enfrenta uma escolha difícil"
+            ],
+            [
+              "15–18",
+              "Você enfrenta as consequências de uma escolha anterior"
+            ],
+            [
+              "19–22",
+              "Um desenvolvimento surpreendente complica sua busca"
+            ],
+            [
+              "23–26",
+              "Você está separado de algo ou alguém"
+            ],
+            [
+              "27–32",
+              "Sua ação causa danos colaterais ou tem um efeito não intencional"
+            ],
+            [
+              "33–38",
+              "Algo de valor é perdido ou destruído"
+            ],
+            [
+              "39–44",
+              "O ambiente ou terreno introduz um novo perigo"
+            ],
+            [
+              "45–50",
+              "Um novo inimigo é revelado"
+            ],
+            [
+              "51–56",
+              "Um amigo, companheiro ou aliado está em perigo (ou você, se estiver sozinho)"
+            ],
+            [
+              "57–62",
+              "Seu equipamento ou veículo apresenta mau funcionamento"
+            ],
+            [
+              "63–68",
+              "Seu veículo sofre danos"
+            ],
+            [
+              "69–74",
+              "Você desperdiça recursos"
+            ],
+            [
+              "75–81",
+              "Você está prejudicado"
+            ],
+            [
+              "82–88",
+              "Você está estressado"
+            ],
+            [
+              "89–95",
+              "Você está atrasado ou colocado em desvantagem"
+            ],
+            [
+              "96–100",
+              "Role duas vezes"
+            ]
+          ]
+        }
+      ],
+      "sidebars": [
+        {
+          "body": "Faça o movimento {move:pay-the-price} quando solicitado por outro movimento devido a um resultado negativo, ou quando a situação atual naturalmente levar a um custo através de suas escolhas ou ações.\n\nPara determinar o custo quando você {move:pay-the-price}, você pode decidir o resultado sozinho, {move:ask-the-oracle} para obter informações ou rolar na tabela incluída. No jogo guiado, procure o guia para obter uma decisão.\n\nO preço que você paga pode ser uma consequência narrativa que complica as coisas para seu personagem ou uma combinação de custo narrativo e mecânico. Mas esteja atento ao ritmo; não deixe cair o martelo depois de uma jogada ruim. Comece com complicações e consequências menores, apropriadas à situação, e aplique perigos e dificuldades crescentes se as falhas se acumularem."
+        }
+      ],
+      "crossRefs": [
+        "ask-the-oracle"
+      ],
+      "sourcePage": 25
+    }
+  ]
+}

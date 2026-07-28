@@ -333,6 +333,11 @@ export function SettingsPage() {
             </button>
           ))}
         </div>
+        {locale === 'pt-BR' && (
+          <p className="mt-2 max-w-md text-sm text-ink-muted">
+            {t('settings.languageMachineNote')}
+          </p>
+        )}
       </section>
     </div>
   )

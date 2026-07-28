@@ -48,7 +48,7 @@ No backend, no database, no build-time network calls. Everything ships as static
 │   │   ├── index.ts
 │   │   └── locales/
 │   │       ├── en/ui.json
-│   │       └── pt-BR/ui.json        # stub, see §6
+│   │       └── pt-BR/ui.json        # translated, see §6
 │   ├── styles/
 │   │   └── tokens.ts                 # color/typography tokens extracted from the PDFs
 │   ├── components/                  # MoveCard, CategoryChip, OutcomeBlock, SearchBar, TabBar…
@@ -154,21 +154,21 @@ Requirements:
 - Category color shows up as: a left border/accent bar on move list rows, the category chip background, and the header bar on the move-detail screen. Don't tint entire backgrounds — this is a reading app, body text stays on neutral surfaces.
 - Typography: pick one condensed/display webfont for headings (evoking Modesto Poster / Poster Gothic Round without needing the actual licensed fonts — a free alternative with similar bold-condensed-display character, e.g. "Oswald" or "Bebas Neue") and one readable text face for body (system font stack is fine — this is a rules-lookup app, not a book-reading app).
 
-## 6. Internationalization (pt-BR is coming, not yet)
+## 6. Internationalization (pt-BR via machine translation, official pending)
 
-The user expects a pt-BR translation of the rules text to become available later. Build the i18n seams now so that drop-in is additive, not a refactor:
+A pt-BR translation of the rules text is expected to become available later. The i18n seams make that drop-in additive, not a refactor:
 
-- **UI strings** (nav labels, buttons, settings copy): `react-i18next`, `src/i18n/locales/{en,pt-BR}/ui.json`. Ship `en` fully populated; ship `pt-BR/ui.json` as a stub with the same keys pointing at placeholder/English values (or machine-translated placeholders clearly marked), so the language switcher can exist in Settings today without being a dead end.
-- **Move content** is a separate concern from UI strings — don't bolt translated rules text onto `ui.json`. Structure generated content as locale-namespaced from day one:
+- **UI strings** (nav labels, buttons, settings copy): `react-i18next`, `src/i18n/locales/{en,pt-BR}/ui.json`. Both locales ship fully populated (pt-BR genuinely translated, since this is generic UI chrome).
+- **Move content** is a separate concern from UI strings — don't bolt translated rules text onto `ui.json`. Generated content is locale-namespaced:
   ```
   src/data/en/ironsworn.generated.json
   src/data/en/starforged.generated.json
-  src/data/pt-BR/ironsworn.generated.json   # doesn't exist yet
-  src/data/pt-BR/starforged.generated.json  # doesn't exist yet
+  src/data/pt-BR/ironsworn.generated.json   # machine translation, committed
+  src/data/pt-BR/starforged.generated.json  # machine translation, committed
   ```
-  The data loader takes `(game, locale)` and **falls back to `en` per-move** if the `pt-BR` file is missing or missing that move's id — never a blank screen, never a mixed-language move (fall back at the whole-move granularity, not field-by-field, so you don't get a Portuguese trigger with an English outcome).
-- Locale switcher lives in Settings, persisted, independent of device locale (don't force pt-BR on every Brazilian phone by default before the translation actually exists — default to `en` until a pt-BR content file is present and complete enough to promote).
-- When the pt-BR rules text does arrive, it should be addable by dropping in the two JSON files above (or re-running `build-content.mjs` against `content/pt-BR/*.md` if the translation arrives as marked-up text) — no component code should need to change.
+  The pt-BR files are currently **machine-translated placeholders** produced by `scripts/translate-content.mjs` (`pnpm content:translate`) and committed so builds work offline (the en files stay gitignored — only pt-BR is excepted). The data loader takes `(game, locale)` and **falls back to `en` per-move** if the `pt-BR` file is missing or missing that move's id — never a blank screen, never a mixed-language move (fall back at the whole-move granularity, not field-by-field, so you don't get a Portuguese trigger with an English outcome).
+- Locale switcher lives in Settings, persisted, independent of device locale (don't force pt-BR on every Brazilian phone by default — default to `en`; the pt-BR content is a machine translation, and the Settings language section says so when pt-BR is selected).
+- When the official pt-BR rules text arrives, it replaces the two pt-BR JSON files above wholesale (or re-run `build-content.mjs` against `content/pt-BR/*.md` if it arrives as marked-up text) — no component code should need to change. Delete `scripts/translation-cache/pt-BR.json` at that point.
 
 ## 7. Navigation & UX (mobile-first)
 
@@ -201,7 +201,7 @@ This project is expected to be built collaboratively across multiple AI coding t
   6. Search (Fuse.js integration).
   7. Favorites (localStorage).
   8. PWA/offline (manifest, icons, Workbox config).
-  9. i18n scaffold (en populated, pt-BR stub wired per §6).
+  9. i18n scaffold (en + pt-BR UI strings; pt-BR move content as machine translation, per §6).
   10. Accessibility + responsive polish + one Playwright smoke test.
   - Dependency order: 1 blocks all; 2 and 3 block 4; 4 blocks 5/6/7 (which can run in parallel once it lands); 8/9/10 last. Whoever merges should keep this order — don't let a later-numbered ticket land before its dependencies just because an agent finished it first.
 - **Self-contained PRs**: each PR's description should restate the relevant slice of this spec (don't assume the reviewing agent/human has this doc loaded) and note which section of `SPEC.md` it implements.

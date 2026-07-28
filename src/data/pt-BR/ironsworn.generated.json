@@ -1,0 +1,1418 @@
+{
+  "game": "ironsworn",
+  "categories": [
+    {
+      "id": "adventure-moves",
+      "game": "ironsworn",
+      "name": "Aventura",
+      "color": "#30393D"
+    },
+    {
+      "id": "journey-moves",
+      "game": "ironsworn",
+      "name": "Jornada",
+      "color": "#30393D"
+    },
+    {
+      "id": "scene-challenge-moves",
+      "game": "ironsworn",
+      "name": "Desafio de Cena",
+      "color": "#30393D"
+    },
+    {
+      "id": "quest-moves",
+      "game": "ironsworn",
+      "name": "Missão",
+      "color": "#30393D"
+    },
+    {
+      "id": "fate-moves",
+      "game": "ironsworn",
+      "name": "Destino",
+      "color": "#30393D"
+    },
+    {
+      "id": "relationship-moves",
+      "game": "ironsworn",
+      "name": "Relacionamento",
+      "color": "#30393D"
+    },
+    {
+      "id": "combat-moves",
+      "game": "ironsworn",
+      "name": "Combate",
+      "color": "#30393D"
+    },
+    {
+      "id": "suffer-moves",
+      "game": "ironsworn",
+      "name": "Desgaste",
+      "color": "#30393D"
+    },
+    {
+      "id": "delve-moves",
+      "game": "ironsworn",
+      "name": "Mergulho",
+      "color": "#30393D"
+    },
+    {
+      "id": "failure-moves",
+      "game": "ironsworn",
+      "name": "Falha",
+      "color": "#30393D"
+    },
+    {
+      "id": "threat-moves",
+      "game": "ironsworn",
+      "name": "Ameaça",
+      "color": "#30393D"
+    },
+    {
+      "id": "rarity-moves",
+      "game": "ironsworn",
+      "name": "Raridade",
+      "color": "#30393D"
+    }
+  ],
+  "moves": [
+    {
+      "id": "face-danger",
+      "game": "ironsworn",
+      "categoryId": "adventure-moves",
+      "title": "Enfrente o perigo",
+      "trigger": "**Quando você tentar algo arriscado ou reagir a uma ameaça iminente**, visualize sua ação e role. Se você agir…",
+      "rollOptions": [
+        "Com velocidade, agilidade ou precisão: **Role +edge**.",
+        "Com charme, lealdade ou coragem: **Role +coração**.",
+        "Com ação agressiva, defesa enérgica, força ou resistência: **Role +ferro**.",
+        "Com engano, furtividade ou trapaça: **Role +sombra**.",
+        "Com experiência, percepção ou observação: **Role +inteligência**."
+      ],
+      "outcomes": {
+        "strongHit": "você teve sucesso. Receba impulso +1.",
+        "weakHit": "você tem sucesso, mas enfrenta um custo problemático. Escolha um.\n- Você está atrasado, perde vantagem ou enfrenta um novo perigo: Sofra –1 impulso.\n- Você está cansado ou machucado: {move:endure-harm} (1 dano).\n- Você está desanimado ou com medo: {move:endure-stress} (1 estresse).\n- Você sacrifica recursos: Sofre -1 suprimento.",
+        "miss": "você falha, ou um sucesso momentâneo é prejudicado por uma terrível reviravolta nos acontecimentos. {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "endure-harm",
+        "endure-stress",
+        "pay-the-price"
+      ],
+      "sourcePage": 8
+    },
+    {
+      "id": "secure-an-advantage",
+      "game": "ironsworn",
+      "categoryId": "adventure-moves",
+      "title": "Garanta uma vantagem",
+      "trigger": "**Quando você avalia uma situação, faz preparativos ou tenta obter vantagem**, visualize sua ação e role. Se você agir…",
+      "rollOptions": [
+        "Com velocidade, agilidade ou precisão: **Role +edge**.",
+        "Com charme, lealdade ou coragem: **Role +coração**.",
+        "Com ação agressiva, defesa enérgica, força ou resistência: **Role +ferro**.",
+        "Com engano, furtividade ou trapaça: **Role +sombra**.",
+        "Com experiência, percepção ou observação: **Role +inteligência**."
+      ],
+      "outcomes": {
+        "strongHit": "você ganha vantagem. Escolha um.\n- Assuma o controle: Faça outro movimento agora (não um movimento de progresso) e adicione +1.\n- Prepare-se para agir: receba +2 de impulso.",
+        "weakHit": "sua vantagem dura pouco. Receba impulso +1.",
+        "miss": "você falha ou suas suposições o traem. {move:pay-the-price}."
+      },
+      "sidebars": [
+        {
+          "body": "*Se você preferir a versão Starforged mais robusta do Secure an Advantage, aproveite este resultado.*\n**Em um golpe forte**, pegue ambos. **Em um golpe fraco**, escolha um.\n- Receba +2 impulso\n- Adicione +1 em seu próximo movimento (não é um movimento de progresso)"
+        }
+      ],
+      "crossRefs": [
+        "pay-the-price"
+      ],
+      "sourcePage": 8
+    },
+    {
+      "id": "gather-information",
+      "game": "ironsworn",
+      "categoryId": "adventure-moves",
+      "title": "Reúna informações",
+      "trigger": "**Quando você vasculhar uma área, fazer perguntas, conduzir uma investigação ou seguir uma pista**, teste +inteligência. Se você atua dentro de uma comunidade ou faz perguntas a uma pessoa com quem você compartilha um vínculo, adicione +1.",
+      "outcomes": {
+        "strongHit": "você descobre algo útil e específico. O caminho que você deve seguir ou a ação que você deve tomar para progredir fica claro. Visualize o que você aprendeu ({move:ask-the-oracle} se não tiver certeza) e receba +2 de impulso.",
+        "weakHit": "a informação complica sua busca ou introduz um novo perigo. Visualize o que você descobre ({move:ask-the-oracle} se não tiver certeza) e receba +1 de impulso.",
+        "miss": "sua investigação revela uma ameaça terrível ou revela uma verdade indesejável que prejudica sua busca. {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "ask-the-oracle",
+        "pay-the-price"
+      ],
+      "sourcePage": 9
+    },
+    {
+      "id": "make-camp",
+      "game": "ironsworn",
+      "categoryId": "adventure-moves",
+      "title": "Acampar",
+      "trigger": "**Quando você descansar e se recuperar por várias horas na natureza**, role +suprimentos.",
+      "outcomes": {
+        "strongHit": "você e seus aliados podem escolher dois cada.\n- Recuperar: Ganhe +1 de saúde para você e qualquer companheiro.\n- Participar: Sofra -1 suprimento e receba +1 de saúde para você e qualquer companheiro.\n- Relaxe: receba +1 de espírito.\n- Foco: receba +1 de impulso.\n- Prepare-se: Ao levantar acampamento, adicione +1 se você {move:undertake-a-journey}.",
+        "weakHit": "escolha um.\n- Recuperar: Ganhe +1 de saúde para você e qualquer companheiro.\n- Participar: Sofra -1 suprimento e receba +1 de saúde para você e qualquer companheiro.\n- Relaxe: receba +1 de espírito.\n- Foco: receba +1 de impulso.\n- Prepare-se: Ao levantar acampamento, adicione +1 se você {move:undertake-a-journey}.",
+        "miss": "você não se consola. {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "undertake-a-journey",
+        "pay-the-price"
+      ],
+      "sourcePage": 9
+    },
+    {
+      "id": "heal",
+      "game": "ironsworn",
+      "categoryId": "adventure-moves",
+      "title": "Curar",
+      "trigger": "**Quando você tratar um ferimento ou doença**, teste +raciocínio. Se você estiver curando seus próprios ferimentos, role +inteligência ou +ferro, o que for menor.",
+      "outcomes": {
+        "strongHit": "seu cuidado é útil. Se você (ou o aliado sob seus cuidados) estiver ferido, você poderá resolvê-lo. Então, pegue ou desista de +2 de saúde.",
+        "weakHit": "como acima, mas você deve sofrer -1 suprimento ou -1 impulso (sua escolha).",
+        "miss": "sua ajuda é ineficaz. {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "pay-the-price"
+      ],
+      "sourcePage": 9
+    },
+    {
+      "id": "resupply",
+      "game": "ironsworn",
+      "categoryId": "adventure-moves",
+      "title": "Reabastecimento",
+      "trigger": "**Quando você caçar, forragear ou vasculhar**, teste +raciocínio.",
+      "outcomes": {
+        "strongHit": "você reforça seus recursos. Pegue +2 de suprimento.",
+        "weakHit": "receba até +2 de suprimento, mas sofra –1 de impulso para cada um.",
+        "miss": "você não encontra nada útil. {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "pay-the-price"
+      ],
+      "sourcePage": 9
+    },
+    {
+      "id": "check-your-gear",
+      "game": "ironsworn",
+      "categoryId": "adventure-moves",
+      "title": "Verifique seu equipamento",
+      "trigger": "**Quando você verificar um item útil específico e tiver pelo menos 1 suprimento**, role +suprimento.",
+      "outcomes": {
+        "strongHit": "você tem isso. Receba impulso +1.",
+        "weakHit": "você o tem, mas seus recursos estão diminuídos. Receba +1 de impulso e sofra -1 de suprimento.",
+        "miss": "você não tem e a situação piora. {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "pay-the-price"
+      ],
+      "sourcePage": 9
+    },
+    {
+      "id": "undertake-a-journey",
+      "game": "ironsworn",
+      "categoryId": "journey-moves",
+      "title": "Empreenda uma jornada",
+      "trigger": "**Quando você viajar por terras perigosas ou desconhecidas**, defina a classificação da sua jornada.\n\nEntão, para cada segmento de sua jornada, role +inteligência. Se você estiver saindo de uma comunidade com a qual compartilha um vínculo, adicione +1 ao seu lançamento inicial.",
+      "bullets": [
+        "Jornada problemática: 3 progressos por waypoint.",
+        "Jornada perigosa: 2 progressos por waypoint.",
+        "Jornada formidável: 1 progresso por waypoint.",
+        "Jornada extrema: 2 ticks por waypoint.",
+        "Jornada épica: 1 tick por waypoint."
+      ],
+      "outcomes": {
+        "strongHit": "você alcança um ponto de referência. Se o waypoint for desconhecido para você, visualize-o ({move:ask-the-oracle} se não tiver certeza). Então, escolha um.\n- Você faz bom uso de seus recursos: Marque o progresso.\n- Você se move com velocidade: marca o progresso e recebe +1 de impulso, mas sofre -1 de suprimento.",
+        "weakHit": "você alcança um ponto de referência e marca o progresso, mas sofre -1 de suprimento.",
+        "miss": "você é assaltado por um evento perigoso. {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "ask-the-oracle",
+        "pay-the-price"
+      ],
+      "sourcePage": 10
+    },
+    {
+      "id": "reach-your-destination",
+      "game": "ironsworn",
+      "categoryId": "journey-moves",
+      "title": "Alcance seu destino",
+      "tag": "Movimento de progresso",
+      "trigger": "**Quando sua jornada chegar ao fim**, jogue os dados do desafio e compare com seu progresso. O impulso é ignorado nesta rolagem.",
+      "outcomes": {
+        "strongHit": "a situação no seu destino o favorece. Escolha um.\n- Faça outro movimento agora (não um movimento de progresso) e adicione +1.\n- Receba +1 de impulso.",
+        "weakHit": "você chega, mas enfrenta um perigo ou complicação imprevista. Visualize o que você encontra ({move:ask-the-oracle} se não tiver certeza).",
+        "miss": "você se extraviou irremediavelmente, seu objetivo se perdeu ou você foi enganado sobre seu destino. Se sua jornada continuar, limpe todos os progressos preenchidos, exceto um, e aumente a classificação da jornada em um (se ainda não for épica)."
+      },
+      "crossRefs": [
+        "ask-the-oracle"
+      ],
+      "sourcePage": 10
+    },
+    {
+      "id": "follow-a-path",
+      "game": "ironsworn",
+      "categoryId": "journey-moves",
+      "title": "Siga um caminho",
+      "trigger": "**Quando você viaja por uma rota conhecida e um dia se mistura com o outro**, role +suprimentos.",
+      "outcomes": {
+        "strongHit": "você chega ao seu destino e a situação o favorece. Receba impulso +1.",
+        "weakHit": "você completa a jornada, mas enfrenta um custo ou complicação. Escolha um ou mais.\n- Você demorou mais do que o esperado.\n- Você continuou com dor, doença ou cansaço: {move:endure-harm}.\n- Você sofreu sob o peso do mau tempo, preocupações ou locais assustadores: {move:endure-stress}.\n- Você desperdiçou recursos.\n- Você enfrenta uma complicação ou perigo no destino. Visualize o que você encontra ({move:ask-the-oracle} se não tiver certeza).",
+        "miss": "você é assaltado por uma ameaça terrível e deve {move:pay-the-price}. Se você superar esse obstáculo, poderá avançar com segurança até o seu destino."
+      },
+      "sidebars": [
+        {
+          "title": "Siga um caminho",
+          "body": "é um movimento bônus para este guia. Ele é adaptado do movimento *Set a Course* no Starforged – que por sua vez é adaptado do movimento {move:escape-the-depths} no Delve.\n\n{move:follow-a-path} resolve uma jornada por terras familiares em uma jogada. Faça essa mudança para dar incerteza e risco às suas viagens, mas não o foco total de uma viagem normal. Em particular, é útil para resolver o trecho de retorno de uma viagem de ida e volta.\n\nAo viajar com aliados, deixe cada membro da companhia sofrer um ou mais custos de golpe fraco, conforme apropriado. Essas são as dificuldades da estrada."
+        }
+      ],
+      "crossRefs": [
+        "endure-harm",
+        "endure-stress",
+        "ask-the-oracle",
+        "pay-the-price",
+        "escape-the-depths"
+      ],
+      "sourcePage": 10
+    },
+    {
+      "id": "begin-the-scene",
+      "game": "ironsworn",
+      "categoryId": "scene-challenge-moves",
+      "title": "Comece a cena",
+      "trigger": "**Quando você enfrentar um desafio extenso ou complexo**, nomeie seu objetivo e escolha uma classificação adequada à situação.\n\nEm seguida, ative uma contagem regressiva de quatro segmentos e {move:face-danger} ou {move:secure-an-advantage} para agir.",
+      "bullets": [
+        "Você tem uma vantagem clara: problemático.",
+        "Você está pronto para agir: Perigoso.",
+        "Você está despreparado ou superado: Formidável."
+      ],
+      "outcomes": {},
+      "crossRefs": [
+        "face-danger",
+        "secure-an-advantage"
+      ],
+      "sourcePage": 11
+    },
+    {
+      "id": "face-danger-scene-challenge-mode",
+      "game": "ironsworn",
+      "categoryId": "scene-challenge-moves",
+      "title": "Enfrente o perigo",
+      "tag": "Modo de desafio de cena",
+      "trigger": "**Quando você tentar algo arriscado ou reagir a uma ameaça iminente em um desafio de cena**, visualize sua ação e role. Se você agir…",
+      "rollOptions": [
+        "Com velocidade, agilidade ou precisão: **Role +edge**.",
+        "Com charme, lealdade ou coragem: **Role +coração**.",
+        "Com ação agressiva, defesa enérgica, força ou resistência: **Role +ferro**.",
+        "Com engano, furtividade ou trapaça: **Role +sombra**.",
+        "Com experiência, percepção ou observação: **Role +inteligência**."
+      ],
+      "outcomes": {
+        "strongHit": "você tem sucesso e marca o progresso. Em um acerto forte com uma partida, marque o progresso duas vezes.",
+        "weakHit": "você tem sucesso e marca o progresso, mas também encontra uma complicação ou revés. Visualize o que ocorre e marque um segmento de contagem regressiva.",
+        "miss": "você falha, ou um sucesso momentâneo é prejudicado por uma reviravolta dramática nos acontecimentos. Marque um segmento de contagem regressiva e {move:pay-the-price}. Se errar uma partida, marque dois segmentos e {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "pay-the-price"
+      ],
+      "sourcePage": 11
+    },
+    {
+      "id": "secure-an-advantage-scene-challenge-mode",
+      "game": "ironsworn",
+      "categoryId": "scene-challenge-moves",
+      "title": "Garanta uma vantagem",
+      "tag": "Modo de desafio de cena",
+      "trigger": "**Quando você avalia uma situação, faz preparativos ou tenta ganhar vantagem em um desafio de cena**, visualize sua ação e role. Se você agir…",
+      "rollOptions": [
+        "Com velocidade, agilidade ou precisão: **Role +edge**.",
+        "Com charme, lealdade ou coragem: **Role +coração**.",
+        "Com ação agressiva, defesa enérgica, força ou resistência: **Role +ferro**.",
+        "Com engano, furtividade ou trapaça: **Role +sombra**.",
+        "Com experiência, percepção ou observação: **Role +inteligência**."
+      ],
+      "outcomes": {
+        "strongHit": "pegue os dois. Em um acerto forte com uma partida, pegue ambos e marque o progresso.\n- Receba +2 impulso\n- Adicione +1 em seu próximo movimento (não é um movimento de progresso)",
+        "weakHit": "escolha um.\n- Receba +2 impulso\n- Adicione +1 em seu próximo movimento (não é um movimento de progresso)",
+        "miss": "você falha ou suas suposições o traem. Marque um segmento de contagem regressiva e {move:pay-the-price}. Se errar uma partida, marque dois segmentos e {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "pay-the-price"
+      ],
+      "sourcePage": 11
+    },
+    {
+      "id": "finish-the-scene",
+      "game": "ironsworn",
+      "categoryId": "scene-challenge-moves",
+      "title": "Termine a cena",
+      "tag": "Movimento de progresso",
+      "trigger": "**Quando a contagem regressiva do desafio da cena ou a trilha de progresso estiver preenchida, ou quando os eventos levarem à conclusão da cena**, jogue os dados do desafio e compare com seu progresso.",
+      "outcomes": {
+        "strongHit": "você alcança seu objetivo incondicionalmente.",
+        "weakHit": "você consegue, mas não sem custo. Você deve {move:pay-the-price}. Faça disso um custo menor em relação ao escopo da cena.",
+        "miss": "você falha ou é prejudicado por uma terrível reviravolta nos acontecimentos. {move:pay-the-price}."
+      },
+      "sidebars": [
+        {
+          "body": "Os movimentos de desafio da cena são adaptados de Starforged."
+        }
+      ],
+      "crossRefs": [
+        "pay-the-price"
+      ],
+      "sourcePage": 11
+    },
+    {
+      "id": "swear-an-iron-vow",
+      "game": "ironsworn",
+      "categoryId": "quest-moves",
+      "title": "Faça um voto de ferro",
+      "trigger": "**Quando você jurar pelo ferro para completar uma missão**, escreva seu voto e atribua uma classificação à missão. Então, role +coração. Se você fizer esse voto a uma pessoa ou comunidade com quem você compartilha um vínculo, adicione +1.",
+      "outcomes": {
+        "strongHit": "você está encorajado e está claro o que deve fazer a seguir ({move:ask-the-oracle} se não tiver certeza). Receba +2 de impulso.",
+        "weakHit": "você está determinado, mas começa sua busca com mais perguntas do que respostas. Receba impulso +1 e visualize o que você fará para encontrar um caminho a seguir.",
+        "miss": "você enfrenta um obstáculo significativo antes de começar sua busca. Visualize o que está no seu caminho ({move:ask-the-oracle} se não tiver certeza) e escolha um.\n- Você continua: Sofra -2 impulso e faça o que for preciso para superar esse obstáculo.\n- Você desiste: {move:forsake-your-vow}."
+      },
+      "crossRefs": [
+        "ask-the-oracle",
+        "forsake-your-vow"
+      ],
+      "sourcePage": 12
+    },
+    {
+      "id": "reach-a-milestone",
+      "game": "ironsworn",
+      "categoryId": "quest-moves",
+      "title": "Alcance um marco",
+      "trigger": "**Quando você faz um progresso significativo em sua missão fazendo qualquer uma das seguintes ações**…\n\n…você pode marcar o progresso de acordo com a classificação do voto.",
+      "bullets": [
+        "superando um obstáculo crítico",
+        "completando uma jornada perigosa",
+        "resolvendo um mistério complexo",
+        "derrotar uma ameaça poderosa",
+        "ganhando apoio vital",
+        "adquirindo um item crucial",
+        "Missão problemática: Mark 3 progresso.",
+        "Missão perigosa: Mark 2 progresso.",
+        "Missão formidável: Marque 1 progresso.",
+        "Missão extrema: Marque 2 ticks.",
+        "Missão épica: Marque 1 tick."
+      ],
+      "outcomes": {},
+      "sidebars": [
+        {
+          "body": "Para melhorar a legibilidade, o movimento {move:reach-a-milestone} é formatado de forma semelhante à versão Starforged."
+        }
+      ],
+      "crossRefs": [],
+      "sourcePage": 12
+    },
+    {
+      "id": "fulfill-your-vow",
+      "game": "ironsworn",
+      "categoryId": "quest-moves",
+      "title": "Cumpra seu voto",
+      "tag": "Movimento de progresso",
+      "trigger": "**Quando você alcançar o que acredita ser o cumprimento de seu voto**, jogue os dados do desafio e compare com seu progresso. O impulso é ignorado nesta rolagem.",
+      "outcomes": {
+        "strongHit": "sua missão está completa. Marque experiência (problemático=1; perigoso=2; formidável=3; extremo=4; épico=5).",
+        "weakHit": "há mais a ser feito ou você perceberá a verdade de sua busca. Visualize o que você descobre ({move:ask-the-oracle} se não tiver certeza). Em seguida, marque experiência (problemático=0; perigoso=1; formidável=2; extremo=3; épico=4). Você pode {move:swear-an-iron-vow} consertar as coisas. Se fizer isso, adicione +1.",
+        "miss": "sua missão está desfeita. Visualize o que acontece ({move:ask-the-oracle} se não tiver certeza) e escolha um.\n- Você se compromete novamente: limpe todos os progressos preenchidos, exceto um, e aumente a classificação da missão em um (se ainda não for épico).\n- Você desiste: {move:forsake-your-vow}."
+      },
+      "crossRefs": [
+        "ask-the-oracle",
+        "swear-an-iron-vow",
+        "forsake-your-vow"
+      ],
+      "sourcePage": 12
+    },
+    {
+      "id": "forsake-your-vow",
+      "game": "ironsworn",
+      "categoryId": "quest-moves",
+      "title": "Abandone seu voto",
+      "trigger": "**Quando você renunciar à sua missão, trair sua promessa ou o objetivo for perdido para você**, limpe o voto e {move:endure-stress}. Você sofre -espírito igual ao nível de sua missão (problemático=1; perigoso=2; formidável=3; extremo=4; épico=5).\n\nSe o voto foi feito a uma pessoa ou comunidade com quem você compartilha um vínculo, {move:test-your-bond} no próximo encontro.",
+      "outcomes": {},
+      "crossRefs": [
+        "endure-stress",
+        "test-your-bond"
+      ],
+      "sourcePage": 12
+    },
+    {
+      "id": "advance",
+      "game": "ironsworn",
+      "categoryId": "quest-moves",
+      "title": "Avançar",
+      "trigger": "**Quando você se concentra em suas habilidades, recebe treinamento, encontra inspiração, ganha uma recompensa ou ganha um companheiro**, você pode gastar 3 experiências para adicionar um novo recurso ou 2 experiências para atualizar um recurso.",
+      "outcomes": {},
+      "crossRefs": [],
+      "sourcePage": 12
+    },
+    {
+      "id": "pay-the-price",
+      "game": "ironsworn",
+      "categoryId": "fate-moves",
+      "title": "Pague o preço",
+      "trigger": "**Quando você sofrer o resultado de um movimento**, escolha um.",
+      "bullets": [
+        "Faça o resultado negativo mais óbvio acontecer.",
+        "Visualize dois resultados negativos. Classifique um como 'provável' e {move:ask-the-oracle} usando a tabela sim/não. Em um 'sim', faça esse resultado acontecer. Caso contrário, faça o outro.",
+        "Role na tabela a seguir. Se você tiver dificuldade em interpretar o resultado para se adequar à situação atual, role novamente."
+      ],
+      "outcomes": {},
+      "tables": [
+        {
+          "headers": [
+            "Rolar",
+            "Preço"
+          ],
+          "rows": [
+            [
+              "1–2",
+              "Role novamente e aplique esse resultado, mas piore. Se você rolar esse resultado mais uma vez, pense em algo terrível que mude o curso de sua missão ({move:ask-the-oracle} se não tiver certeza)."
+            ],
+            [
+              "3–5",
+              "Uma pessoa ou comunidade em quem você confia perde a fé em você ou age contra você."
+            ],
+            [
+              "6–9",
+              "Uma pessoa ou comunidade de quem você gosta está exposta ao perigo."
+            ],
+            [
+              "10–16",
+              "Você está separado de algo ou alguém."
+            ],
+            [
+              "17–23",
+              "Sua ação tem um efeito não intencional."
+            ],
+            [
+              "24–32",
+              "Algo de valor é perdido ou destruído."
+            ],
+            [
+              "33–41",
+              "A situação atual piora."
+            ],
+            [
+              "42–50",
+              "Um novo perigo ou inimigo é revelado."
+            ],
+            [
+              "51–59",
+              "Isso causa um atraso ou coloca você em desvantagem."
+            ],
+            [
+              "60-68",
+              "É prejudicial."
+            ],
+            [
+              "69–76",
+              "É estressante."
+            ],
+            [
+              "77–85",
+              "Um desenvolvimento surpreendente complica sua busca."
+            ],
+            [
+              "86–90",
+              "Desperdiça recursos."
+            ],
+            [
+              "91–94",
+              "Isso força você a agir contra suas melhores intenções."
+            ],
+            [
+              "95–98",
+              "Um amigo, companheiro ou aliado é colocado em perigo (ou você, se estiver sozinho)."
+            ],
+            [
+              "99–100",
+              "Role mais duas vezes nesta mesa. Ambos os resultados ocorrem. Se forem o mesmo resultado, piore."
+            ]
+          ]
+        }
+      ],
+      "crossRefs": [
+        "ask-the-oracle"
+      ],
+      "sourcePage": 13
+    },
+    {
+      "id": "ask-the-oracle",
+      "game": "ironsworn",
+      "categoryId": "fate-moves",
+      "title": "Pergunte ao Oráculo",
+      "trigger": "**Quando você procura resolver questões, descobrir detalhes do mundo, determinar como outros personagens respondem ou desencadear encontros ou eventos**, você pode…\n\nEm uma partida, ocorreu um resultado extremo ou uma reviravolta.",
+      "bullets": [
+        "Tire uma conclusão: decida a resposta com base no resultado mais interessante e óbvio.",
+        "Faça uma pergunta sim/não: decida as chances de um “sim” e role na mesa para verificar a resposta.",
+        "Escolha dois: imagine duas opções. Classifique uma delas como “provável” e role na mesa para ver se é verdade. Se não, é o outro.",
+        "Tenha uma ideia: faça um brainstorming ou use um prompt aleatório."
+      ],
+      "outcomes": {},
+      "tables": [
+        {
+          "headers": [
+            "Chances",
+            "A resposta é sim se você rolar…"
+          ],
+          "rows": [
+            [
+              "Quase certo",
+              "11 ou superior"
+            ],
+            [
+              "Provável",
+              "26 ou superior"
+            ],
+            [
+              "50/50",
+              "51 ou superior"
+            ],
+            [
+              "Improvável",
+              "76 ou superior"
+            ],
+            [
+              "Pequena chance",
+              "91 ou superior"
+            ]
+          ]
+        }
+      ],
+      "crossRefs": [],
+      "sourcePage": 13
+    },
+    {
+      "id": "compel",
+      "game": "ironsworn",
+      "categoryId": "relationship-moves",
+      "title": "Obrigar",
+      "trigger": "**Quando você tentar persuadir alguém a fazer algo**, visualize sua abordagem e role. Se você…",
+      "rollOptions": [
+        "Encantar, pacificar, negociar ou convencer: **Role +coração** (adicione +1 se você compartilha um vínculo).",
+        "Ameaçar ou incitar: **Role +ferro**.",
+        "Mentir ou trapacear: **Rolar +sombra**."
+      ],
+      "outcomes": {
+        "strongHit": "eles farão o que você quiser ou compartilharão o que sabem. Receba impulso +1. Se você usar esta troca para {move:gather-information}, faça esse movimento agora e adicione +1.",
+        "weakHit": "como acima, mas eles pedem algo de você em troca. Visualize o que eles querem ({move:ask-the-oracle} se não tiver certeza).",
+        "miss": "eles recusam ou fazem uma exigência que lhe custa muito. {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "gather-information",
+        "ask-the-oracle",
+        "pay-the-price"
+      ],
+      "sourcePage": 14
+    },
+    {
+      "id": "aid-your-ally",
+      "game": "ironsworn",
+      "categoryId": "relationship-moves",
+      "title": "Ajude seu aliado",
+      "trigger": "**Quando você {move:secure-an-advantage} em apoio direto a um aliado e acerta**, eles (em vez de você) podem aproveitar os benefícios do movimento. Se você estiver em combate e acertar um golpe forte, você e seu aliado terão iniciativa.",
+      "outcomes": {},
+      "crossRefs": [
+        "secure-an-advantage"
+      ],
+      "sourcePage": 14
+    },
+    {
+      "id": "sojourn",
+      "game": "ironsworn",
+      "categoryId": "relationship-moves",
+      "title": "Estadia",
+      "trigger": "**Quando você passar algum tempo em uma comunidade em busca de assistência**, role +coração. Se você compartilha um vínculo, adicione +1.",
+      "outcomes": {
+        "strongHit": "você e seus aliados podem escolher dois nas categorias abaixo.\n\nSe acertar, você e seus aliados podem se concentrar em uma de suas ações de recuperação escolhidas e rolar +coração novamente. Se você compartilha um vínculo, adicione +1. Com um sucesso forte, receba +2 a mais por essa ação. Com um golpe fraco, receba +1 a mais. Se errar, tudo corre mal e você perde todos os benefícios dessa ação.\n\n**Limpar uma condição**\n- Remendar: Elimine uma debilidade ferida e receba +1 de saúde.\n- Hearten: Elimine uma debilidade abalada e receba +1 de espírito.\n- Equipar: Elimine uma debilidade despreparada e receba +1 de suprimento.\n\n**Recuperar**\n- Recuperar: Ganhe +2 de saúde para você e qualquer companheiro.\n- Consorte: Receba +2 de espírito.\n- Provisão: Receba +2 de suprimento.\n- Plano: receba +2 de impulso.\n\n**Fornecer ajuda**\n- Faça uma missão: visualize o que esta comunidade precisa ou quais problemas ela está enfrentando ({move:ask-the-oracle} se não tiver certeza). Se você escolheu ajudar, {move:swear-an-iron-vow} e adicione +1.",
+        "weakHit": "escolha um. Se você compartilha um vínculo, escolha mais um.\n\nSe acertar, você e seus aliados podem se concentrar em uma de suas ações de recuperação escolhidas e rolar +coração novamente. Se você compartilha um vínculo, adicione +1. Com um sucesso forte, receba +2 a mais por essa ação. Com um golpe fraco, receba +1 a mais. Se errar, tudo corre mal e você perde todos os benefícios dessa ação.\n\n**Limpar uma condição**\n- Remendar: Elimine uma debilidade ferida e receba +1 de saúde.\n- Hearten: Elimine uma debilidade abalada e receba +1 de espírito.\n- Equipar: Elimine uma debilidade despreparada e receba +1 de suprimento.\n\n**Recuperar**\n- Recuperar: Ganhe +2 de saúde para você e qualquer companheiro.\n- Consorte: Receba +2 de espírito.\n- Provisão: Receba +2 de suprimento.\n- Plano: receba +2 de impulso.\n\n**Fornecer ajuda**\n- Faça uma missão: visualize o que esta comunidade precisa ou quais problemas ela está enfrentando ({move:ask-the-oracle} se não tiver certeza). Se você escolheu ajudar, {move:swear-an-iron-vow} e adicione +1.",
+        "miss": "você não encontra ajuda aqui. {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "ask-the-oracle",
+        "swear-an-iron-vow",
+        "pay-the-price"
+      ],
+      "sourcePage": 14
+    },
+    {
+      "id": "draw-the-circle",
+      "game": "ironsworn",
+      "categoryId": "relationship-moves",
+      "title": "Desenhe o Círculo",
+      "trigger": "**Quando você desafia alguém para um duelo formal ou aceita um desafio**, role +coração. Se você compartilha um vínculo com esta comunidade, adicione +1.",
+      "outcomes": {
+        "strongHit": "receba +1 de impulso. Você também pode escolher até duas ostentações e receber +1 de impulso para cada uma.",
+        "weakHit": "você pode escolher uma vanglória em troca de +1 de impulso.\n- Conceda o primeiro ataque: seu inimigo tem iniciativa.\n- Desnudar-se: Não tirar proveito de armadura ou escudo; o dano do seu inimigo é +1.\n- Não segure ferro: Não aproveite as armas; seu dano é 1.\n- Sangrar-se: {move:endure-harm} (1 dano).\n- Até a morte: De uma forma ou de outra, essa luta deve terminar com a morte.",
+        "miss": "você começa o duelo em desvantagem. Seu inimigo tem iniciativa. {move:pay-the-price}.\n\nEntão, faça movimentos para resolver a briga. Se você for o vencedor, poderá fazer uma exigência legal e seu oponente deverá acatá-la ou perderá sua honra e posição. Se você recusar o desafio, se render ou for derrotado, eles farão uma exigência a você."
+      },
+      "crossRefs": [
+        "endure-harm",
+        "pay-the-price"
+      ],
+      "sourcePage": 15
+    },
+    {
+      "id": "write-your-epilogue",
+      "game": "ironsworn",
+      "categoryId": "relationship-moves",
+      "title": "Escreva seu epílogo",
+      "tag": "Movimento de progresso",
+      "trigger": "**Quando você se aposentar de sua vida como Ironsworn**, visualize duas coisas: o que você espera e o que você teme. Em seguida, jogue os dados do desafio e compare com seus títulos. O impulso é ignorado nesta rolagem.",
+      "outcomes": {
+        "strongHit": "as coisas acontecem como você esperava.",
+        "weakHit": "sua vida toma um rumo inesperado, mas não necessariamente para pior. Você passa seus dias com alguém ou em um lugar que não previu. Visualize-o ({move:ask-the-oracle} se não tiver certeza).",
+        "miss": "seus medos são realizados."
+      },
+      "crossRefs": [
+        "ask-the-oracle"
+      ],
+      "sourcePage": 15
+    },
+    {
+      "id": "forge-a-bond",
+      "game": "ironsworn",
+      "categoryId": "relationship-moves",
+      "title": "Crie um vínculo",
+      "trigger": "**Quando você passa um tempo significativo com uma pessoa ou comunidade, permanece unido para enfrentar dificuldades ou faz sacrifícios pela causa dela**, você pode tentar criar um vínculo. Ao fazer isso, role +coração. Se você fizer esse movimento depois de {move:fulfill-your-vow} obter sucesso em benefício deles, você poderá jogar novamente qualquer dado.",
+      "outcomes": {
+        "strongHit": "anote o título, marque uma marca no seu histórico de progresso do título e escolha um.\n- Receba +1 espírito.\n- Receba +2 de impulso.",
+        "weakHit": "eles pedem algo mais de você primeiro. Visualize o que é ({move:ask-the-oracle} se não tiver certeza), faça (ou {move:swear-an-iron-vow}) e marque o vínculo. Se você recusar ou falhar, {move:pay-the-price}.",
+        "miss": "eles rejeitam você. {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "fulfill-your-vow",
+        "ask-the-oracle",
+        "swear-an-iron-vow",
+        "pay-the-price"
+      ],
+      "sourcePage": 15
+    },
+    {
+      "id": "test-your-bond",
+      "game": "ironsworn",
+      "categoryId": "relationship-moves",
+      "title": "Teste seu vínculo",
+      "trigger": "**Quando seu vínculo for testado por meio de conflito, traição ou circunstância**, role +coração.",
+      "outcomes": {
+        "strongHit": "este teste fortaleceu seu vínculo. Escolha um.\n- Receba +1 espírito.\n- Receba +2 de impulso.",
+        "weakHit": "seu vínculo é frágil e você deve provar sua lealdade. Visualize o que eles pedem de você ({move:ask-the-oracle} se não tiver certeza) e faça-o (ou {move:swear-an-iron-vow}). Se você recusar ou falhar, libere o título e {move:pay-the-price}.",
+        "miss": "ou se você não tiver interesse em manter esse relacionamento, libere o vínculo e {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "ask-the-oracle",
+        "swear-an-iron-vow",
+        "pay-the-price"
+      ],
+      "sourcePage": 15
+    },
+    {
+      "id": "enter-the-fray",
+      "game": "ironsworn",
+      "categoryId": "combat-moves",
+      "title": "Entre na briga",
+      "trigger": "**Ao entrar em combate**, defina a classificação de cada um de seus inimigos.\n\nEm seguida, role para determinar quem está no controle. Se você estiver…",
+      "rollOptions": [
+        "Enfrentando seu inimigo: **Role +coração**.",
+        "Movendo-se para uma posição contra um inimigo inconsciente ou atacando sem aviso: **Role +sombra**.",
+        "Emboscado: **Role +raciocínio**."
+      ],
+      "bullets": [
+        "Inimigo problemático: 3 de progresso por dano; inflige 1 dano.",
+        "Inimigo perigoso: 2 progressos por dano; inflige 2 danos.",
+        "Inimigo formidável: 1 progresso por dano; inflige 3 danos.",
+        "Inimigo extremo: 2 ticks por dano; inflige 4 danos.",
+        "Inimigo épico: 1 tique por dano; inflige 5 danos."
+      ],
+      "outcomes": {
+        "strongHit": "receba +2 de impulso. Você tem iniciativa.",
+        "weakHit": "escolha um.\n- Reforce sua posição: receba +2 de impulso.\n- Prepare-se para agir: tome iniciativa.",
+        "miss": "o combate começa com você em desvantagem. {move:pay-the-price}. Seu inimigo tem iniciativa."
+      },
+      "crossRefs": [
+        "pay-the-price"
+      ],
+      "sourcePage": 16
+    },
+    {
+      "id": "strike",
+      "game": "ironsworn",
+      "categoryId": "combat-moves",
+      "title": "Batida",
+      "trigger": "**Quando você tiver iniciativa e atacar de perto**, role +ferro. Quando você tiver iniciativa e ataque à distância, role +Avanço.",
+      "outcomes": {
+        "strongHit": "infligir +1 de dano. Você mantém a iniciativa.",
+        "weakHit": "inflija seu dano e perca a iniciativa.",
+        "miss": "seu ataque falha e você deve {move:pay-the-price}. Seu inimigo tem iniciativa."
+      },
+      "sidebars": [
+        {
+          "title": "Iniciativa de gerenciamento",
+          "body": "Quando você acerta um golpe forte em qualquer movimento, você toma ou mantém a iniciativa.\n- Quando você acerta ou falha fracamente em qualquer movimento, você perde a iniciativa para seu inimigo.\n\nQuando você tiver iniciativa, tome medidas proativas:\n- {move:strike} para atacar.\n- {move:secure-an-advantage} para enganar ou manobrar seu inimigo, ou para configurar outro movimento.\n- {move:face-danger} para superar um obstáculo ou escapar.\n- {move:aid-your-ally} para reforçar um aliado do PC.\n- {move:compel} para forçar seu inimigo a concordar com suas exigências.\n- {move:end-the-fight} para terminar a luta contra este inimigo.\n\nQuando você perde a iniciativa para o seu inimigo, faça movimentos reativos:\n- {move:clash} para revidar.\n- {move:face-danger} para focar na defesa, superar um obstáculo ou fugir.\n- {move:compel} para oferecer sua rendição.\n- {move:turn-the-tide} (uma vez por luta) para roubar iniciativa."
+        }
+      ],
+      "crossRefs": [
+        "pay-the-price",
+        "secure-an-advantage",
+        "face-danger",
+        "aid-your-ally",
+        "compel",
+        "end-the-fight",
+        "clash",
+        "turn-the-tide"
+      ],
+      "sourcePage": 16
+    },
+    {
+      "id": "clash",
+      "game": "ironsworn",
+      "categoryId": "combat-moves",
+      "title": "Choque",
+      "trigger": "**Quando seu inimigo tiver iniciativa e você lutar com ele de perto**, role +ferro. Quando você troca uma saraivada à distância ou atira em um inimigo que avança, role +Avanço.",
+      "outcomes": {
+        "strongHit": "inflija seu dano e escolha um. Você tem a iniciativa.\n- Você reforça sua posição: receba +1 de impulso.\n- Você encontra uma abertura: Inflija +1 de dano.",
+        "weakHit": "inflija seu dano, mas então {move:pay-the-price}. Seu inimigo tem iniciativa.",
+        "miss": "você está em desvantagem e deve {move:pay-the-price}. Seu inimigo tem iniciativa."
+      },
+      "crossRefs": [
+        "pay-the-price"
+      ],
+      "sourcePage": 16
+    },
+    {
+      "id": "end-the-fight",
+      "game": "ironsworn",
+      "categoryId": "combat-moves",
+      "title": "Acabar com a luta",
+      "tag": "Movimento de progresso",
+      "trigger": "**Quando você faz um movimento para tomar uma ação decisiva e acerta um golpe forte**, você pode decidir o resultado desta luta. Se o fizer, jogue os dados do desafio e compare com o seu progresso. O impulso é ignorado nesta rolagem.",
+      "outcomes": {
+        "strongHit": "este inimigo não está mais na luta. Eles são mortos, ficam fora de ação, fogem ou se rendem conforme apropriado à situação e à sua intenção ({move:ask-the-oracle} se não tiver certeza).",
+        "weakHit": "como acima, mas você também deve escolher um.\n- É pior do que você pensava: {move:endure-harm}.\n- Você está superado: {move:endure-stress}.\n- Sua vitória dura pouco: um novo perigo ou inimigo aparece, ou um perigo existente piora.\n- Você sofre danos colaterais: algo de valor é perdido ou quebrado, ou alguém importante deve pagar o custo.\n- Você pagará por isso: um objetivo fica fora de alcance.\n- Outros não esquecerão: você está marcado para a vingança.",
+        "miss": "você perdeu essa luta. {move:pay-the-price}."
+      },
+      "sidebars": [
+        {
+          "body": "Para um {move:end-the-fight} alternativo com a flexibilidade do movimento Starforged, substitua o gatilho pelo seguinte. Com essa mudança, você pode fazer a jogada de progresso sem um golpe forte em um movimento anterior – mas com maior risco de fracasso.\n\n**Quando você tomar uma ação decisiva para resolver o resultado desta luta**, jogue os dados do desafio e compare com o seu progresso. O impulso é ignorado nesta rolagem.\n\nSe você não tiver iniciativa, conte um acerto forte como um acerto fraco e um acerto fraco como um erro."
+        }
+      ],
+      "crossRefs": [
+        "ask-the-oracle",
+        "endure-harm",
+        "endure-stress",
+        "pay-the-price"
+      ],
+      "sourcePage": 17
+    },
+    {
+      "id": "turn-the-tide",
+      "game": "ironsworn",
+      "categoryId": "combat-moves",
+      "title": "Vire a maré",
+      "trigger": "**Uma vez por luta, quando você arrisca tudo**, você pode roubar a iniciativa do seu inimigo para fazer um movimento (não um movimento de progresso). Ao fazer isso, adicione +1 e receba +1 de impulso em um acerto.\n\nSe você não conseguir acertar esse movimento, deverá sofrer um resultado terrível. {move:pay-the-price}.",
+      "outcomes": {},
+      "crossRefs": [
+        "pay-the-price"
+      ],
+      "sourcePage": 17
+    },
+    {
+      "id": "battle",
+      "game": "ironsworn",
+      "categoryId": "combat-moves",
+      "title": "Batalha",
+      "trigger": "**Quando você trava uma batalha e ela acontece em um borrão**, imagine seu objetivo e role. Se você principalmente…",
+      "rollOptions": [
+        "Lute à distância ou use sua velocidade e o terreno a seu favor: **Rolar +borda**.",
+        "Lute dependendo de sua coragem, aliados ou companheiros: **Role +coração**.",
+        "Lute de perto para dominar seus oponentes: **Role +ferro**.",
+        "Lute usando truques para confundir seus oponentes: **Role +sombra**.",
+        "Lute usando táticas cuidadosas para ser mais esperto que seus oponentes: **Role +inteligência**."
+      ],
+      "outcomes": {
+        "strongHit": "você alcança seu objetivo incondicionalmente. Receba +2 de impulso.",
+        "weakHit": "você atinge seu objetivo, mas não sem custo. {move:pay-the-price}.",
+        "miss": "você é derrotado e o objetivo está perdido para você. {move:pay-the-price}."
+      },
+      "crossRefs": [
+        "pay-the-price"
+      ],
+      "sourcePage": 17
+    },
+    {
+      "id": "endure-harm",
+      "game": "ironsworn",
+      "categoryId": "suffer-moves",
+      "title": "Suportar danos",
+      "trigger": "**Quando você enfrentar dano físico**, sofra -vida igual à classificação do seu inimigo ou conforme apropriado à situação. Se sua saúde for 0, sofra -momentum igual a qualquer -health restante. Em seguida, role +saúde ou +ferro, o que for maior.",
+      "outcomes": {
+        "strongHit": "escolha um.\n- Sacuda isso: Se sua saúde for maior que 0, sofra –1 impulso em troca de +1 saúde.\n- Abrace a dor: receba +1 de impulso.",
+        "weakHit": "você pressiona.",
+        "miss": "também sofrem –1 impulso. Se você estiver com 0 pontos de vida, você deve marcar ferido ou mutilado (se não estiver marcado no momento) ou rolar na tabela a seguir."
+      },
+      "tables": [
+        {
+          "headers": [
+            "Rolar",
+            "Resultado de danos"
+          ],
+          "rows": [
+            [
+              "1–10",
+              "O dano é mortal. {move:face-death}."
+            ],
+            [
+              "11–20",
+              "Você está morrendo. Você precisa {move:heal} dentro de uma ou duas horas, ou {move:face-death}."
+            ],
+            [
+              "21–35",
+              "Você está inconsciente e fora de ação. Se for deixado sozinho, você volta aos seus sentidos em uma ou duas horas. Se você estiver vulnerável a um inimigo que não está disposto a mostrar misericórdia, {move:face-death}."
+            ],
+            [
+              "36–50",
+              "Você está cambaleando e lutando para permanecer consciente. Se você se envolver em alguma atividade vigorosa (como correr ou lutar) antes de respirar por alguns minutos, role novamente nesta mesa (antes de resolver o outro movimento)."
+            ],
+            [
+              "51–100",
+              "Você está machucado, mas ainda está de pé."
+            ]
+          ]
+        }
+      ],
+      "crossRefs": [
+        "face-death",
+        "heal"
+      ],
+      "sourcePage": 18
+    },
+    {
+      "id": "face-death",
+      "game": "ironsworn",
+      "categoryId": "suffer-moves",
+      "title": "Enfrentar a Morte",
+      "trigger": "**Quando você for levado à beira da morte e vislumbrar o mundo além**, role +coração.",
+      "outcomes": {
+        "strongHit": "a morte te rejeita. Você é lançado de volta ao mundo mortal.",
+        "weakHit": "escolha um.\n- Você morre, mas não antes de fazer um nobre sacrifício. Visualize seus momentos finais.\n- A morte deseja algo de você em troca de sua vida. Visualize o que ele quer ({move:ask-the-oracle} se não tiver certeza) e {move:swear-an-iron-vow} (formidável ou extremo) para completar essa missão. Se você não conseguir acertar ao {move:swear-an-iron-vow} ou recusar a missão, você estará morto. Caso contrário, você retornará ao mundo mortal e agora será amaldiçoado. Você só pode eliminar a debilidade amaldiçoada completando a missão.",
+        "miss": "você está morto."
+      },
+      "crossRefs": [
+        "ask-the-oracle",
+        "swear-an-iron-vow"
+      ],
+      "sourcePage": 18
+    },
+    {
+      "id": "companion-endure-harm",
+      "game": "ironsworn",
+      "categoryId": "suffer-moves",
+      "title": "Companheiro Suportar Dano",
+      "trigger": "**Quando seu companheiro sofre dano físico**, ele sofre -vida igual à quantidade de dano infligido. Se a saúde do seu companheiro for 0, troque qualquer resto de -health por -momentum.\n\nEm seguida, role +coração ou +vida do seu companheiro, o que for maior.",
+      "outcomes": {
+        "strongHit": "seu companheiro se reúne. Dê a eles +1 de saúde.",
+        "weakHit": "seu companheiro está espancado. Se a saúde deles for 0, eles não poderão ajudá-lo até que ganhem pelo menos +1 de saúde.",
+        "miss": "também sofrem –1 impulso. Se a saúde do seu companheiro for 0, ele está gravemente ferido e fora de ação. Sem ajuda, morrem em uma ou duas horas.\n\nSe você errar com 1 em seu dado de ação e a saúde de seu companheiro for 0, ele estará morto. Pegue 1 experiência para cada habilidade marcada em seu recurso complementar e remova-o."
+      },
+      "crossRefs": [],
+      "sourcePage": 18
+    },
+    {
+      "id": "endure-stress",
+      "game": "ironsworn",
+      "categoryId": "suffer-moves",
+      "title": "Suportar o estresse",
+      "trigger": "**Quando você enfrentar choque mental ou desespero**, sofra espírito igual à posição do seu inimigo ou conforme apropriado à situação. Se o seu espírito for 0, sofra -momentum igual a qualquer -spirit restante. Em seguida, role +espírito ou +coração, o que for maior.",
+      "outcomes": {
+        "strongHit": "escolha um.\n- Sacuda-se: Se o seu espírito for maior que 0, sofra –1 impulso em troca de +1 espírito.\n- Abrace a escuridão: receba +1 de impulso.",
+        "weakHit": "você pressiona.",
+        "miss": "também sofrem –1 impulso. Se você estiver com 0 espírito, você deve marcar abalado ou corrompido (se atualmente não marcado) ou rolar na tabela a seguir."
+      },
+      "tables": [
+        {
+          "headers": [
+            "Rolar",
+            "Resultado do estresse"
+          ],
+          "rows": [
+            [
+              "1–10",
+              "Você está sobrecarregado. {move:face-desolation}."
+            ],
+            [
+              "11–25",
+              "Você desiste. {move:forsake-your-vow} (se possível, um relevante para a crise atual)."
+            ],
+            [
+              "26–50",
+              "Você cede ao medo ou à compulsão e age contra seus melhores instintos."
+            ],
+            [
+              "51–100",
+              "Você persevera."
+            ]
+          ]
+        }
+      ],
+      "crossRefs": [
+        "face-desolation",
+        "forsake-your-vow"
+      ],
+      "sourcePage": 19
+    },
+    {
+      "id": "face-desolation",
+      "game": "ironsworn",
+      "categoryId": "suffer-moves",
+      "title": "Enfrentar Desolação",
+      "trigger": "**Quando você estiver à beira da desolação**, role +coração.",
+      "outcomes": {
+        "strongHit": "você resiste e segue em frente.",
+        "weakHit": "escolha um.\n- Seu espírito ou sanidade quebra, mas não antes de você fazer um nobre sacrifício. Visualize seus momentos finais.\n- Você tem a visão de um evento temido acontecendo. Visualize esse futuro sombrio ({move:ask-the-oracle} se não tiver certeza) e {move:swear-an-iron-vow} (formidável ou extremo) para evitá-lo. Se você não conseguir acertar ao {move:swear-an-iron-vow} ou recusar a missão, você estará perdido. Caso contrário, você volta aos seus sentidos e agora fica atormentado. Você só pode eliminar a debilidade atormentada completando a missão.",
+        "miss": "você sucumbe ao desespero ou ao horror e está perdido."
+      },
+      "crossRefs": [
+        "ask-the-oracle",
+        "swear-an-iron-vow"
+      ],
+      "sourcePage": 19
+    },
+    {
+      "id": "out-of-supply",
+      "game": "ironsworn",
+      "categoryId": "suffer-moves",
+      "title": "Fora de fornecimento",
+      "trigger": "**Quando seu suprimento acabar (reduzido a 0)**, marque como despreparado. Se você sofrer suprimento adicional enquanto não estiver preparado, você deve trocar cada suprimento adicional por qualquer combinação de saúde, espírito ou impulso, conforme apropriado às circunstâncias.",
+      "outcomes": {},
+      "crossRefs": [],
+      "sourcePage": 19
+    },
+    {
+      "id": "face-a-setback",
+      "game": "ironsworn",
+      "categoryId": "suffer-moves",
+      "title": "Enfrente um revés",
+      "trigger": "**Quando seu momentum estiver no mínimo (-6) e você sofrer -momentum adicional**, escolha um.",
+      "bullets": [
+        "Troque cada impulso adicional por qualquer combinação de saúde, espírito ou suprimento, conforme apropriado às circunstâncias.",
+        "Visualize um evento ou descoberta ({move:ask-the-oracle} se não tiver certeza) que prejudique seu progresso em uma missão, jornada ou luta atual. Então, para cada -momentum adicional, limpe 1 unidade de progresso naquela trilha de acordo com sua classificação (problemático = limpe 3 progressos; perigoso = limpe 2 progressos; formidável = limpe 1 progresso; extremo = limpe 2 tiques; épico = limpe 1 tique)."
+      ],
+      "outcomes": {},
+      "crossRefs": [
+        "ask-the-oracle"
+      ],
+      "sourcePage": 19
+    },
+    {
+      "id": "delve-the-depths",
+      "game": "ironsworn",
+      "categoryId": "delve-moves",
+      "title": "Mergulhe nas profundezas",
+      "trigger": "**Quando você atravessa uma área dentro de um local perigoso**, visualize os arredores ({move:ask-the-oracle} se não tiver certeza). Então, considere sua abordagem. Se você navegar nesta área…",
+      "rollOptions": [
+        "Com pressa: **Rolar +borda**.",
+        "Com furtividade ou truques: **Role +sombra**.",
+        "Com observação, intuição ou experiência: **Role +raciocínio**."
+      ],
+      "outcomes": {
+        "strongHit": "você se aprofunda. Marque o progresso e {move:find-an-opportunity}.",
+        "weakHit": "role na tabela a seguir de acordo com sua estatística.",
+        "miss": "{move:reveal-a-danger}."
+      },
+      "tables": [
+        {
+          "headers": [
+            "Borda",
+            "Sombra",
+            "Raciocínio",
+            "Resultado de acerto fraco"
+          ],
+          "rows": [
+            [
+              "1–45",
+              "1–30",
+              "1–40",
+              "Marque o progresso e {move:reveal-a-danger}."
+            ],
+            [
+              "46–65",
+              "31–65",
+              "41–55",
+              "Marque o progresso."
+            ],
+            [
+              "66–75",
+              "66–90",
+              "56–80",
+              "Escolha uma: Marcar o progresso ou {move:find-an-opportunity}."
+            ],
+            [
+              "76–80",
+              "91–99",
+              "81–99",
+              "Pegue ambos: marque o progresso e {move:find-an-opportunity}."
+            ],
+            [
+              "81–100",
+              "100",
+              "100",
+              "Marque o progresso duas vezes e {move:reveal-a-danger}."
+            ]
+          ]
+        }
+      ],
+      "crossRefs": [
+        "ask-the-oracle",
+        "find-an-opportunity",
+        "reveal-a-danger"
+      ],
+      "sourcePage": 20
+    },
+    {
+      "id": "discover-a-site",
+      "game": "ironsworn",
+      "categoryId": "delve-moves",
+      "title": "Descubra um site",
+      "trigger": "**Quando você decidir entrar em um site perigoso em busca de um objetivo**, escolha o tema e o domínio que melhor representam sua natureza e atribua uma classificação.\n\nSe você estiver retornando a um local explorado anteriormente, jogue ambos os dados de desafio, escolha o valor mais baixo e limpe esse número de caixas de progresso.\n\nDepois, {move:delve-the-depths} para explorar este lugar.",
+      "bullets": [
+        "Site problemático: 3 progressos por área.",
+        "Local perigoso: 2 progressos por área.",
+        "Local formidável: 1 progresso por área.",
+        "Site extremo: 2 ticks por área.",
+        "Site épico: 1 tick por área."
+      ],
+      "outcomes": {},
+      "sidebars": [
+        {
+          "title": "Escolhendo um tema e domínio",
+          "body": "Ao {move:discover-a-site}, escolha o tema e o domínio que melhor se adaptam ao seu entendimento do local. Se não tiver certeza, retire aleatoriamente dos cartões de site impressos ou use as tabelas aleatórias na página 76 deste guia.\n\nAo {move:delve-the-depths}, verifique as tabelas de tema e domínio para ajudar a visualizar os recursos e os perigos do site. Ou intercale os resultados dessas tabelas com outras sugestões inspiradoras, como os oráculos centrais nas páginas 50–53."
+        }
+      ],
+      "crossRefs": [
+        "delve-the-depths"
+      ],
+      "sourcePage": 20
+    },
+    {
+      "id": "find-an-opportunity",
+      "game": "ironsworn",
+      "categoryId": "delve-moves",
+      "title": "Encontre uma oportunidade",
+      "trigger": "**Quando você encontrar uma situação ou recurso útil em um site**, role na tabela a seguir.\n\nSe você estiver fazendo esse movimento como resultado de um acerto forte em {move:delve-the-depths}, poderá escolher ou visualizar uma oportunidade em vez de rolar. Então, escolha um.",
+      "bullets": [
+        "Obtenha insights ou prepare-se: receba +1 de impulso.",
+        "Aja agora: você e quaisquer aliados podem fazer um movimento (não um movimento de progresso) que aproveite diretamente a oportunidade. Ao fazer isso, adicione +1 e receba +1 de impulso em um acerto."
+      ],
+      "outcomes": {},
+      "tables": [
+        {
+          "headers": [
+            "Rolar",
+            "Oportunidade"
+          ],
+          "rows": [
+            [
+              "1–25",
+              "O terreno favorece você ou você encontra um caminho escondido."
+            ],
+            [
+              "26–45",
+              "Um aspecto da história ou natureza deste lugar é revelado."
+            ],
+            [
+              "46–57",
+              "Você localiza uma área segura."
+            ],
+            [
+              "58–68",
+              "Uma pista oferece uma visão ou direção."
+            ],
+            [
+              "69–78",
+              "Você derruba um habitante."
+            ],
+            [
+              "79–86",
+              "Esta área oferece uma oportunidade para vasculhar, procurar alimentos ou caçar."
+            ],
+            [
+              "87–90",
+              "Você localiza um objeto interessante ou útil."
+            ],
+            [
+              "91–94",
+              "Você é alertado sobre uma ameaça potencial."
+            ],
+            [
+              "95–98",
+              "Você encontra um habitante que pode apoiá-lo."
+            ],
+            [
+              "99–100",
+              "Você encontra um habitante que precisa de ajuda."
+            ]
+          ]
+        }
+      ],
+      "crossRefs": [
+        "delve-the-depths"
+      ],
+      "sourcePage": 21
+    },
+    {
+      "id": "reveal-a-danger",
+      "game": "ironsworn",
+      "categoryId": "delve-moves",
+      "title": "Revele um perigo",
+      "trigger": "**Quando você encontrar uma situação de risco em um local**, visualize o perigo ou role a tabela a seguir.\n\nUse o resultado padrão {move:reveal-a-danger} ao explorar um site com tema e domínio. Caso contrário, use o rolo alternativo.",
+      "outcomes": {},
+      "tables": [
+        {
+          "headers": [
+            "Padrão",
+            "Alternar",
+            "Perigo"
+          ],
+          "rows": [
+            [
+              "1–30",
+              "-",
+              "Verifique o cartão temático."
+            ],
+            [
+              "31–45",
+              "-",
+              "Verifique o cartão de domínio."
+            ],
+            [
+              "46–57",
+              "1–22",
+              "Você encontra um habitante hostil."
+            ],
+            [
+              "58–68",
+              "23–42",
+              "Você enfrenta um risco ambiental ou arquitetônico."
+            ],
+            [
+              "69–76",
+              "43–58",
+              "Uma descoberta prejudica ou complica sua busca."
+            ],
+            [
+              "77–79",
+              "59–64",
+              "Você enfrenta uma situação ou sensação angustiante."
+            ],
+            [
+              "80-82",
+              "65–70",
+              "Você enfrenta as consequências de uma escolha ou abordagem anterior."
+            ],
+            [
+              "83–85",
+              "71–76",
+              "Seu caminho está bloqueado ou preso."
+            ],
+            [
+              "86–88",
+              "77–82",
+              "Um recurso é diminuído, quebrado ou perdido."
+            ],
+            [
+              "89–91",
+              "83–88",
+              "Você enfrenta um mistério desconcertante ou uma escolha difícil."
+            ],
+            [
+              "92–94",
+              "89–94",
+              "Você se perde ou se atrasa."
+            ],
+            [
+              "95–100",
+              "95–100",
+              "Role mais duas vezes nesta mesa. Ambos os resultados ocorrem. Se forem o mesmo resultado, piore."
+            ]
+          ]
+        }
+      ],
+      "crossRefs": [],
+      "sourcePage": 21
+    },
+    {
+      "id": "locate-your-objective",
+      "game": "ironsworn",
+      "categoryId": "delve-moves",
+      "title": "Localize seu objetivo",
+      "tag": "Movimento de progresso",
+      "trigger": "**Quando a exploração de um site chegar ao fim**, jogue os dados do desafio e compare com seu progresso. O impulso é ignorado nesta rolagem.",
+      "outcomes": {
+        "strongHit": "você localiza seu objetivo e a situação o favorece. Escolha um.\n- Faça outro movimento agora (não um movimento de progresso) e adicione +1.\n- Receba +1 de impulso.",
+        "weakHit": "você localiza seu objetivo, mas enfrenta um perigo ou complicação imprevista. Visualize o que você encontra ({move:ask-the-oracle} se não tiver certeza).",
+        "miss": "seu objetivo fica fora de alcance, você foi enganado sobre a natureza de seu objetivo ou descobre que este site contém profundidades inesperadas. Se você continuar sua exploração, limpe todos os progressos preenchidos, exceto um, e aumente a classificação do site em um (se ainda não for épico)."
+      },
+      "crossRefs": [
+        "ask-the-oracle"
+      ],
+      "sourcePage": 22
+    },
+    {
+      "id": "escape-the-depths",
+      "game": "ironsworn",
+      "categoryId": "delve-moves",
+      "title": "Fuja das profundezas",
+      "trigger": "**Quando você fugir ou se retirar de um local**, considere a situação e sua abordagem. Se você…",
+      "rollOptions": [
+        "Encontre a saída mais rápida: **Role +edge**.",
+        "Prepare-se contra os horrores deste lugar: **Role +coração**.",
+        "Lute para sair: **Role +ferro**.",
+        "Refaça seus passos ou localize um caminho alternativo: **Role +inteligência**.",
+        "Mantenha-se fora de vista: **Role +sombra**."
+      ],
+      "outcomes": {
+        "strongHit": "você sai do local com segurança. Receba impulso +1.",
+        "weakHit": "você encontra a saída, mas este lugar cobra seu preço. Escolha um.\n- Você está cansado ou ferido: {move:endure-harm}.\n- A experiência te deixa abalado: {move:endure-stress}.\n- Você está atrasado e isso custa caro.\n- Você deixa para trás algo importante.\n- Você enfrenta uma nova complicação ao emergir das profundezas.\n- Um habitante planeja sua vingança.",
+        "miss": "uma ameaça terrível ou um obstáculo imponente está no seu caminho. {move:reveal-a-danger}. Se você sobreviver, poderá escapar."
+      },
+      "crossRefs": [
+        "endure-harm",
+        "endure-stress",
+        "reveal-a-danger"
+      ],
+      "sourcePage": 22
+    },
+    {
+      "id": "mark-your-failure",
+      "game": "ironsworn",
+      "categoryId": "failure-moves",
+      "title": "Marque seu fracasso",
+      "trigger": "**Quando você fizer um movimento e errar**, marque uma marca na sua trilha de falhas. Quando você errar ao fazer um movimento de progresso, marque dois tiques.",
+      "outcomes": {},
+      "crossRefs": [],
+      "sourcePage": 23
+    },
+    {
+      "id": "learn-from-your-failures",
+      "game": "ironsworn",
+      "categoryId": "failure-moves",
+      "title": "Aprenda com suas falhas",
+      "tag": "Movimento de progresso",
+      "trigger": "**Quando você passa um tempo refletindo sobre suas dificuldades e erros, e seu índice de fracasso é 6 ou mais**, jogue seus dados de desafio e compare com seu progresso. O impulso é ignorado nesta rolagem.",
+      "outcomes": {
+        "strongHit": "você se compromete a fazer uma mudança dramática. Pegue 3 experiências e limpe todo o progresso. Então, escolha um.\n- Ajuste sua abordagem: Descarte um único recurso e ganhe 2 experiências para cada habilidade marcada.\n- Faça um juramento: {move:swear-an-iron-vow} e jogue novamente quaisquer dados.\n- Prepare seus próximos passos: receba +3 de impulso.",
+        "weakHit": "você aprende com seus erros. Pegue 2 experiências e conclua todo o progresso.",
+        "miss": "você aprendeu as lições erradas. Pegue 1 experiência e limpe todo o progresso. Então, imagine como você iniciou um caminho malfadado."
+      },
+      "sidebars": [
+        {
+          "title": "Iniciando um caminho de falhas",
+          "body": "A trilha de falha é uma trilha de progresso padrão com dez caixas. Você pode adicionar uma trilha de falha a um novo personagem ou introduzir esta opção a um personagem existente.\n\n**Falha na marcação**\nFaça o movimento {move:mark-your-failure} ao errar qualquer ação ou jogada de progresso.\n\n**Fazendo o progresso avançar**\nDepois de marcar seis caixas de progresso completas em seu registro de falhas, você poderá fazer o movimento {move:learn-from-your-failures} para fazer um balanço dos perigos que enfrentou e dos momentos em que não estava à altura da tarefa.\n\n**Ajustes de custos de ativos**\nSe você quiser usar os movimentos de falha, mas preferir manter o crescimento do personagem em um ritmo mais lento, ajuste o custo dos ativos ao {move:advance} da seguinte maneira:\n- Adicione um novo ativo: 5 experiências (em vez de 3).\n- Atualizar um ativo: 3 experiências (em vez de 2)."
+        }
+      ],
+      "crossRefs": [
+        "swear-an-iron-vow",
+        "mark-your-failure",
+        "advance"
+      ],
+      "sourcePage": 23
+    },
+    {
+      "id": "advance-a-threat",
+      "game": "ironsworn",
+      "categoryId": "threat-moves",
+      "title": "Avance uma ameaça",
+      "trigger": "**Quando você cede terreno a uma ameaça por meio de inação, falha ou atraso**, role na tabela abaixo e visualize como a mudança se manifesta em seu mundo ({move:ask-the-oracle} se não tiver certeza).\n\nNum jogo, este desenvolvimento também expõe um aspecto surpreendente do plano ou da natureza da ameaça.\n\nSe você marcar a última caixa no marcador de ameaça da ameaça, a ameaça atingirá seu objetivo ou ocorrerá o terrível resultado final. Você deve {move:forsake-your-vow}.",
+      "outcomes": {},
+      "tables": [
+        {
+          "headers": [
+            "Rolar",
+            "Ação de ameaça"
+          ],
+          "rows": [
+            [
+              "1–30",
+              "A ameaça prepara o próximo passo ou um novo perigo se aproxima. Se você estiver em condições de impedir esse desenvolvimento, poderá tentar fazê-lo. Se você tiver sucesso, {move:reach-a-milestone}. Caso contrário, marque ameaça."
+            ],
+            [
+              "31–70",
+              "A ameaça atua sutilmente para avançar em direção ao seu objetivo, ou o perigo aumenta. Marcar ameaça."
+            ],
+            [
+              "71–100",
+              "A ameaça dá um passo dramático e imediato, ou um acontecimento importante revela novas complicações. Marque a ameaça duas vezes."
+            ]
+          ]
+        }
+      ],
+      "crossRefs": [
+        "ask-the-oracle",
+        "forsake-your-vow",
+        "reach-a-milestone"
+      ],
+      "sourcePage": 24
+    },
+    {
+      "id": "take-a-hiatus",
+      "game": "ironsworn",
+      "categoryId": "threat-moves",
+      "title": "Faça um hiato",
+      "trigger": "**Quando você passa muito tempo se recuperando em um local seguro enquanto uma ameaça está ativa**, siga um destes procedimentos.\n\nEntão, para cada ameaça ativa, {move:advance-a-threat}.",
+      "bullets": [
+        "Limpe todas as condições marcadas.",
+        "Defina sua saúde, espírito, suprimento e saúde do companheiro em seus valores máximos.",
+        "Defina seu impulso para o valor de reinicialização."
+      ],
+      "outcomes": {},
+      "sidebars": [
+        {
+          "title": "Apresentando uma ameaça",
+          "body": "Quando você {move:swear-an-iron-vow}, você pode associar uma ameaça à missão. A ameaça é um ser, facção ou situação responsável pelo problema que motiva o seu voto, ou é o adversário que se opõe mais diretamente a você.\n\nPara saber mais sobre ameaças, consulte o Capítulo 6 do livro de regras do Delve (página 151).\n\n**Avançando uma ameaça**\nAo encontrar contratempos ou atrasos, faça o movimento {move:advance-a-threat}. Se você precisar marcar ameaça, preencha a próxima caixa disponível na trilha de ameaça (as pequenas caixas inseridas na trilha de progresso do voto).\n\n**Resolvendo uma ameaça**\n\n*Se a ameaça tiver sucesso…*\nQuando você marca a décima casa no marcador de ameaça de uma ameaça, a ameaça atinge seu objetivo. Você deve {move:forsake-your-vow} para a missão associada.\n\n*Se você cumprir seu voto…*\nAo {move:fulfill-your-vow}, considere o papel da ameaça e inclua isso no resultado do movimento.\n- Se você acertar um golpe forte, você derrota ou engana a ameaça.\n- Se você acertar um golpe fraco, você terá sucesso, mas não incondicionalmente. Talvez a ameaça revele um novo aspecto do seu esquema ou repercuta para representar um novo perigo.\n- Se você errar, você falhará contra a ameaça. Se você se comprometer novamente com a missão, poderá manter a ameaça como antagonista do novo voto. Ao fazer isso, dê a eles um novo objetivo e limpe o caminho da ameaça.\n\n*Se você abandonar seu voto…*\nQuando você {move:forsake-your-vow} antes de marcar a décima caixa na trilha de ameaça de uma ameaça, você não se opõe mais a essa ameaça. Eles alcançarão seu objetivo como consequência inevitável de seu fracasso."
+        }
+      ],
+      "crossRefs": [
+        "advance-a-threat",
+        "swear-an-iron-vow",
+        "forsake-your-vow",
+        "fulfill-your-vow"
+      ],
+      "sourcePage": 24
+    },
+    {
+      "id": "gain-a-rarity",
+      "game": "ironsworn",
+      "categoryId": "rarity-moves",
+      "title": "Ganhe uma raridade",
+      "trigger": "**Quando você toma posse de um objeto de poder**, você pode gastar 3 de experiência para vincular o objeto a um de seus recursos (caminho, talento de combate ou ritual). Se fizer isso, esse recurso e quaisquer habilidades marcadas serão aumentados.\n\nDê uma marca especial ao recurso aumentado e anote o nome e a natureza da raridade.",
+      "outcomes": {},
+      "crossRefs": [],
+      "sourcePage": 25
+    },
+    {
+      "id": "wield-a-rarity",
+      "game": "ironsworn",
+      "categoryId": "rarity-moves",
+      "title": "Empunhe uma raridade",
+      "trigger": "**Quando você faz um movimento auxiliado por um recurso aumentado**, jogue seu dado de raridade no lugar de seu dado de ação.\n\nEm qualquer resultado com 6 no dado de raridade, o poder da raridade se manifesta de forma dramática e óbvia. Você consegue um golpe forte automático e recebe +1 de impulso.\n\nSe acertar 5 no dado de raridade, o poder da raridade se manifesta de maneira sutil. Receba impulso +1.\n\nSe falhar com 1 no dado de raridade, o poder da raridade falha ou funciona contra você.",
+      "outcomes": {},
+      "sidebars": [
+        {
+          "title": "Objetos maravilhosos para sua campanha Ironsworn",
+          "body": "Raridades são objetos de poder estranhos e misteriosos. Podem ser transmitidos através de gerações, perdidos ou escondidos nas profundezas de locais perigosos, cobiçados por forças poderosas ou esquecidos e descartados. Ao obter uma raridade ao longo da história, você ganha um impacto sutil, mas duradouro, em seu personagem e em suas habilidades.\n\nPara saber mais sobre raridades, consulte as páginas 172–200 do livro de regras do Delve.\n\n**Obtendo uma Raridade**\nObter uma raridade normalmente faz parte de uma missão baseada em votos, seja como recompensa de outro personagem (por completar uma missão a seu serviço) ou como um objetivo pessoal. Os obstáculos em seu caminho podem incluir descobrir a localização ou a natureza de uma raridade, investigar locais perigosos ou derrotar forças que buscam tomar a raridade para si.\n\nAo reivindicar a raridade, faça o movimento {move:gain-a-rarity} para vinculá-la a um único ativo existente. Esse ativo agora foi aumentado.\n\nSe você quiser usar os custos de experiência específicos de ativos para raridades, consulte a página 175 do livro de regras do Delve para obter a tabela de custos e as páginas 182–200 para exemplos de raridades.\n\n**Usando uma raridade**\nQuando você faz uma jogada de ação usando ou apoiado por um recurso aumentado, jogue um D6 especial no lugar do seu dado de ação. Este é o seu dado de raridade. Verifique o movimento {move:wield-a-rarity} para ver se a raridade reforça o resultado."
+        }
+      ],
+      "crossRefs": [
+        "gain-a-rarity"
+      ],
+      "sourcePage": 25
+    }
+  ]
+}

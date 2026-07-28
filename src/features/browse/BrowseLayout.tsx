@@ -30,7 +30,7 @@ export function BrowseLayout() {
   return (
     <div className="md:flex md:items-start md:gap-4">
       <div
-        className={(hasSelection ? 'hidden md:block' : '') + ' p-4 md:w-72 md:shrink-0'}
+        className={(hasSelection ? 'hidden md:block' : '') + ' p-4 md:w-80 md:shrink-0'}
       >
         <div className="mb-4">
           <GameSwitcher
@@ -41,6 +41,14 @@ export function BrowseLayout() {
             }}
           />
         </div>
+        {/* pt-BR category buttons carry only the qualifier ("Sessão", "Combate")
+            and get a shared "Movimentos de" label here; en keeps full names on
+            the buttons, so its label is an empty string and nothing renders. */}
+        {t('browse.categoryGroupLabel') && (
+          <h2 className="mb-2 font-display text-sm uppercase tracking-wide text-ink-muted">
+            {t('browse.categoryGroupLabel')}
+          </h2>
+        )}
         <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-1">
           {categories.map((category) => {
             const vars = getCategoryAccentVars(
@@ -53,7 +61,7 @@ export function BrowseLayout() {
                   style={vars}
                   aria-current={category.id === categoryId ? 'true' : undefined}
                   className={
-                    'flex h-20 flex-col items-center justify-center gap-1 rounded-lg bg-[var(--category-accent)] px-3 text-center text-sm uppercase tracking-wide text-[var(--category-accent-text)] shadow-[0_0_16px_-6px_var(--category-accent)] transition-all hover:shadow-[0_0_20px_-4px_var(--category-accent)] md:h-12 md:flex-row md:justify-start md:gap-3 md:px-4 md:text-left ' +
+                    'flex min-h-20 flex-col items-center justify-center gap-1 rounded-lg bg-[var(--category-accent)] px-3 py-2 text-center text-sm uppercase tracking-wide text-[var(--category-accent-text)] shadow-[0_0_16px_-6px_var(--category-accent)] transition-all hover:shadow-[0_0_20px_-4px_var(--category-accent)] md:h-12 md:min-h-0 md:flex-row md:justify-start md:gap-3 md:px-4 md:py-0 md:text-left ' +
                     getGameFontClass(game) +
                     ' ' +
                     (category.id === categoryId

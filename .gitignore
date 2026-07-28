@@ -14,6 +14,9 @@ dist-ssr
 
 # Regenerated from content/*.md on every dev/build — see AGENTS.md.
 src/data/*/*.generated.json
+# …except the pt-BR machine translation, which IS committed (CI has no network
+# access to the MT API) — see AGENTS.md "Content pipeline".
+!src/data/pt-BR/*.generated.json
 
 # Playwright
 playwright-report

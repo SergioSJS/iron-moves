@@ -27,6 +27,7 @@
   },
   "browse": {
     "categories": "Categorias",
+    "categoryGroupLabel": "Movimentos de",
     "selectCategory": "Selecione uma categoria para ver seus movimentos.",
     "selectMove": "Selecione um movimento para ver os detalhes."
   },
@@ -55,6 +56,7 @@
     },
     "defaultGame": "Jogo padrão ao iniciar",
     "language": "Idioma",
+    "languageMachineNote": "O conteúdo dos movimentos em português é uma tradução automática — será substituído pela tradução oficial quando disponível.",
     "categoryColors": "Cores das categorias",
     "categoryColorOption": {
       "original": "Fiel ao livro",

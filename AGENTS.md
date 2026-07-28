@@ -17,7 +17,11 @@ Live at https://sergiosjs.github.io/iron-moves/ — repo `SergioSJS/iron-moves`,
 
 ## Content pipeline
 
-`scripts/build-content.mjs` parses `content/*.md` into `src/data/en/{ironsworn,starforged}.generated.json` (typed per `schema.ts`). This runs fresh on every `pnpm dev`, `pnpm build`, `pnpm typecheck`, and `pnpm test` (chained via `pnpm content:build` in each script) — **the generated JSON is not committed** (gitignored), so don't hand-edit it and don't "fix" a stale copy into git. If content looks wrong in the app, fix the parser or the `.md` source, then re-run; never patch the JSON directly, it'll be overwritten on the next run.
+`scripts/build-content.mjs` parses `content/*.md` into `src/data/en/{ironsworn,starforged}.generated.json` (typed per `schema.ts`). This runs fresh on every `pnpm dev`, `pnpm build`, `pnpm typecheck`, and `pnpm test` (chained via `pnpm content:build` in each script) — **the generated en JSON is not committed** (gitignored), so don't hand-edit it and don't "fix" a stale copy into git. If content looks wrong in the app, fix the parser or the `.md` source, then re-run; never patch the JSON directly, it'll be overwritten on the next run.
+
+### pt-BR machine translation (placeholder)
+
+`src/data/pt-BR/{ironsworn,starforged}.generated.json` are **machine-translated** from the en JSON by `scripts/translate-content.mjs` (`pnpm content:translate`, needs network — Google Translate gtx endpoint). Unlike the en JSON they **are committed** (`.gitignore` has an explicit exception), because CI/builds can't call the MT API. The script keeps a committed translation memory at `scripts/translation-cache/pt-BR.json`, so re-runs after content edits only re-translate changed lines. It preserves `{move:id}` cross-ref tokens and `**bold**` markers (validated per line), plus two hand-curated fixes over raw MT: only the verb is translated in `**Roll +stat**` formulas (stat names stay in English rather than guessing official pt-BR terms), and category names come from a fixed map keyed by the English name — pt-BR category buttons show just the qualifier ("Combate", "Desgaste", …) with a shared "Movimentos de" label above the list (`browse.categoryGroupLabel` in ui.json; empty in en, so nothing renders there). **Replacing with the official translation = overwrite those two JSON files** (same schema/ids) and delete the cache; no component changes needed — `src/data/index.ts` already falls back to en per-move for anything missing. `src/data/ptBRContent.test.ts` guards the structural 1:1 match (ids, tokens, field shapes).
 
 ## Commands
 
@@ -56,7 +60,7 @@ without checking what Favorites/Browse assume about it).
 6. Search
 7. Favorites
 8. PWA/offline
-9. i18n scaffold (pt-BR stub, not translated yet)
+9. i18n scaffold (pt-BR machine-translated placeholder shipped; see "pt-BR machine translation" above)
 10. Accessibility/responsive polish
 
 ## Dice roller (post-v1 feature, `src/features/roll/`)
@@ -113,7 +117,7 @@ Gotchas learned the hard way:
 
 - Ironsworn moves have no per-category color (only a dark/light two-tone) — this is correct, it's how the source PDF is designed. Don't invent category colors for it.
 - Some move cross-references (e.g. `*Pay the Price*`) are italicized in the `.md` source as an editorial addition for linking purposes, not because the original PDF uses italics there (Starforged's PDF doesn't italicize cross-refs at all; Ironsworn's does, per its own stated convention). Both should render as tappable links in the app regardless.
-- pt-BR locale files are intentionally stubs/absent — this is expected until a translation is provided, not a missing feature to build now.
+- pt-BR move content is a **machine translation placeholder** (see "pt-BR machine translation" above), not the official translation — don't "fix" its terminology by hand; either tweak `translate-content.mjs`'s glossary or wait for the official files. UI strings in `src/i18n/locales/pt-BR/ui.json`, on the other hand, are genuinely translated.
 - `MoveCard`'s favorite star is a *sibling* of the row's title `<Link>`, not nested inside it, using a "stretched link" (`after:absolute after:inset-0` on the link) to make the whole row clickable. A button nested inside an anchor is invalid HTML and pollutes the link's accessible name with the button's own label — this bit an earlier version of the Playwright smoke test (a `getByRole('link', { name: 'Favorites' })` nav click matched every move row too, because each row's link "name" included its nested button's "Add to favorites" label). Don't put another interactive element back inside the title link.
 - At md+, `MoveDetailPage` renders as a centered modal (reusing `BottomSheet`), not a 3rd side-by-side pane next to the category grid + move list. A literal 3-pane layout was tried first and the detail column was too narrow to read comfortably — the modal floats over the still-visible category/move list instead. Don't "fix" this back into a 3rd flex column.
 - `TabBar`'s desktop sidebar is `md:sticky md:top-0 md:h-screen`, not `md:h-full` on a `flex` parent — `h-full` needs an ancestor with a *definite* height to resolve against, which `min-h-screen` on a flex container doesn't reliably provide, and the border-right ended up stopping at the nav content's height instead of the viewport. Same reasoning applies if you add another full-height sidebar-style element.

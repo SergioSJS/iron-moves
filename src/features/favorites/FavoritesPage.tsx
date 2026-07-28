@@ -16,7 +16,7 @@ const GAME_LABELS: Record<Game, string> = {
 // them (face-danger, pay-the-price, …).
 export function FavoritesPage() {
   const { t, i18n } = useTranslation()
-  const favorites = useFavoriteList()
+  const favorites = useFavoriteList(i18n.language)
 
   if (favorites.length === 0) {
     return (
