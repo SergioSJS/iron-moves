@@ -110,6 +110,52 @@ export function RollFlow({
     ? (getOutcomeAccentVars(outcomeAccents[result.outcome]) as CSSProperties)
     : undefined
 
+  // Shared by the 3D result phase and the 2D combined overlay below.
+  const renderResultCard = () =>
+    result && (
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label={t('roll.title')}
+        className="w-full max-w-sm rounded-xl border border-border bg-bg p-4 shadow-lg"
+      >
+        <div className="mb-3 text-center">
+          <span
+            style={outcomeVars}
+            className="inline-block rounded bg-[var(--outcome-accent)] px-3 py-1 font-display text-sm uppercase tracking-wide text-[var(--outcome-accent-text)]"
+          >
+            {t(`roll.outcome.${result.outcome}`)}
+          </span>
+        </div>
+        <dl className="mb-4 space-y-1 text-center text-sm">
+          <div>
+            <dt className="inline text-ink-muted">{t('roll.actionDie')}: </dt>
+            <dd className="inline font-semibold">
+              {result.actionDie} {formatBonus(result.bonus)} = {result.actionTotal}
+            </dd>
+          </div>
+          <div>
+            <dt className="inline text-ink-muted">{t('roll.challengeDice')}: </dt>
+            <dd className="inline font-semibold">
+              {result.challengeDice[0]}, {result.challengeDice[1]}
+            </dd>
+          </div>
+        </dl>
+        {usedFallback && (
+          <p className="mb-3 text-center text-xs text-ink-muted">
+            {t('roll.fallback3d')}
+          </p>
+        )}
+        <button
+          type="button"
+          onClick={onClose}
+          className="w-full rounded-lg border border-border bg-surface px-4 py-2 font-display text-sm uppercase tracking-wide"
+        >
+          {t('roll.close')}
+        </button>
+      </div>
+    )
+
   return (
     <>
       {open && phase === 'config' && (
@@ -162,60 +208,25 @@ export function RollFlow({
         onError={handle3DError}
       />
 
-      {open && phase === 'rolling' && mode === '2d' && result && (
-        <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/60">
+      {/* 2D mode: one overlay for both rolling and result — Dice2D stays
+          mounted after settling (remounting would replay the animation), and
+          the result card appears *below the settled dice* instead of
+          replacing them. */}
+      {open && mode === '2d' && result && phase !== 'config' && (
+        <div className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-6 overflow-y-auto bg-black/60 p-4">
           <Dice2D
             result={result}
             color={diceColor}
             numberColor={diceNumberColor}
             onDone={() => setPhase('result')}
           />
+          {phase === 'result' && renderResultCard()}
         </div>
       )}
 
-      {open && phase === 'result' && result && (
+      {open && phase === 'result' && result && mode === '3d' && (
         <div className="fixed inset-x-0 bottom-0 z-50 flex justify-center p-4 pb-20 md:inset-0 md:items-center md:pb-4">
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-label={t('roll.title')}
-            className="w-full max-w-sm rounded-xl border border-border bg-bg p-4 shadow-lg"
-          >
-            <div className="mb-3 text-center">
-              <span
-                style={outcomeVars}
-                className="inline-block rounded bg-[var(--outcome-accent)] px-3 py-1 font-display text-sm uppercase tracking-wide text-[var(--outcome-accent-text)]"
-              >
-                {t(`roll.outcome.${result.outcome}`)}
-              </span>
-            </div>
-            <dl className="mb-4 space-y-1 text-center text-sm">
-              <div>
-                <dt className="inline text-ink-muted">{t('roll.actionDie')}: </dt>
-                <dd className="inline font-semibold">
-                  {result.actionDie} {formatBonus(result.bonus)} = {result.actionTotal}
-                </dd>
-              </div>
-              <div>
-                <dt className="inline text-ink-muted">{t('roll.challengeDice')}: </dt>
-                <dd className="inline font-semibold">
-                  {result.challengeDice[0]}, {result.challengeDice[1]}
-                </dd>
-              </div>
-            </dl>
-            {usedFallback && (
-              <p className="mb-3 text-center text-xs text-ink-muted">
-                {t('roll.fallback3d')}
-              </p>
-            )}
-            <button
-              type="button"
-              onClick={onClose}
-              className="w-full rounded-lg border border-border bg-surface px-4 py-2 font-display text-sm uppercase tracking-wide"
-            >
-              {t('roll.close')}
-            </button>
-          </div>
+          {renderResultCard()}
         </div>
       )}
     </>
